@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% block phase_banner %}
+      {% include "includes/phase_banner_alpha.html" %}
+    {% endblock %}
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <p>
+          <a href="do-you-have-power-of-attorney" class="link-back">Back</a>
+        </p>
+        <h1 class="heading-xlarge">
+          Approval must be provided by the company directors
+        </h1>
+        <p>
+          Only the directors can approve an application to close
+          {{ scenario.company.name | upper }}.
+        </p>
+        <p>
+          <a href="/review-company-directors" class="button" role="button" title="Review the directors of {{ scenario.company.name | upper }}">Review company directors</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

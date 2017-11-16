@@ -1,0 +1,36 @@
+{
+  "meta":
+  {
+    "description": "A private limited company with multiple directors who are making the application to close their company and wish to pay by credit or debit card."
+  },
+  "company":
+  {
+    "name": "Lakeside Residential Lettings Limited",
+    "number": "00035440",
+    "authcode": "8D95VF",
+    "property": "15",
+    "street": "Norton Street",
+    "city": "Brighton",
+    "postcode": "BR10 1QT",
+    "incorporated": "25 September 2002",
+    "status": "Active",
+    "type": "private limited company",
+    "directors": [
+      {
+        "name": "Jake Mansfield",
+        "ID": "0",
+        "type": "Person"
+      },
+      {
+        "name": "Natalie Mansfield",
+        "ID": "1",
+        "type": "Person"
+      },
+      {
+        "name": "Houndalls Estates Limited",
+        "ID": "2",
+        "type": "Corporate"
+      }
+    ]
+  }
+}

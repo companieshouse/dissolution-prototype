@@ -1,6 +1,6 @@
 // Path to assets for use with the file-url function
 // in the govuk frontend toolkit's url-helpers partial
-$path: "/public/images/";
+$path: '/public/images/';
 
 // Import GOV.UK elements from /govuk-modules/, this will import the frontend toolkit and some base styles.
 // Take a look in /govuk-modules/_govuk-elements.scss to see which files are imported.
@@ -9,6 +9,9 @@ $path: "/public/images/";
 // Take a look at in app/assets/sass/patterns/ to see which files are imported.
 @import 'patterns/check-your-answers';
 @import 'patterns/task-list';
+@import 'patterns/collections/browse';
+@import 'patterns/collections/latest-changes';
+@import 'patterns/collections/topics';
 
 // Related items
 // (These styles will be moved to GOV.UK elements, duplicating here for now.)
@@ -18,8 +21,8 @@ $path: "/public/images/";
   padding-top: 5px;
 
   .heading-medium {
-    margin-top: 0.3em;
-    margin-bottom: 0.5em;
+    margin-top: .3em;
+    margin-bottom: .5em;
   }
 
   li {
@@ -28,4 +31,99 @@ $path: "/public/images/";
   }
 }
 
-// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+// Table styles
+table {
+  td,
+  th {
+    vertical-align: top;
+  }
+}
+
+//Docusign Styles
+.docusign {
+  &.unsigned {
+    background: url('/public/images/docusign-new-pdf.gif');
+    background-size: cover;
+    height: 1280px;
+    position: relative;
+    overflow: hidden;
+
+    .add-sig-box {
+      position: absolute;
+      left: 437px;
+      bottom: 385px;
+    }
+
+    .sign-tag {
+      position: absolute;
+      bottom: 397px;
+      left: 15px;
+    }
+
+    .company-name {
+      display: block;
+      position: absolute;
+      top: 348px;
+      left: 355px;
+      height: 50px;
+      width: 600px;
+      font-size: .8em;
+    }
+
+    .company-number {
+      display: block;
+      position: absolute;
+      top: 371px;
+      left: 355px;
+      height: 50px;
+      width: 600px;
+      font-size: .8em;
+    }
+
+    .signature {
+      display: none;
+      position: absolute;
+      bottom: 394px;
+      left: 437px;
+      height: 38px;
+      width: 575px;
+      padding-top: 12px;
+      padding-left: 15px;
+      background: url('/public/images/sig.png') top left no-repeat;
+    }
+
+    .signature-date {
+      display: block;
+      position: absolute;
+      bottom: 330px;
+      left: 551px;
+      height: 50px;
+      width: 300px;
+      font-size: .8em;
+    }
+
+    .print-name {
+      display: block;
+      position: absolute;
+      bottom: 406px;
+      left: 199px;
+      height: 25px;
+      width: 250px;
+    }
+
+    .confirm-bar {
+      width: 960px;
+      height: 50px;
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      background: url('/public/images/confirm-bar.png');
+
+      .conf-btn {
+        position: absolute;
+        top: 5px;
+        left: 667px;
+      }
+    }
+  }
+}

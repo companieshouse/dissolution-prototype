@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Blank page
+{% endblock %}
+
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li><a href="">Companies House Forms</a></li>
+      <li>Strike off a company from the register (DS01)</li>
+    </ol>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">Review your application</h1>
+      <p class="lede">Please review the information you've entered for the application to close this company.</p>
+
+      <table class="check-your-answers">
+        <thead>
+          <tr>
+            <th colspan="2">
+              <h2 class="heading-medium">Application details</h2>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Company name</td>
+            <td>
+              Templeton Metal Work Limited
+            </td>
+          </tr>
+          <tr>
+            <td>Company number</td>
+            <td>05647510</td>
+          </tr>
+          <tr>
+            <td>Registered address</td>
+            <td>
+              22 Everdene Lane<br>
+              West Morton<br>
+              Northamptonshire<br>
+              NT54 3ET
+            </td>
+          </tr>
+          <tr>
+            <td>Director</td>
+            <td>David Arthur Templeton</td>
+          </tr>
+          <tr>
+            <td>Presenter details</td>
+            <td>Steve Jobs<br>
+              0800 048 0408<br>
+              stevejobs@apple.com</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="heading-medium">Requesting approval</h2>
+        <p class="text">
+          By requesting approval, you are applying to close this company and requesting authorisation from the director.
+          You will be notified by email when the director has given their approval.
+        </p>
+
+        <div class="form-group">
+          <a href="email-sent" class="button">Request approval</a>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  {% endblock %}

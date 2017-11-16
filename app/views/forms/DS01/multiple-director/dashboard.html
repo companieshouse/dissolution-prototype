@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Blank page
+{% endblock %}
+
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li><a href="">Companies House Forms</a></li>
+      <li>Strike off a company from the register (DS01)</li>
+    </ol>
+  </div>
+
+    <h1 class="heading-xlarge">Closing a company</h1>
+
+      <div class="grey-box">
+      <h2 class="heading-large">Templeton Metal Works Limited<h2>
+        <p><strong>05647510</strong> - Incorporated on 29 May 1992</p>
+        <p>22 Everdene Lane, West Morton, Northamptonshire, NT54 3ET</p>
+      </div>
+        <h2 class="heading-large">Requested approvals</h3>
+          <table class="">
+            <thead>
+              <tr>
+                <th scope="col">Directors name</th>
+                <th scope="col" class="">Email address</th>
+                <th scope="col" class="dashboard-status">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>David Arthur Templeton</td>
+                <td>dat.templetonmetalworks@gmail.co.uk</td>
+                <td><span class="negative-text">&#10008;</span> Awaiting approval</td>
+              </tr>
+              <tr>
+              <td>Cathy Nicholas</td>
+              <td>cn.templetonmetalworks@gmail.co.uk</td>
+              <td><span class="positive-text">&#10004;</span> Approved</td>
+            </tr>
+            <tr>
+            <td>UK Metal Works Limited</td>
+            <td>cn.templetonmetalworks@gmail.co.uk</td>
+            <td><span class="negative-text">&#10008;</span> Awaiting approval</td>
+          </tr>
+          <tr>
+          <td>Steve Jones</td>
+          <td>sjones@hotmail.co.uk</td>
+          <td><span class="negative-text">&#10008;</span> Awaiting approval</td>
+        </tr>
+          </tbody>
+        </table>
+
+        <div>
+          <p style="margin-top: 1.5em;" class="">You cannot continue with this application until the majority of directors you have chosen have signed.</p>
+          <input class="button" type="submit" value="Submit" disabled="disabled">
+        </div>
+
+
+      <!--<div class="column-one-third">
+      <h2 class="heading-large">Progress</h3>
+      <table class="check-your-answers">
+      <tbody>
+      <tr><td>1. Apply to close your company  <span class="tick">&#10004</span></td></tr>
+      <tr><td><strong>2. Request approval from director</strong></td></tr>
+      <tr><td>3. Application approved</td></tr>
+      <tr><td>4. Submit application</td></tr>
+      <tr><td>5. Application to close company is complete</td></tr>
+    </tbody>
+  </table>
+</div>-->
+
+
+</main>
+
+{% endblock %}

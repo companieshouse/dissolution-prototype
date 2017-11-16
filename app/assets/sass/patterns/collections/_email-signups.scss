@@ -1,0 +1,42 @@
+#wrapper #content.email-signup-new {
+  @extend %site-width-container;
+
+  @include media(tablet){
+    margin-top: 30px;
+  }
+
+  h1 {
+    @include heading-48;
+    font-weight: bold;
+
+    @include media(tablet){
+      width: $two-thirds;
+    }
+
+    span {
+      @include core-27($line-height: 1);
+      display: block;
+      margin-bottom: 0.25em;
+      color: $secondary-text-colour;
+    }
+  }
+
+  section {
+    margin-bottom: 30px;
+
+    p {
+      @include core-19;
+      margin: 15px 0 10px;
+
+      @include media(tablet){
+        margin: 30px 0;
+      }
+    }
+  }
+
+  button {
+    @include button;
+    @include bold-24;
+    margin: 20px 0;
+  }
+}

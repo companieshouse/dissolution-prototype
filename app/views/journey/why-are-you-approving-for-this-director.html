@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% block phase_banner %}
+      {% include "includes/phase_banner_alpha.html" %}
+    {% endblock %}
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <p>
+          <a href="which-director-are-you-approving-for" class="link-back">Back</a>
+        </p>
+
+        {% if approvingReasonErr.msg %}
+          <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+            <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
+              There's an error
+            </h2>
+            <ul class="error-summary-list">
+              <li>
+                <a href="#radio-0">{{ approvingReasonErr.msg }}</a>
+              </li>
+            </ul>
+          </div>
+        {% endif %}
+
+        <h1 class="heading-xlarge">
+          Why are you approving for
+          {{ approvingFor.name }}?
+        </h1>
+        <form class="form" method="POST" action="">
+          <div class="form-group {% if approvingReasonErr.msg %}form-group-error{% endif %}">
+            <fieldset class="">
+              <legend>
+                <p class="visually-hidden">
+                  Tell us why you're approving for
+                  {{ approvingFor.name }}
+                </p>
+              </legend>
+
+              {% if approvingReasonErr.msg %}
+                <span class="error-message">
+                  {{ approvingReasonErr.msg}}
+                </span>
+              {% endif %}
+
+              <div class="multiple-choice">
+                <input id="approving-reason-director" type="radio" name="approvingReason" value="director">
+                <label class="block-label" for="approving-reason-director">
+                  I am
+                  {{ approvingFor.name }}
+                </label>
+              </div>
+              <div class="multiple-choice">
+                <input id="approving-reason-poa" type="radio" name="approvingReason" value="poa">
+                <label class="block-label" for="approving-reason-poa">
+                  I have power of attorney for
+                  {{ approvingFor.name }}
+                </label>
+              </div>
+            </fieldset>
+          </div>
+          <div class="form-group">
+            <input class="button" type="submit" value="Continue">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+{% endblock %}

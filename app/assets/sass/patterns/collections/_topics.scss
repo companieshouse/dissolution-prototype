@@ -1,0 +1,193 @@
+.topics-page {
+
+  header.page-header {
+    .full-width {
+      padding: 20px 30px;
+      margin: 0;
+
+      @include media(mobile) {
+        padding: 15px;
+      }
+
+      h1 {
+        @include bold-48;
+        padding: 20px 0;
+
+        @include media(mobile) {
+          width: auto;
+          padding: 0 0 15px;
+        }
+
+        a {
+          @include core-27($line-height: 1);
+          display: block;
+          margin-bottom: 0.25em;
+          text-shadow: none;
+          color: $secondary-text-colour;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      h2 {
+        @include core-24;
+        color: inherit;
+        margin: 0;
+      }
+
+      .metadata {
+        position: relative;
+        @include core-14;
+        @extend %contain-floats;
+        padding-bottom: $gutter;
+
+        @include media(tablet){
+          float: left;
+          width: $two-thirds;
+        }
+
+        dt {
+          float: left;
+          clear: left;
+          width: auto;
+          min-width: 60px;
+          @include media(tablet){
+            padding-right: $gutter-one-third;
+          }
+        }
+        dd {
+          float: left;
+          width: 57%;
+          @include media(desktop){
+            width: 80%;
+          }
+        }
+      }
+
+      .heading {
+        @include media(tablet){
+          float: left;
+          width: $two-thirds;
+        }
+      }
+
+      .latest-subscribe {
+        @include media(tablet){
+          float: right;
+          width: $one-third;
+        }
+
+        @include core-14;
+
+        ul {
+          @include media(tablet){
+            // align with the left edge of the search box
+            margin-left: 18px;
+          }
+
+          li {
+            display: block;
+
+            &.primary {
+              border-bottom: 1px solid $border-colour;
+              padding-bottom: 10px;
+              margin-bottom: 14px;
+            }
+
+            &.email a {
+              background: image-url('mail-icon.png') 0 40% no-repeat;
+              padding-left: 28px;
+
+              @include device-pixel-ratio() {
+                background-image: image-url('mail-icon-x2.png');
+                background-size: 20px 14px;
+              }
+            }
+          }
+        }
+
+        a {
+          @include bold-16;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .browse-container {
+    background-color: #fff;
+    min-height: 500px;
+    padding: 0 30px 45px 30px;
+
+    h2, h3 {
+      @include bold-19;
+      margin-bottom: 0;
+    }
+
+    @include media(mobile) {
+      padding: 0 15px 30px 15px;
+      min-height: auto;
+    }
+
+    @include ie-lte(8) {
+      padding: 0 3.5% 30px;
+    }
+  }
+
+  nav {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    overflow: auto;
+
+    h1 {
+      @include bold-24;
+
+      margin-bottom: $gutter-one-third;
+
+      @include media(desktop) {
+        float: left;
+        max-width: 12.5em;
+      }
+    }
+
+    ul {
+      display: block;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin-bottom: 10px;
+        list-style: none;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
+      li a {
+        @include bold-19;
+        text-decoration: none;
+      }
+    }
+
+    &.with-title ul {
+      @include media(desktop){
+        margin-left: 20.5em;
+      }
+    }
+  }
+
+  .govuk-beta-label {
+    padding-bottom: 10px;
+    border-bottom: 1px solid $border-colour;
+    margin: 10px 30px;
+
+    @include media(mobile) {
+      margin: 5px 15px;
+    }
+  }
+
+}

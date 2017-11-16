@@ -1,0 +1,26 @@
+{
+  "meta":
+  {
+    "description": "A private limited company with a single director who is making the application to close their company and wishes to pay by credit or debit card."
+  },
+  "company":
+  {
+    "name": "AJS Gas Services",
+    "number": "00078600",
+    "authcode": "8D95VF",
+    "property": "15",
+    "street": "Norton Street",
+    "city": "Brighton",
+    "postcode": "BR10 1QT",
+    "incorporated": "25 September 2002",
+    "status": "Active",
+    "type": "private limited company",
+    "directors": [
+      {
+        "name": "Andrew Smith",
+        "ID": "1",
+        "type": "Person"
+      }
+    ]
+  }
+}

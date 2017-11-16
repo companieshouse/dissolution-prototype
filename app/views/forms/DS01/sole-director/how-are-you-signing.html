@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Blank page
+{% endblock %}
+
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li><a href="">Companies House Forms</a></li>
+      <li>Strike off a company from the register (DS01)</li>
+    </ol>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">How are you authorising this application?</h1>
+
+      <p class="lede">You've chosen to authorise this application on behalf of David Arthur Templeton.</p>
+
+      <form class="form" method="POST" action="docusign" name="how-are-you-signing">
+        <h3 class="heading-medium">Please pick the statement below which best matches your situation:</h3>
+
+        <div class="form-group">
+          <fieldset>
+            <legend class="visuallyhidden">Which statement below best matches your situation?</legend>
+
+            <label class="block-label" for="i-am-director">
+              <input id="i-am-director" name="situations" type="radio" value="i-am-director">
+              I am the director
+            </label>
+            <label class="block-label" for="deceased-director" data-target="deceased-director-name">
+              <input id="deceased-director" name="situations" type="radio" value="deceased-director">
+              The director is deceased and I am acting on behalf of them
+            </label>
+            <div class="panel panel-border-narrow js-hidden" id="deceased-director-name">
+              <p>
+                To apply to close this company we will need to know your details. We'll also contact you through the email address used with this account.
+              </p>
+              <div class="form-group">
+                <label class="form-label" for="directors-email">Your full name</label>
+                <input class="form-control" name="directors-email" type="text" id="directors-email">
+              </div>
+            </div>
+            <label class="block-label" for="power-of-attorney" data-target="power-of-attorney-details">
+              <input id="power-of-attorney" name="situations" type="radio" value="power-of-attorney">
+              I have power of attorney to act on behalf of the director
+            </label>
+            <div class="panel panel-border-narrow js-hidden" id="power-of-attorney-details">
+              <p>
+                To apply to close this company we will need to know your details. We'll also contact you through the email address used with this account.
+              </p>
+              <div class="form-group">
+                <label class="form-label" for="directors-email">Your full name</label>
+                <input class="form-control" name="directors-email" type="text" id="directors-email">
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+      </form>
+    </div>
+    <div class="column-third">
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

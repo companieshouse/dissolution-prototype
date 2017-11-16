@@ -129,7 +129,7 @@ app.use(session({
 
 // add nunjucks function called 'checked' to populate radios and checkboxes,
 // needs to be here as it needs access to req.session and nunjucks environment
-var addCheckedFunction = function (app, nunjucksEnv) {
+var addCheckedFunction = function (app, nunjucksEnv) { // eslint-disable-line no-unused-vars
   app.use(function (req, res, next) {
     nunjucksEnv.addGlobal('checked', function (name, value) {
       // check session data exists
@@ -166,8 +166,8 @@ var addCheckedFunction = function (app, nunjucksEnv) {
 
 if (useAutoStoreData === 'true') {
   app.use(utils.autoStoreData)
-  addCheckedFunction(app, nunjucksAppEnv)
-  addCheckedFunction(documentationApp, nunjucksDocumentationEnv)
+  // addCheckedFunction(app, nunjucksAppEnv)
+  // addCheckedFunction(documentationApp, nunjucksDocumentationEnv)
 }
 
 // Disallow search index idexing

@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Blank page
+{% endblock %}
+
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li><a href="">Companies House Forms</a></li>
+      <li>Strike off a company from the register (DS01)</li>
+    </ol>
+  </div>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Approving on behalf of UK Metal Work Limited</h1>
+
+      <form class="table-spacing" method="POST" action="docusign" name="directors">
+        <h3 class="heading-medium closer">
+          Name of person approving
+        </h3>
+        <p class="form-hint">For example, John Smith</p>
+        <div class="form-group">
+          <label class="visually-hidden" for="">
+            Full name
+          </label>
+          <input class="form-control" id="" type="text">
+        </div>
+
+
+      <h3 class="heading-medium">How are they acting on behalf of UK Metal Work Limited?</h3>
+        <div class="form-group">
+          <label class="block-label" for="radio-1">
+            <input id="radio-1" type="radio" name="radio-group" value="">
+            They have Power of Attorney to act on behalf of the director
+          </label>
+          <label class="block-label" for="radio-2">
+            <input id="radio-2" type="radio" name="radio-group" value="">
+            The director is deceased and they can act of their behalf
+          </label>
+        </label>
+        <label class="block-label" for="radio-3">
+          <input id="radio-3" type="radio" name="radio-group" value="">
+          They have authority to sign as the Corporate Entity
+        </label>
+      </div>
+      <div class="form-group">
+        <input class="button" type="submit" value="Continue">
+      </div>
+    </form>
+  </div>
+
+</div>
+<div class="column-third">
+
+  <!--<aside class="govuk-related-items" role="complementary">
+  <h2 class="heading-medium" id="subsection-title">Subsection</h2>
+  <nav role="navigation" aria-labelledby="subsection-title">
+  <ul class="font-xsmall">
+  <li><a href="#">Related link</a></li>
+  <li><a href="#">Related link</a></li>
+  <li><a href="#" class="bold-xsmall">More <span class="visuallyhidden">in Subsection</span></a></li>
+</ul>
+</nav>
+</aside>-->
+
+</div>
+</div>
+
+</main>
+
+{% endblock %}

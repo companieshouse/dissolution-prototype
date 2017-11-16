@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Blank page
+{% endblock %}
+
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li><a href="">Companies House Forms</a></li>
+      <li>Strike off a company from the register (DS01)</li>
+    </ol>
+  </div>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Director details</h1>
+
+      <p class="lede">
+        To request the directors approval, we'll need their email addresses to contact them.
+      </p>
+
+    <form class="form" method="POST" action="sign-on-behalf" name="directors">
+      <h3 class="heading-medium">Cathy Nicholas</h3>
+      <div class="form-group">
+        <label class="form-label" for="director-1-email">Email address</label>
+        <input class="form-control" id="director-1-email" name="director-1-email" type="text">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="director-1-confirm-email">Confirm email address</label>
+        <input class="form-control" id="director-1-confirm-email" name="director-1-confirm-email" type="text">
+      </div>
+
+      <h3 class="heading-medium">UK Metal Work Limited</h3>
+      <div class="form-group">
+        <label class="form-label" for="director-2-email">Email address</label>
+        <input class="form-control" id="director-2-email" name="director-2-email" type="text">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="director-2-confirm-email">Confirm email address</label>
+        <input class="form-control" id="director-2-confirm-email" name="director-2-confirm-email" type="text">
+      </div>
+
+        <input class="button" type="submit" value="Continue">
+        </form>
+      </div>
+
+  </div>
+  <div class="column-third">
+
+    <!--<aside class="govuk-related-items" role="complementary">
+    <h2 class="heading-medium" id="subsection-title">Subsection</h2>
+    <nav role="navigation" aria-labelledby="subsection-title">
+    <ul class="font-xsmall">
+    <li><a href="#">Related link</a></li>
+    <li><a href="#">Related link</a></li>
+    <li><a href="#" class="bold-xsmall">More <span class="visuallyhidden">in Subsection</span></a></li>
+  </ul>
+</nav>
+</aside>-->
+
+</div>
+</div>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Blank page
+{% endblock %}
+
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li><a href="">Companies House Forms</a></li>
+      <li>Strike off a company from the register (DS01)</li>
+    </ol>
+  </div>
+
+  <form class="form" method="POST" action="payment" name="company">
+    <div class="grid-row">
+      <div class="column-two-thirds">
+
+        <h1 class="heading-xlarge">Review your application</h1>
+        <p class="lede">Please review the information you've entered for the application to close this company.</p>
+
+        <div class="form-group">
+          <table class="check-your-answers">
+            <thead>
+              <tr>
+                <th colspan="2">
+                  <h2 class="heading-medium">Application details</h2>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Company name</td>
+                <td>
+                  Templeton Metal Work Limited
+                </td>
+              </tr>
+              <tr>
+                <td>Company number</td>
+                <td>05647510</td>
+              </tr>
+              <tr>
+                <td>Registered address</td>
+                <td>
+                  22 Everdene Lane<br>
+                  West Morton<br>
+                  Northamptonshire<br>
+                  NT54 3ET
+                </td>
+              </tr>
+              <tr>
+                <td>Director</td>
+                <td>David Arthur Templeton</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="form-group">
+          <a href="payment" class="button">Continue to payment</a>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</main>
+
+{% endblock %}

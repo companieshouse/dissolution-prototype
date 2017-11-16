@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% block phase_banner %}
+      {% include "includes/phase_banner_alpha.html" %}
+    {% endblock %}
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <p>
+          <a href="{{ backLink }}" class="link-back">Back</a>
+        </p>
+
+        {% if paymentErr.msg or accountNameErr.msg or accountNumberErr.msg %}
+          <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+            <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
+              There's an error
+            </h2>
+            <ul class="error-summary-list">
+              {% if paymentErr.msg %}
+                <li>
+                  <a href="#payment-method-card">{{ paymentErr.msg }}</a>
+                </li>
+              {% endif %}
+              {% if accountNameErr.msg %}
+                <li>
+                  <a href="#account-name">{{ accountNameErr.msg }}</a>
+                </li>
+              {% endif %}
+              {% if accountNumberErr.msg %}
+                <li>
+                  <a href="#account-number">{{ accountNumberErr.msg }}</a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <h1 class="heading-xlarge">How do you want to pay?</h1>
+        <p>
+          It costs £8 to apply to close a company.
+        </p>
+        <form class="form" method="POST" action="">
+          <div class="form-group {% if paymentErr.msg %}form-group-error{% endif %}">
+            <fieldset class="">
+              <div class="multiple-choice">
+                <input id="payment-method-card" type="radio" name="paymentMethod" value="card" {% if paymentMethod === 'card' %} checked="checked" {% endif %}>
+                <label class="block-label" for="payment-method-card">
+                  Credit or debit card
+                </label>
+              </div>
+              <div class="multiple-choice">
+                <input id="payment-method-paypal" type="radio" name="paymentMethod" value="paypal" {% if paymentMethod === 'paypal' %} checked="checked" {% endif %}>
+                <label class="block-label" for="payment-method-paypal">
+                  Paypal
+                </label>
+              </div>
+              <div class="multiple-choice" data-target="ch-account">
+                <input id="payment-method-account" type="radio" name="paymentMethod" value="account" aria-expanded="false" {% if paymentMethod === 'account' %} checked="checked" {% endif %}>
+                <label class="block-label" for="payment-method-account">
+                  Companies House account
+                </label>
+              </div>
+              <div class="panel panel-border-narrow js-hidden {% if accountNameErr.msg or accountNumberErr.msg %}form-group-error{% endif %}" id="ch-account" aria-hidden="true">
+                <div class="form-group">
+                  <label class="form-label" for="account-name">
+                    Account name
+                  </label>
+                  <input class="form-control" name="accountName" type="text" id="account-name" value="{{ accountName }}">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="account-number">
+                    Account number
+                  </label>
+                  <input class="form-control" name="accountNumber" type="text" id="account-number" value="{{ accountNumber }}">
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="form-group">
+            <input class="button" type="submit" value="Continue">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+{% endblock %}

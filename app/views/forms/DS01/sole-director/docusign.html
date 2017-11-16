@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Blank page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li><a href="">Companies House Forms</a></li>
+      <li>Strike off a company from the register (DS01)</li>
+    </ol>
+  </div>
+
+  <h1 class="heading-xlarge">
+    Provide your signature
+  </h1>
+
+  <p class="lede">
+    As the director of Templeton Metal Work Limited, your signature is required to strike the company off the register.
+  </p>
+
+  <div class="docusign unsigned">
+    <!--<a href="docusign-signature" class="add-sig-box button">
+    Add signature
+  </a>-->
+  <a href="docusign-signature" class="add-sig-box">
+    <img src="/public/images/add-sig.png" alt="add signature" class="">
+  </a>
+  <img src="/public/images/sign-tag.png" alt="" class="sign-tag">
+  <img src="/public/images/sig.png" alt="" class="sig">
+  <div class="confirm-bar">
+    <a href="review" class="conf-btn">
+      <img src="/public/images/continue-button.png" alt="" class="">
+    </a>
+  </div>
+</div>
+
+</main>
+
+{% endblock %}

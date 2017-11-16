@@ -1,64 +1,92 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  GOV.UK prototype kit
+  Start page example
 {% endblock %}
 
 {% block content %}
 
-<main id="content" role="main">
-  <div class="grid-row">
-    <div class="column-two-thirds">
+  <main id="content" role="main">
 
-      <h1 class="heading-xlarge">
-        The GOV.UK prototype kit
-        <span class="heading-secondary">{{releaseVersion}}</span>
-      </h1>{{releaseVersion | log }}
-      <p>
-        This kit lets you rapidly create HTML prototypes of GOV.UK services.
-      </p>
+    {% block phase_banner %}
+      {% include "includes/phase_banner_alpha.html" %}
+    {% endblock %}
 
-      <p>
-        It contains all you need to prototype anything from simple static pages to complex, data-driven transactions.
-      </p>
-
-      <h2 class="heading-medium">About this page</h2>
-
-      <p>We recommend you add links to your prototype to this page, rather than delete it.
-        You'll find this page in the kit at '/app/views/index.html'.</p>
-      <p>You can change the service name by editing the file '/app/config.js'.</p>
-
-			<h2 class="heading-medium">Examples and documentation</h2>
-
-			<ul class="list list-bullet">
-				<li><a href="/docs/tutorials-and-examples">Example pages and documentation</a></li>
-				<li><a href="https://github.com/alphagov/govuk_prototype_kit">GitHub</a></li>
-			</ul>
-
-      <h2 class="heading-medium">Other resources</h2>
-
-			<ul class="list list-bullet">
-				<li>
-					<a href="https://govuk-elements.herokuapp.com/snippets/">
-						Guide to GOV.UK Elements
-					</a>
-				</li>
-				<li>
-					<a href="https://www.gov.uk/service-manual">
-						Service design manual
-					</a>
-				</li>
-				<li>
-					<a href="https://www.gov.uk/design-principles">
-						Government Digital Service Design Principles
-					</a>
-				</li>
-			</ul>
-
+    <div class="breadcrumbs">
+      <ol>
+        <li>
+          <a href="http://www.gov.uk">Home</a>
+        </li>
+        <li>
+          <a href="">Companies House</a>
+        </li>
+        <li>Closing a limited company</li>
+      </ol>
     </div>
-  </div>
-</main>
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+
+        <h1 class="heading-xlarge">
+          Closing a limited company (DS01)
+        </h1>
+
+        <p class="lede">
+          This service is used to close a company or limited liability partnership.
+        </p>
+
+        <p>It costs £8 to close a company, and you will need:</p>
+
+        <ul class="list list-bullet">
+          <li>the company number</li>
+          <li>the company authentication code</li>
+          <li>an email address for each director</li>
+          <li>a credit or debit card</li>
+        </ul>
+
+        <p>It normally takes 10 minutes to complete this process.</p>
+
+        <p>
+          <a class="button button-start" href="before-you-start" role="button">Start now</a>
+        </p>
+
+        <div class="form-class table-spacing">
+          <h2 class="heading-medium">Before you begin</h2>
+          <p>Before you start this application, you should:</p>
+          <ul class="list list-bullet table-spacing">
+            <li>ensure the directors of the company are aware this application is going to be made</li>
+            <li>read the guidance on
+              <a href="https://www.gov.uk/government/publications/company-strike-off-dissolution-and-restoration/strike-off-dissolution-and-restoration-gp4">closing your company</a>
+            </li>
+          </ul>
+        </div>
+
+        <h3 class="heading-medium">Other ways to close a company</h3>
+        <p>You can also
+          <a href="https://www.gov.uk/government/publications/strike-off-a-company-from-the-register-ds01">close a company by post.</a>
+        </p>
+
+        <p>This service is also available in
+          <a href="#">Welsh (Cymraeg).</a>
+        </p>
+
+      </div>
+      <div class="column-third">
+
+        <!--<aside class="govuk-related-items" role="complementary">
+      <h2 class="heading-medium" id="subsection-title">Subsection</h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="font-xsmall">
+      <li><a href="#">Related link</a></li>
+      <li><a href="#">Related link</a></li>
+      <li><a href="#" class="bold-xsmall">More <span class="visuallyhidden">in Subsection</span></a></li>
+    </ul>
+  </nav>
+</aside>-->
+
+      </div>
+    </div>
+
+  </main>
 
 {% endblock %}
-
-

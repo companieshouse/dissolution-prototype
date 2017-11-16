@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Blank page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li><a href="">Companies House Forms</a></li>
+      <li>Strike off a company from the register (DS01)</li>
+    </ol>
+  </div>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+  <h1 class="heading-xlarge">
+    Approve this application
+  </h1>
+
+  <!--<p class="lede">
+    As the director of Templeton Metal Work Limited, your approval is required to close this company.
+  </p>-->
+
+  <h2 class="heading-medium">Director statement</h2>
+  <p>I, as a director apply for this company to be struck off the Register and declare that none of the circumstances described in <a href ="http://www.legislation.gov.uk/ukpga/2006/46/part/31/chapter/1/crossheading/voluntary-striking-off">
+    section 1004 or 1005 of the Companies Act 2006</a> (being circumstances in which the directors would otherwise be prohibited under those sections from making an application) exists in relation to the company.
+ </p>
+
+  <form class="table-spacing">
+    <fieldset>
+
+      <legend class="visuallyhidden"></legend>
+
+      <label class="block-label" for="I-understand">
+        <input id="I-understand" name="approve-application" type="checkbox" value="I-understand">
+        I approve this application
+      </label>
+    </fieldset>
+  </form>
+  <a href="review" class="button">Continue</a>
+</div>
+
+<div class="column-one-third">
+</div>
+</div>
+
+</main>
+
+{% endblock %}

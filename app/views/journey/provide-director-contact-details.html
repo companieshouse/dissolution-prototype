@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% block phase_banner %}
+      {% include "includes/phase_banner_alpha.html" %}
+    {% endblock %}
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <p>
+          <a href="review-company-directors" class="link-back">Back</a>
+        </p>
+
+        {% if approvingErr.msg %}
+          <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+            <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
+              There's an error
+            </h2>
+            <ul class="error-summary-list">
+              <li>
+                <a href="#approver-name">{{ approvingErr.msg }}</a>
+              </li>
+            </ul>
+          </div>
+        {% endif %}
+
+        <form class="form" method="POST" action="">
+          <h1 class="heading-xlarge">
+            <label for="approver-email">
+              What is
+              {{ scenario.company.directors[0].name }}'s email address?
+            </label>
+          </h1>
+          <p>
+            We'll send
+            {{ scenario.company.directors[0].name }}
+            an email requesting approval of this application.
+          </p>
+          <div class="form-group {% if approvingErr.msg %}form-group-error{% endif %}">
+
+            {{ approvingFor.name }}
+
+            {% if approvingErr %}
+              <span class="error-message">
+                {{approvingErr.msg}}
+              </span>
+            {% endif %}
+
+            <input class="form-control" id="approver-email" name="approverEmail" type="text" value="">
+          </div>
+          <div class="form-group">
+            <input class="button" type="submit" value="Continue">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+{% endblock %}
