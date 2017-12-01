@@ -105,10 +105,14 @@ table {
     .print-name {
       display: block;
       position: absolute;
-      bottom: 406px;
+      bottom: 346px;
       left: 199px;
-      height: 25px;
-      width: 250px;
+      height: 85px;
+      width: 230px;
+
+      .on-behalf {
+        font-size: .8em;
+      }
     }
 
     .confirm-bar {
@@ -125,5 +129,111 @@ table {
         left: 667px;
       }
     }
+
+    .adopt {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,0.5);
+
+      .adopt-window {
+        display: none;
+        position: absolute;
+        top: 90px;
+        left: 89px;
+        width: 802px;
+        height: 492px;
+        background: url('/public/images/adopt-signature.jpg') top left no-repeat;
+        box-shadow: 0 0 7px rgba(0,0,0,0.7);
+
+        .name {
+          position: absolute;
+          top: 135px;
+          left: 40px;
+          font-size: .9em;
+          color: $grey-1;
+        }
+
+        .initial {
+          position: absolute;
+          top: 135px;
+          left: 560px;
+          font-size: .9em;
+          color: $grey-1;
+        }
+
+        .adopt-signature {
+          position: absolute;
+          top: 282px;
+          left: 90px;
+          font-size: 1.25em;
+          // font-weight: bold;
+        }
+
+        .sig-init {
+          position: absolute;
+          top: 282px;
+          left: 530px;
+          font-size: 1.25em;
+          // font-weight: bold;
+        }
+
+        .adopt-button {
+          position: absolute;
+          top: 442px;
+          left: 29px;
+          background: $button-colour;
+          border-radius: 3px;
+          padding: 7px 25px;
+          display: block;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: .7em;
+          color: $white;
+        }
+
+        .cancel-button {
+          position: absolute;
+          top: 442px;
+          left: 200px;
+          // background: rgba(233, 233, 233, 1);
+          border-radius: 3px;
+          padding: 7px 25px;
+          display: block;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: .7em;
+          color: $black;
+        }
+
+        .close-button {
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          display: block;
+          height: 27px;
+          width: 27px;
+          background: rgba(0, 0 ,0, 0);
+        }
+      }
+    }
+  }
+}
+
+.status-box {
+  background: $orange;
+  text-align: center;
+  color: $white;
+
+  &.ready {
+    background: $light-blue;
+    color: $white;
+  }
+
+  .font-large {
+    font-weight: bold;
   }
 }

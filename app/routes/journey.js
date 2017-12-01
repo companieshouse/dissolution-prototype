@@ -239,6 +239,7 @@ module.exports = function (router) {
             directorEmails[directorApprove[i]].type = scenario.company.directors[directorApprove[i]].type
             directorEmails[directorApprove[i]].id = scenario.company.directors[directorApprove[i]].ID
             directorEmails[directorApprove[i]].email = req.body['director' + directorApprove[i] + 'Email']
+            directorEmails[directorApprove[i]].approved = false
           }
         }
       }
@@ -460,6 +461,8 @@ module.exports = function (router) {
     var authOnBehalf = ''
     var approverName = ''
     var approvingReason = ''
+    var tempInitials = ''
+    var initials = ''
 
     if (scenario != null) {
       totalDirectors = scenario.company.directors.length
@@ -470,11 +473,20 @@ module.exports = function (router) {
           approvingReason = req.session.approvingReason
           approverName = req.session.approverName
           approvingFor = req.session.approvingFor
+          if (approvingFor.type === 'Corporate') {
+            tempInitials = approverName.match(/\b(\w)/g)
+            initials = tempInitials.join('')
+          } else {
+            tempInitials = approvingFor.name.match(/\b(\w)/g)
+            initials = tempInitials.join('')
+          }
           signedLink = '/which-directors-will-approve-application'
         }
       } else {
         if (authOnBehalf === 'Yes') {
           approvingFor = scenario.company.directors[0]
+          tempInitials = scenario.company.directors[0].name.match(/\b(\w)/g)
+          initials = tempInitials.join('')
           signedLink = '/choose-payment-method'
         }
       }
@@ -485,7 +497,8 @@ module.exports = function (router) {
         approvingReason: approvingReason,
         signatureDate: signatureDate,
         signedLink: signedLink,
-        backLink: backLink
+        backLink: backLink,
+        initials: initials
       })
     } else {
       res.redirect('/start')
@@ -615,54 +628,63 @@ module.exports = function (router) {
     var paymentMethod = req.body.paymentMethod
     var accountName = req.body.accountName
     var accountNumber = req.body.accountNumber
+    var submissionRef = req.body.submissionRef
+    var submissionData = {}
     var paymentErr = {}
     var accountNameErr = {}
     var accountNumberErr = {}
     var errorFlag = false
 
-    if (typeof paymentMethod === 'undefined') {
-      paymentErr.type = 'blank'
-      paymentErr.msg = 'You need to tell us how you want to pay for this application'
-      paymentErr.flag = true
-      errorFlag = true
-    }
-
-    if (paymentMethod === 'account') {
-      if (accountName === '') {
-        accountNameErr.msg = 'Tell us your account name'
-        accountNameErr.type = 'blank'
-        accountNameErr.flag = true
+    if (submissionRef != null) {
+      submissionData = req.session.submissionData
+      res.render('journey/choose-payment-method', {
+        submissionData: submissionData
+      })
+    } else {
+      if (typeof paymentMethod === 'undefined') {
+        paymentErr.type = 'blank'
+        paymentErr.msg = 'You need to tell us how you want to pay for this application'
+        paymentErr.flag = true
         errorFlag = true
       }
-      if (accountNumber === '') {
-        accountNumberErr.msg = 'Tell us your account number'
-        accountNumberErr.type = 'blank'
-        accountNumberErr.flag = true
-        errorFlag = true
-      }
-    }
 
-    if (scenario != null) {
-      if (errorFlag === true) {
-        res.render('journey/choose-payment-method', {
-          scenario: scenario,
-          paymentErr: paymentErr,
-          accountNameErr: accountNameErr,
-          accountNumberErr: accountNumberErr,
-          paymentMethod: paymentMethod,
-          accountName: accountName,
-          accountNumber: accountNumber
-        })
-      } else {
-        req.session.paymentMethod = paymentMethod
-        if (paymentMethod === 'account') {
-          res.redirect('/provide-approval')
-        } else {
-          res.redirect('/payment-portal')
+      if (paymentMethod === 'account') {
+        if (accountName === '') {
+          accountNameErr.msg = 'Tell us your account name'
+          accountNameErr.type = 'blank'
+          accountNameErr.flag = true
+          errorFlag = true
+        }
+        if (accountNumber === '') {
+          accountNumberErr.msg = 'Tell us your account number'
+          accountNumberErr.type = 'blank'
+          accountNumberErr.flag = true
+          errorFlag = true
         }
       }
-    } else {
-      res.redirect('/start')
+
+      if (scenario != null) {
+        if (errorFlag === true) {
+          res.render('journey/choose-payment-method', {
+            scenario: scenario,
+            paymentErr: paymentErr,
+            accountNameErr: accountNameErr,
+            accountNumberErr: accountNumberErr,
+            paymentMethod: paymentMethod,
+            accountName: accountName,
+            accountNumber: accountNumber
+          })
+        } else {
+          req.session.paymentMethod = paymentMethod
+          if (paymentMethod === 'account') {
+            res.redirect('/provide-approval')
+          } else {
+            res.redirect('/payment-portal')
+          }
+        }
+      } else {
+        res.redirect('/start')
+      }
     }
   })
 
@@ -690,17 +712,6 @@ module.exports = function (router) {
     var approverEmail = ''
 
     if (scenario != null) {
-      approvingDirectors = req.session.approvingDirectors
-      authOnBehalf = req.session.authOnBehalf
-      presenter = req.session.presenter
-      userEmail = req.session.userEmail
-      if (req.session.approverEmail) {
-        approverEmail = req.session.approverEmail
-      }
-      if (req.session.approvingFor) {
-        approvingFor = req.session.approvingFor
-      }
-
       res.render('journey/review-application', {
         scenario: scenario,
         authOnBehalf: authOnBehalf,
@@ -709,6 +720,201 @@ module.exports = function (router) {
         approvingFor: approvingFor,
         approverEmail: approverEmail,
         approvingDirectors: approvingDirectors
+      })
+    } else {
+      res.redirect('/start')
+    }
+  })
+
+  // Application dashboard
+  router.get('/application-dashboard', function (req, res) {
+    var fs = require('fs')
+    var postmark = require('postmark')
+    var moment = require('moment')
+    var client = new postmark.Client('04c9bb50-f4e0-41b9-93e2-28ace8429edd')
+    var scenario = req.session.scenario
+    var appRef = ''
+    var alphabet = '023456789ABDEGJKLMNPQRVWXYZ'
+    var appRefLength = 6
+    var submissionData = {}
+    var ready = true
+    var i = 0
+
+    // Load application from JSON file if a reference is provided (accessed via email link)
+    if (req.query.reference) {
+      submissionData = fs.readFile('public/data/' + req.query.reference + '.json', 'utf8', function (err, data) {
+        if (err) {
+          console.error(err)
+        } else {
+          submissionData = JSON.parse(data)
+          if (submissionData.scenario.company.directors.length > 1) {
+            for (i = 0; i < submissionData.scenario.company.directors.length; i++) {
+              if (submissionData.approvingDirectors[submissionData.scenario.company.directors[i].ID]) {
+                if (submissionData.approvingDirectors[submissionData.scenario.company.directors[i].ID].approved === false) {
+                  ready = false
+                }
+              }
+            }
+          } else {
+            if (submissionData.soleDirectorApproved === false) {
+              ready = false
+            }
+          }
+          req.session.submissionData = submissionData
+          req.session.ready = ready
+          res.render('journey/application-dashboard', {
+            submissionData: submissionData,
+            ready: ready
+          })
+        }
+      })
+    } else {
+      if (scenario != null) {
+        // Build submission object from stored session data
+        submissionData.declaration = req.session.declaration
+        submissionData.scenario = req.session.scenario
+        submissionData.userEmail = req.session.userEmail
+        submissionData.authOnBehalf = req.session.authOnBehalf
+        submissionData.presenter = req.session.presenter
+        submissionData.approvingFor = req.session.approvingFor
+        submissionData.approvingDirectors = req.session.approvingDirectors
+        submissionData.approverEmail = req.session.approverEmail
+        submissionData.approvedByDirector = req.session.approvedByDirector
+        submissionData.approverName = req.session.approverName
+        submissionData.approvingReason = req.session.approvingReason
+        submissionData.isDirector = req.session.isDirector
+        submissionData.hasPOA = req.session.hasPOA
+        submissionData.created = moment().format('D MMMM YYYY')
+        submissionData.expires = moment().add(3, 'months').format('D MMMM YYYY')
+        console.log(submissionData)
+
+        if (req.session.reference) {
+          submissionData = fs.readFile('public/data/' + req.session.reference + '.json', 'utf8', function (err, data) {
+            if (err) {
+              console.error(err)
+            } else {
+              submissionData = JSON.parse(data)
+              if (submissionData.scenario.company.directors.length > 1) {
+                for (i = 0; i < submissionData.scenario.company.directors.length; i++) {
+                  if (submissionData.approvingDirectors[submissionData.scenario.company.directors[i].ID]) {
+                    if (submissionData.approvingDirectors[submissionData.scenario.company.directors[i].ID].approved === false) {
+                      ready = false
+                    }
+                  }
+                }
+              } else {
+                if (submissionData.soleDirectorApproved === false) {
+                  ready = false
+                }
+              }
+              req.session.submissionData = submissionData
+              req.session.ready = ready
+              res.render('journey/application-dashboard', {
+                submissionData: submissionData,
+                ready: ready
+              })
+            }
+          })
+        } else {
+          // Generate unique application reference
+          for (i = 0; i < appRefLength; i++) {
+            appRef += alphabet.charAt(Math.floor(Math.random() * alphabet.length))
+          }
+          req.session.reference = 'FE' + appRef + 'AA'
+          submissionData.reference = req.session.reference
+          if (scenario.company.directors.length === 1) {
+            submissionData.soleDirectorApproved = false
+          }
+
+          // Write submission object to a JSON file for future retieval
+          fs.writeFile('public/data/' + submissionData.reference + '.json', JSON.stringify(submissionData, null, 2), 'utf8', function (err) {
+            if (err) {
+              console.error(err)
+            } else {
+              // Send application creation email to presenter
+              client.sendEmailWithTemplate({
+                'From': 'owilliams@companieshouse.gov.uk',
+                'To': submissionData.userEmail,
+                'TemplateId': 4000424,
+                'TemplateModel': {
+                  'companyName': scenario.company.name,
+                  'reference': submissionData.reference
+                }
+              }, function (error, result) {
+                if (error) {
+                  console.error('Unable to send via postmark: ' + error.message)
+                  return
+                }
+                console.info('Sent to postmark for delivery')
+              })
+
+              // Send approval request email to each chosen director for a multiple director company
+              if (scenario.company.directors.length > 1) {
+                if (req.session.approvingFor) {
+
+                } else {
+
+                }
+                for (i = 0; i < scenario.company.directors.length; i++) {
+                  if (submissionData.approvingDirectors[scenario.company.directors[i].ID]) {
+                  // if (submissionData.approvingFor.id !== scenario.company.directors[i].ID) {
+                    client.sendEmailWithTemplate({
+                      'From': 'owilliams@companieshouse.gov.uk',
+                      'To': submissionData.approvingDirectors[scenario.company.directors[i].ID].email,
+                      'TemplateId': 4021623,
+                      'TemplateModel': {
+                        'directorName': submissionData.approvingDirectors[scenario.company.directors[i].ID].name,
+                        'companyName': scenario.company.name
+                      }
+                    }, function (error, result) {
+                      if (error) {
+                        console.error('Unable to send via postmark: ' + error.message)
+                        return
+                      }
+                      console.info('Sent to postmark for delivery')
+                    })
+                  }
+                }
+              } else {
+                // Send approval request email to the director for a sole director company
+                if (submissionData.authOnBehalf === 'No') {
+                  client.sendEmailWithTemplate({
+                    'From': 'owilliams@companieshouse.gov.uk',
+                    'To': submissionData.approverEmail,
+                    'TemplateId': 4021623,
+                    'TemplateModel': {
+                      'directorName': scenario.company.directors[0].name,
+                      'companyName': scenario.company.name
+                    }
+                  }, function (error, result) {
+                    if (error) {
+                      console.error('Unable to send via postmark: ' + error.message)
+                      return
+                    }
+                    console.info('Sent to postmark for delivery')
+                  })
+                }
+              }
+            }
+          })
+
+          // Render application dashboard
+          res.render('journey/application-dashboard', {
+            submissionData: submissionData
+          })
+        }
+      } else {
+        res.redirect('/start')
+      }
+    }
+  })
+
+  router.post('/application-dashboard', function (req, res) {
+    var scenario = req.session.scenario
+
+    if (scenario != null) {
+      res.render('journey/payment-portal', {
+        scenario: scenario
       })
     } else {
       res.redirect('/start')

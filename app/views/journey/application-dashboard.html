@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% block phase_banner %}
+      {% include "includes/phase_banner_alpha.html" %}
+    {% endblock %}
+
+    <form class="form" method="POST" action="application-dashboard">
+      <div class="grid-row">
+        <div class="column-full">
+          <h1 class="heading-xlarge">
+            Application to close
+            {{ submissionData.scenario.company.name | upper}}
+          </h1>
+          {% if ready === true %}
+            <div class="govuk-box-highlight status-box ready">
+              <h3 class="font-medium">Application status</h3>
+              <p class="font-large">
+                Ready for submission
+              </p>
+            </div>
+          {% else %}
+            <div class="govuk-box-highlight status-box">
+              <p class="font-medium">Application status</p>
+              <p class="font-large">
+                Waiting for director approvals
+              </p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="grid-row">
+        <div class="column-two-thirds">
+          <h2 class="heading-medium">Application details</h2>
+          <table class="check-your-answers">
+            <tbody>
+              <tr>
+                <th scope="row">Reference</th>
+                <td>{{ submissionData.reference }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Creation date</th>
+                <td>{{ submissionData.created }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Expiry date</th>
+                <td>{{ submissionData.expires }}</td>
+              </tr>
+              {% if submissionData.presenter.name != "" %}
+                <tr>
+                  <th scope="row">Created by</th>
+                  <td>{{ submissionData.presenter.name }}</td>
+                </tr>
+              {% endif %}
+              {% if submissionData.presenter.number != "" %}
+                <tr>
+                  <th scope="row">Telephone number</th>
+                  <td>{{ submissionData.presenter.number }}</td>
+                </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="grid-row">
+        <div class="column-full">
+          <h3 class="heading-medium">Director approvals</h3>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Director</th>
+                <th scope="col">Email address</th>
+                <th scope="col">Approval status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if submissionData.approvingFor.id %}
+                <tr>
+                  <td>{{ submissionData.approvingFor.name }}</td>
+                  <td>
+                    {{ submissionData.userEmail }}
+                  </td>
+                  <td>
+                    <span class="positive-text" aria-hidden="true">&#10004;</span>&nbsp; Approved on
+                    {{ submissionData.created }}
+                  </td>
+                </tr>
+              {% endif %}
+              {% for director in submissionData.scenario.company.directors %}
+                {% if submissionData.approvingDirectors[director.ID].id === director.ID %}
+                  <tr>
+                    <td>
+                      {{ submissionData.approvingDirectors[director.ID].name }}
+                    </td>
+                    <td>
+                      {{ submissionData.approvingDirectors[director.ID].email }}
+                    </td>
+                    <td>
+                      {% if submissionData.approvingDirectors[director.ID].approved %}
+                        <span class="positive-text" aria-hidden="true">&#10004;</span>&nbsp; Approved on
+                        {{ submissionData.approvingDirectors[director.ID].approved }}
+                      {% else %}
+                        <span class="positive-text" aria-hidden="true">&#10008;</span>&nbsp; Waiting for approval
+                      {% endif %}
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+                {% if submissionData.approverEmail %}
+                  <tr>
+                    <td>
+                      {{ submissionData.scenario.company.directors[0].name }}
+                    </td>
+                    <td>
+                      {{ submissionData.approverEmail }}
+                    </td>
+                    <td>
+                      {% if submissionData.soleDirectorApproved === false %}
+                        <span class="positive-text" aria-hidden="true">&#10008;</span>&nbsp; Waiting for approval
+                      {% else %}
+                        <span class="positive-text" aria-hidden="true">&#10004;</span>&nbsp; Approved on
+                        {{ submissionData.soleDirectorApproved }}
+                      {% endif %}
+                    </td>
+                  </tr>
+                {% endif %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="column-two-thirds">
+            <h3 class="heading-medium">Company details</h3>
+            <table class="check-your-answers">
+              <tbody>
+                <tr>
+                  <th scope="row">Name</th>
+                  <td>
+                    {{ submissionData.scenario.company.name | upper }}
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Number</th>
+                  <td>{{ submissionData.scenario.company.number}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Incorporation date</th>
+                  <td>{{ submissionData.scenario.company.incorporated }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Registered office address</th>
+                  <td>
+                    {{ submissionData.scenario.company.property }}
+                    {{ submissionData.scenario.company.street }}<br>
+                    {{ submissionData.scenario.company.city }}<br>
+                    {{ submissionData.scenario.company.postcode }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {% if ready === true %}
+          <div class="grid-row">
+            <div class="column-full">
+              <p>
+                <input type="submit" class="button" value="Continue to payment"/>
+              </p>
+            </div>
+          </div>
+        {% endif %}
+        <input type="hidden" name="submissionRef" value="{{ submissionData.reference }}"/>
+      </form>
+    </main>
+
+  {% endblock %}

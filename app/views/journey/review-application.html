@@ -49,6 +49,12 @@
                 <tr>
                   <th scope="row">Approving directors</th>
                   <td>
+                    {% if approvingFor.id %}
+                      <p>
+                        {{ approvingFor.name }}
+                        <br/>(approved)
+                      </p>
+                    {% endif %}
                     {% for director in scenario.company.directors %}
                       {% if approvingDirectors[director.ID].id === director.ID %}
                         <p>
@@ -57,14 +63,12 @@
                         </p>
                       {% endif %}
                     {% endfor %}
-                    {% if approvingFor.id %}
-                      {{ approvingFor.name }}
-                      <br/>(approved)
-                    {% endif %}
                     {% if approverEmail %}
-                      {{ scenario.company.directors[0].name}}<br/>
-                      ({{ approverEmail }})
-                      <br/>
+                      <p>
+                        {{ scenario.company.directors[0].name}}<br/>
+                        ({{ approverEmail }})
+                        <br/>
+                      </p>
                     {% endif %}
                   </td>
                 </tr>
@@ -107,7 +111,7 @@
             </table>
           </div>
           <div class="form-group">
-            <a href="payment" class="button">Request approval</a>
+            <a href="application-dashboard" class="button">Request approval</a>
           </div>
 
         </div>

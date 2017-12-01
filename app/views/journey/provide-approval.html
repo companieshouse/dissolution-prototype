@@ -39,7 +39,12 @@
         </span>
         <span class="print-name">
           {% if approvingFor.type === 'Corporate' %}
-            {{ approverName }}
+            {{ approverName }}<br/>
+
+            <span class="on-behalf">
+              on behalf of
+              {{ approvingFor.name }}
+            </span>
           {% else %}
             {{ approvingFor.name }}
           {% endif %}
@@ -49,6 +54,33 @@
           <a href="{{ signedLink }}" class="conf-btn">
             <img src="/public/images/continue-button.png" alt="" class="">
           </a>
+        </div>
+        <div class="adopt">
+          <div class="adopt-window">
+            <span class="name">
+              {% if approvingFor.type === 'Corporate' %}
+                {{ approverName }}
+              {% else %}
+                {{ approvingFor.name }}
+              {% endif %}
+            </span>
+            <span class="initial">
+              {{ initials }}
+            </span>
+            <span class="adopt-signature">
+              {% if approvingFor.type === 'Corporate' %}
+                {{ approverName }}
+              {% else %}
+                {{ approvingFor.name }}
+              {% endif %}
+            </span>
+            <span class="sig-init">
+              {{ initials }}
+            </span>
+            <a href="" class="adopt-button">ADOPT AND SIGN</a>
+            <a href="" class="cancel-button">CANCEL</a>
+            <a href="" class="close-button"></a>
+          </div>
         </div>
       </div>
     </form>

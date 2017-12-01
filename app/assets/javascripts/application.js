@@ -17,12 +17,35 @@ $(document).ready(function () {
   var showHideContent = new GOVUK.ShowHideContent()
   showHideContent.init()
 
-  // Signature button click
+  // Sign document button
   $('.add-sig-box').click(function () {
-    $(this).hide()
-    $('.sign-tag').fadeOut()
+    $('.adopt').fadeIn(200, function () {
+      $('.adopt-window').fadeIn(200)
+    })
+    return false
+  })
+
+  // Adopt signature button
+  $('.adopt-button').click(function () {
+    $('.add-sig-box').hide()
+    $('.adopt').hide()
+    $('.sign-tag').hide()
     $('.signature').show()
     $('.confirm-bar').animate({bottom: '0px'})
+    return false
+  })
+
+  // Cancel adopt signature
+  $('.cancel-button').click(function () {
+    $('.adopt').hide()
+    $('.adopt-window').hide()
+    return false
+  })
+
+  // Close adopt signature
+  $('.close-button').click(function () {
+    $('.adopt').hide()
+    $('.adopt-window').hide()
     return false
   })
 })
