@@ -712,6 +712,13 @@ module.exports = function (router) {
     var approverEmail = ''
 
     if (scenario != null) {
+      authOnBehalf = req.session.authOnBehalf
+      presenter = req.session.presenter
+      userEmail = req.session.userEmail
+      approvingFor = req.session.approvingFor
+      approverEmail = req.session.approverEmail
+      approvingDirectors = req.session.approvingDirectors
+
       res.render('journey/review-application', {
         scenario: scenario,
         authOnBehalf: authOnBehalf,
@@ -732,6 +739,12 @@ module.exports = function (router) {
     var postmark = require('postmark')
     var moment = require('moment')
     var client = new postmark.Client('04c9bb50-f4e0-41b9-93e2-28ace8429edd')
+    var url = require('url')
+    var appURL = url.format({
+      protocol: req.protocol,
+      host: req.get('host'),
+      pathname: req.originalUrl
+    })
     var scenario = req.session.scenario
     var appRef = ''
     var alphabet = '023456789ABDEGJKLMNPQRVWXYZ'
@@ -837,6 +850,7 @@ module.exports = function (router) {
                 'To': submissionData.userEmail,
                 'TemplateId': 4000424,
                 'TemplateModel': {
+                  'appURL': appURL,
                   'companyName': scenario.company.name,
                   'reference': submissionData.reference
                 }
@@ -863,6 +877,7 @@ module.exports = function (router) {
                       'To': submissionData.approvingDirectors[scenario.company.directors[i].ID].email,
                       'TemplateId': 4021623,
                       'TemplateModel': {
+                        'appURL': appURL,
                         'directorName': submissionData.approvingDirectors[scenario.company.directors[i].ID].name,
                         'companyName': scenario.company.name
                       }
@@ -883,6 +898,7 @@ module.exports = function (router) {
                     'To': submissionData.approverEmail,
                     'TemplateId': 4021623,
                     'TemplateModel': {
+                      'appURL': appURL,
                       'directorName': scenario.company.directors[0].name,
                       'companyName': scenario.company.name
                     }

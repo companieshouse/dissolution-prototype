@@ -52,7 +52,8 @@
                     {% if approvingFor.id %}
                       <p>
                         {{ approvingFor.name }}
-                        <br/>(approved)
+                        (approved)
+                        <br/>({{ userEmail }})
                       </p>
                     {% endif %}
                     {% for director in scenario.company.directors %}

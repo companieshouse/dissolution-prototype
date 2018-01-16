@@ -48,4 +48,16 @@ $(document).ready(function () {
     $('.adopt-window').hide()
     return false
   })
+
+  // FAKE DOCUSIGN JS
+  $('#tab-form-element-473279d7-8970-4b24-90e2-bfe79a6ccbc1').click(function () {
+    $('#adopt-dialog').show()
+    return false
+  })
+
+  $('#adopt-my-sig').click(function () {
+    $('#adopt-dialog').hide()
+    $('#olive-dialog-wrapper').show()
+    return false
+  })
 })

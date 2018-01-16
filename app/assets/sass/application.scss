@@ -39,6 +39,16 @@ table {
   }
 }
 
+.wait-screen {
+  text-align: center;
+  width: 70%;
+  margin: 0 15%;
+
+  img {
+    width: 48px;
+  }
+}
+
 //Docusign Styles
 .docusign {
   &.unsigned {

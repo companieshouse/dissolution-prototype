@@ -65,7 +65,7 @@
       /* Masthead ----------------------- */
 
       .email-masthead {
-        padding: 25px 0;
+        padding: 20px 0;
         text-align: center;
         background: #000000;
       }
@@ -86,7 +86,8 @@
       }
 
       .email-masthead-name {
-        font-weight: bold;
+        font-weight: normal;
+        font-size: 24px;
         color: #FFFFFF;
         text-decoration: none;
       }
@@ -130,16 +131,17 @@
 
       .email-footer {
         width: 570px;
-        margin: 0 auto;
+        margin: 1em auto 0;
         padding: 0;
         -premailer-width: 570px;
         -premailer-cellpadding: 0;
         -premailer-cellspacing: 0;
         text-align: center;
+        font-size: 14px;
       }
 
       .email-footer p {
-        color: #AEAEAE;
+        color: #454a4c;
       }
 
       .body-action {
@@ -254,7 +256,7 @@
       /* Type ------------------------------ */
 
       h1 {
-        margin-top: 0;
+        margin-top: 1em;
         color: #2F3133;
         font-size: 36px;
         font-weight: bold;
@@ -348,7 +350,7 @@
                                   <table border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                       <td>
-                                        <a href="http://localhost:3008/application-dashboard?reference={{reference}}" class="button" target="_blank">View application</a>
+                                        <a href="{{appURL}}?reference={{reference}}" class="button" target="_blank">View application</a>
                                       </td>
                                     </tr>
                                   </table>
@@ -392,13 +394,8 @@
               <td>
                 <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0">
                   <tr>
-                    <td class="content-cell" align="center">
-                      <p class="sub align-center">&copy; 2017
-                        {{product_name}}. All rights reserved.</p>
-                      <p class="sub align-center">
-                        {{company_name}}
-                        {{company_address}}
-                      </p>
+                    <td>
+                      <p>&copy; 2017. All rights reserved.</p>
                     </td>
                   </tr>
                 </table>

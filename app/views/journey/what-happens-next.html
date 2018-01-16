@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% block phase_banner %}
+      {% include "includes/phase_banner_alpha.html" %}
+    {% endblock %}
+
+    <form class="form" method="POST" action="payment" name="company">
+      <div class="grid-row">
+        <div class="column-full wait-screen">
+          <h1 class="heading-large">We are registering your approval to close COMPANY NAME LIMITED</h1>
+          <p class="lede">
+            This may take a few moments, we'll let you know when we're ready to continue.
+          </p>
+          <div class="spinner">
+            <img src="/public/images/spinner.gif" alt=""/>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+
+{% endblock %}
