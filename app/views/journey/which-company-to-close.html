@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% block phase_banner %}
+      {% include "includes/phase_banner_beta.html" %}
+    {% endblock %}
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <p>
+          <a href="who-you-have-to-tell" class="link-back">Back</a>
+        </p>
+        {% if companyNumberErr %}
+          <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+            <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
+              There's an error
+            </h2>
+            <ul class="error-summary-list">
+              <li>
+                <a href="#company-number">{{ companyNumberErr.msg }}</a>
+              </li>
+            </ul>
+          </div>
+        {% endif %}
+        <h1 class="heading-xlarge">Tell us which company you want to close</h1>
+        <form class="form" method="POST" action="">
+          <div class="form-group {% if companyNumberErr %}form-group-error{% endif %}">
+            <label class="form-label" for="company-number">
+              What's the company number?
+              <span class="form-hint">This is the 8 digit number at the bottom of your company certificate.</span>
+
+              {% if companyNumberErr %}
+                <span class="error-message">
+                  {{companyNumberErr.msg}}
+                </span>
+              {% endif %}
+
+            </label>
+            <input class="form-control" id="company-number" name="companyNumber" type="number" value="00035440">
+          </div>
+          <div class="form-group">
+            <details>
+              <summary>
+                <span class="summary">How to find your company number</span>
+              </summary>
+              <div class="panel panel-border-narrow">
+                <p>
+                  You can
+                  <a href="http://beta.companieshouse.gov.uk">search for your company on the public register</a>
+                  to find your company number.
+                </p>
+                <p>
+                  If your company was registered in Scotland your company number would start with SC. Companies registered in Northern Ireland will have a company number starting with NI.
+                </p>
+              </div>
+            </details>
+          </div>
+          <div class="form-group">
+            <input class="button" type="submit" value="Continue">
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

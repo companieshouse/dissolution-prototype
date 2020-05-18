@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% block phase_banner %}
+      {% include "includes/phase_banner_alpha.html" %}
+    {% endblock %}
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <p>
+          <a href="review-company-directors" class="link-back">Back</a>
+        </p>
+
+        {% if directorApproveErr.msg %}
+          <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+            <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
+              There's an error
+            </h2>
+            <ul class="error-summary-list">
+              <li>
+                <a href="#radio-0">{{ directorApproveErr.msg }}</a>
+              </li>
+            </ul>
+          </div>
+        {% endif %}
+
+        <h1 class="heading-xlarge">Which director are you approving this application for?</h1>
+        <form class="form" method="POST" action="">
+          <div class="form-group {% if directorApproveErr.msg %}form-group-error{% endif %}">
+            <fieldset class="">
+              <legend>
+                <p class="visually-hidden">Choose a director from the list</p>
+              </legend>
+              {% if directorApproveErr.msg %}
+                <span class="error-message">
+                  {{ directorApproveErr.msg}}
+                </span>
+              {% endif %}
+
+              {% for director in scenario.company.directors %}
+                <div class="multiple-choice">
+                  <input id="radio-{{ director.ID }}" type="radio" name="directorApprove" value="{{ director.ID }}">
+                  <label class="block-label" for="radio-{{ director.ID }}">
+                    {{ director.name }}
+                  </label>
+                </div>
+              {% endfor %}
+
+            </fieldset>
+          </div>
+          <div class="form-group">
+            <input class="button" type="submit" value="Continue">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+{% endblock %}

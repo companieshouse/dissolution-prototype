@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Start page example
+{% endblock %}
+
+{% block proposition_header %}
+<!-- blank to remove the proposition header -->
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li><a href="">Companies House</a></li>
+      <li>Forms service</li>
+    </ol>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        Forms service
+      </h1>
+
+      <p class="lede">
+        This service is used to send applications to Companies House digitally.
+      </p>
+
+      <p>To close a company you will need:</p>
+
+      <!--<ul class="list list-bullet">
+      <li>the company number</li>
+      <li>the company authentication code</li>
+      <li>an email address for each director</li>
+      <li>a credit or debit card</li>
+    </ul>-->
+
+    <p>
+      <a class="button button-start" href="sign-in-generic" role="button">Start now</a>
+    </p>
+
+    <p>You can also <a href="https://www.gov.uk/government/publications/strike-off-a-company-from-the-register-ds01">file for your company by post.</a></p>
+  </div>
+  <div class="column-third">
+
+    <!--<aside class="govuk-related-items" role="complementary">
+    <h2 class="heading-medium" id="subsection-title">Subsection</h2>
+    <nav role="navigation" aria-labelledby="subsection-title">
+    <ul class="font-xsmall">
+    <li><a href="#">Related link</a></li>
+    <li><a href="#">Related link</a></li>
+    <li><a href="#" class="bold-xsmall">More <span class="visuallyhidden">in Subsection</span></a></li>
+  </ul>
+</nav>
+</aside>-->
+
+</div>
+</div>
+
+</main>
+
+{% endblock %}

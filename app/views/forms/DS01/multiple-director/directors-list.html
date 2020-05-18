@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Blank page
+{% endblock %}
+
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li><a href="">Companies House Forms</a></li>
+      <li>Strike off a company from the register (DS01)</li>
+    </ol>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Request approval from company directors</h1>
+
+      <p class="lede">
+        Templeton Metal Work Limited has the following directors listed on the public register.
+      </p>
+
+      <div>
+        <ul class="list list-bullet">
+          <li>David Arthur Templeton</li>
+          <li>Cathy Nicholas</li>
+          <li>UK Metal Work Limited</li>
+          <li>Steve Jones</li>
+        </ul>
+      </div>
+
+      <form class="form" method="POST" action="directors-list" name="directors-list">
+
+        <p class="heading-medium">
+          Is this information correct?
+        </p>
+
+        <div class="form-group">
+          <fieldset class="inline">
+            <legend class="visuallyhidden">Is this information correct?</legend>
+            <label class="block-label" for="radio-inline-1">
+              <input id="radio-inline-1" type="radio" name="information" value="Yes">
+              Yes
+            </label>
+            <label class="block-label" data-target="example-ni-no" for="radio-inline-2">
+              <input id="radio-inline-2" type="radio" name="information" value="No">
+              No
+            </label>
+          </fieldset>
+        </div>
+
+<div class="form-group">
+  <input class="button" type="submit" value="Continue">
+</div>
+
+</form>
+</div>
+<div class="column-third">
+
+  <!--<aside class="govuk-related-items" role="complementary">
+  <h2 class="heading-medium" id="subsection-title">Subsection</h2>
+  <nav role="navigation" aria-labelledby="subsection-title">
+  <ul class="font-xsmall">
+  <li><a href="#">Related link</a></li>
+  <li><a href="#">Related link</a></li>
+  <li><a href="#" class="bold-xsmall">More <span class="visuallyhidden">in Subsection</span></a></li>
+</ul>
+</nav>
+</aside>-->
+
+</div>
+</div>
+
+</main>
+
+{% endblock %}

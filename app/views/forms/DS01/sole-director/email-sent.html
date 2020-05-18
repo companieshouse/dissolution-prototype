@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Blank page
+{% endblock %}
+
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li><a href="">Companies House Forms</a></li>
+      <li>Strike off a company from the register (DS01)</li>
+    </ol>
+  </div>
+
+      <h1 class="heading-xlarge">Director approval requested</h1>
+      <p class="lede text">We've sent an email to the director below requesting their approval to close Templeton Metal Works Limited.</p>
+
+
+      <table class="table-spacing">
+       <thead>
+         <tr>
+           <th scope="col">Director name</th>
+           <th scope="col" class="director-email">Email address</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td>David Arthur Templeton</td>
+           <td>dat.templetonmetalworks@gmail.co.uk</td>
+         </tr>
+       </tbody>
+     </table>
+
+     <p>After requesting the directors approval there is a 3 month time limit for the directors to approve the application.</p>
+
+        <p>
+          <a href="presenter-dashboard" class="button">Continue</a>
+        </p>
+
+  </main>
+
+  {% endblock %}

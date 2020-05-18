@@ -1,0 +1,148 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% block phase_banner %}
+      {% include "includes/phase_banner_alpha.html" %}
+    {% endblock %}
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <p>
+          <a href="review-company-directors" class="link-back">Back</a>
+        </p>
+
+        {% if directorApproveErr.msg or tempEmailErr %}
+          <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+            <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
+              There's an error
+            </h2>
+            <ul class="error-summary-list">
+              <li>
+                <a href="#checkbox-0">{{ directorApproveErr.msg }}</a>
+              </li>
+
+              {% for error in tempEmailErr %}
+                <li>
+                  <a href="#director-{{ error.id }}-email">{{ error.msg }}</a>
+                </li>
+              {% endfor %}
+
+              {% for director in scenario.company.directors %}
+                {% if tempEmailErr[director.ID].id === director.ID %}
+                  <li>
+                    <a href="#director-{{ director.ID }}-email">{{ tempEmailErr[director.ID].msg }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+
+            </ul>
+          </div>
+        {% endif %}
+        {% if approvingFor.id %}
+          <h1 class="heading-xlarge">Which other directors will approve this application?</h1>
+          <p>
+            Tell us which other directors will approve the application to close
+            {{ scenario.company.name | upper }}. We'll need an email address for each director to send them the request for approval.
+          </p>
+        {% else %}
+          <h1 class="heading-xlarge">Which directors will approve this application?</h1>
+          <p>
+            Tell us which directors will approve the application to close
+            {{ scenario.company.name | upper }}. We'll need an email address for each director to send them the request for approval.
+          </p>
+        {% endif %}
+        <form class="form" method="POST" action="">
+          <div class="form-group {% if directorApproveErr.msg %}form-group-error{% endif %}">
+            <fieldset class="">
+              <legend>
+                <h2 class="heading-medium">
+                  {% if directorMajority === 1 %}
+                    Select at least one more director.
+                  {% else %}
+                    Select at least
+                    {{ directorMajority }}
+                    directors.
+                  {% endif %}
+                </h2>
+              </legend>
+
+              {% for director in scenario.company.directors %}
+                {% if tempEmailErr[director.ID].id === director.ID %}
+                  <div class="multiple-choice" data-target="director-{{ director.ID }}">
+                    <input id="checkbox-{{ director.ID }}" type="checkbox" name="directorApprove" value="{{ director.ID }}" aria-expanded="true" checked="checked">
+                    <label class="block-label" for="checkbox-{{ director.ID }}">
+                      {{ director.name }}
+                    </label>
+                  </div>
+                  <div class="panel panel-border-narrow form-group-error" id="director-{{ director.ID }}" aria-hidden="false">
+                    <div class="form-group">
+                      <label class="form-label" for="director-{{ director.ID }}-email">
+                        Email address
+                        <span class="error-message">
+                          {{ tempEmailErr[director.ID].msg }}
+                        </span>
+                      </label>
+                      <input class="form-control" name="director{{ director.ID }}Email" type="email" id="director-{{ director.ID }}-email">
+                    </div>
+                  </div>
+                {% elif directorEmails[director.ID].email %}
+                  <div class="multiple-choice" data-target="director-{{ director.ID }}">
+                    <input id="checkbox-{{ director.ID }}" type="checkbox" name="directorApprove" value="{{ director.ID }}" aria-expanded="true" checked="checked">
+                    <label class="block-label" for="checkbox-{{ director.ID }}">
+                      {{ director.name }}
+                    </label>
+                  </div>
+                  <div class="panel panel-border-narrow" id="director-{{ director.ID }}" aria-hidden="false">
+                    <div class="form-group">
+                      <label class="form-label" for="director-{{ director.ID }}-email">
+                        Email address
+                      </label>
+                      <input class="form-control" name="director{{ director.ID }}Email" type="email" id="director-{{ director.ID }}-email" value="{{directorEmails[director.ID].email}}">
+                    </div>
+                  </div>
+                {% else %}
+                  {% if director.ID === approvingFor.id %}
+                    <div class="multiple-choice" data-target="director-{{ director.ID }}">
+                      <input id="checkbox-{{ director.ID }}" type="checkbox" name="directorApprove" value="{{ director.ID }}" aria-expanded="false" disabled="disabled" checked="checked">
+                      <label class="block-label" for="checkbox-{{ director.ID }}">
+                        {{ director.name }}
+                        (approved)
+                      </label>
+                    </div>
+                  {% else %}
+                    <div class="multiple-choice" data-target="director-{{ director.ID }}">
+                      <input id="checkbox-{{ director.ID }}" type="checkbox" name="directorApprove" value="{{ director.ID }}" aria-expanded="false">
+                      <label class="block-label" for="checkbox-{{ director.ID }}">
+                        {{ director.name }}
+                      </label>
+                    </div>
+                    <div class="panel panel-border-narrow js-hidden" id="director-{{ director.ID }}" aria-hidden="true">
+                      <div class="form-group">
+                        <label class="form-label" for="director-{{ director.ID }}-email">
+                          Email address
+                        </label>
+                        <input class="form-control" name="director{{ director.ID }}Email" type="email" id="director-{{ director.ID }}-email">
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+
+            </fieldset>
+          </div>
+          <div class="form-group">
+            <input class="button" type="submit" value="Continue">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+{% endblock %}

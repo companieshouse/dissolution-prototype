@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Blank page
+{% endblock %}
+
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li><a href="">Companies House Forms</a></li>
+      <li>Strike off a company from the register (DS01)</li>
+    </ol>
+  </div>
+
+  <h1 class="heading-xlarge">Closing a company</h1>
+  <div class="grey-box">
+      <h2 class="heading-large">Templeton Metal Works Limited</h2>
+        <p><strong>05647510</strong> - Incorporated on 29 May 1992</p>
+        <p class="">22 Everdene Lane, West Morton, Northamptonshire, NT54 3ET</p>
+    </div>
+        <h2 class="heading-large">Requested approvals</h3>
+          <table class="check-your-answers">
+            <thead>
+              <tr>
+                <th scope="col">Directors name</th>
+                <th scope="col" class="dashboard-dob">Date of birth</th>
+                <th scope="col" class="dashboard-status">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>David Arthur Templeton</td>
+                <td>May 1980</td>
+                <td><span class="negative-text">&#10008;</span> Awaiting approval</td>
+              </tr>
+          </tbody>
+        </table>
+
+      <!--<div class="column-one-third">
+      <h2 class="heading-large">Progress</h3>
+      <table class="check-your-answers">
+      <tbody>
+      <tr><td>1. Apply to close your company  <span class="tick">&#10004</span></td></tr>
+      <tr><td><strong>2. Request approval from director</strong></td></tr>
+      <tr><td>3. Application approved</td></tr>
+      <tr><td>4. Submit application</td></tr>
+      <tr><td>5. Application to close company is complete</td></tr>
+    </tbody>
+  </table>
+</div>-->
+
+<div style="margin-top: 1.5em;">
+  <p class="text">You cannot submit this application until the majority of directors have signed.</p>
+  <input class="button" type="submit" value="Submit" disabled="disabled">
+</div>
+
+</main>
+
+{% endblock %}

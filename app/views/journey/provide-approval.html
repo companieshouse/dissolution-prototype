@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% block phase_banner %}
+      {% include "includes/phase_banner_alpha.html" %}
+    {% endblock %}
+
+    <p>
+      <a href="{{ backLink }}" class="link-back">Back</a>
+    </p>
+    <h1 class="heading-xlarge">
+      Provide your approval
+    </h1>
+    <p class="lede">
+      Complete the document below to approve the application to close
+      {{ scenario.company.name | upper }}
+    </p>
+    <form action="" method="POST">
+      <div class="docusign unsigned">
+        <a href="docusign-signature" class="add-sig-box">
+          <img src="/public/images/add-sig.png" alt="add signature" class="">
+        </a>
+        <img src="/public/images/sign-tag.png" alt="" class="sign-tag">
+        <span class="company-name">{{ scenario.company.name | upper}}</span>
+        <span class="company-number">{{ scenario.company.number }}</span>
+        <span class="signature">
+          {% if approvingFor.type === 'Corporate' %}
+            {{ approverName }}
+          {% else %}
+            {{ approvingFor.name }}
+          {% endif %}
+        </span>
+        <span class="print-name">
+          {% if approvingFor.type === 'Corporate' %}
+            {{ approverName }}<br/>
+
+            <span class="on-behalf">
+              on behalf of
+              {{ approvingFor.name }}
+            </span>
+          {% else %}
+            {{ approvingFor.name }}
+          {% endif %}
+        </span>
+        <span class="signature-date">{{ signatureDate }}</span>
+        <div class="confirm-bar">
+          <a href="{{ signedLink }}" class="conf-btn">
+            <img src="/public/images/continue-button.png" alt="" class="">
+          </a>
+        </div>
+        <div class="adopt">
+          <div class="adopt-window">
+            <span class="name">
+              {% if approvingFor.type === 'Corporate' %}
+                {{ approverName }}
+              {% else %}
+                {{ approvingFor.name }}
+              {% endif %}
+            </span>
+            <span class="initial">
+              {{ initials }}
+            </span>
+            <span class="adopt-signature">
+              {% if approvingFor.type === 'Corporate' %}
+                {{ approverName }}
+              {% else %}
+                {{ approvingFor.name }}
+              {% endif %}
+            </span>
+            <span class="sig-init">
+              {{ initials }}
+            </span>
+            <a href="" class="adopt-button">ADOPT AND SIGN</a>
+            <a href="" class="cancel-button">CANCEL</a>
+            <a href="" class="close-button"></a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+
+{% endblock %}

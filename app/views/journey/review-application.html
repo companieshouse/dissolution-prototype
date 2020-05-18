@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% block phase_banner %}
+      {% include "includes/phase_banner_alpha.html" %}
+    {% endblock %}
+
+    <form class="form" method="POST" action="payment" name="company">
+      <div class="grid-row">
+        <div class="column-two-thirds">
+          <p>
+            <a href="which-directors-will-approve-application" class="link-back">Back</a>
+          </p>
+          <h1 class="heading-xlarge">Review your application</h1>
+          <p class="lede">Please review the application to close
+            {{ scenario.company.name | upper}}
+            before requesting approval from the directors.</p>
+
+          <div class="form-group">
+            <h2 class="heading-medium">Application details</h2>
+            <table class="check-your-answers">
+              <tbody>
+                <tr>
+                  <th scope="row">Company name</th>
+                  <td>
+                    {{ scenario.company.name | upper }}
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Company number</th>
+                  <td>{{ scenario.company.number}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Registered office address</th>
+                  <td>
+                    {{ scenario.company.property }}
+                    {{ scenario.company.street }}<br>
+                    {{ scenario.company.city }}<br>
+                    {{ scenario.company.postcode }}
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Approving directors</th>
+                  <td>
+                    {% if approvingFor.id %}
+                      <p>
+                        {{ approvingFor.name }}
+                        (approved)
+                        <br/>({{ userEmail }})
+                      </p>
+                    {% endif %}
+                    {% for director in scenario.company.directors %}
+                      {% if approvingDirectors[director.ID].id === director.ID %}
+                        <p>
+                          {{ approvingDirectors[director.ID].name }}<br/>
+                          ({{ approvingDirectors[director.ID].email }})
+                        </p>
+                      {% endif %}
+                    {% endfor %}
+                    {% if approverEmail %}
+                      <p>
+                        {{ scenario.company.directors[0].name}}<br/>
+                        ({{ approverEmail }})
+                        <br/>
+                      </p>
+                    {% endif %}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="form-group">
+            <h2 class="heading-medium">Your details</h2>
+            <table class="check-your-answers">
+              <tbody>
+                {% if presenter.name.length > 0 %}
+                  <tr>
+                    <th scope="row">
+                      Name
+                    </th>
+                    <td>
+                      {{ presenter.name }}
+                    </td>
+                  </tr>
+                {% endif %}
+                {% if presenter.number.length > 0 %}
+                  <tr>
+                    <th scope="row">
+                      Contact phone number
+                    </th>
+                    <td>
+                      {{ presenter.number }}
+                    </td>
+                  </tr>
+                {% endif %}
+                <tr>
+                  <th scope="row">
+                    Email address
+                  </th>
+                  <td>
+                    {{ userEmail }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="form-group">
+            <a href="application-dashboard" class="button">Request approval</a>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </main>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Confirmation page example
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <div class="govuk-box-highlight">
+        <h1 class="bold-large">Submission complete</h1>
+        <p>
+          Your reference number is <br>
+          <strong class="heading-medium">DS01-05647510-AA57D</strong>
+        </p>
+      </div>
+
+      <h2 class="heading-medium">What happens now?</h2>
+      <p>We'll send you an email confirming your request to strike off Temlpleton Metal Work Limited.</p>
+      <div class="panel panel-border-wide">
+        <p><a href="/public/images/completed-form-newpdf.gif" target="_blank">Download a copy of your submitted request (PDF, 205Kb)</a></p>
+      </div>
+
+      <p>After <span class="bold-small">2 months</span>, Templeton Metal Work Limited will be removed from the register.</p>
+      <h2 class="heading-medium">Your next steps</h2>
+      <p>You must notify all notifiable parties by 14 April 2016 that this submission has been made. For more information, read the guidance on
+        <a href="https://www.gov.uk/government/publications/company-strike-off-dissolution-and-restoration/strike-off-dissolution-and-restoration-gp4">who to inform<span class="visuallyhidden"> when striking off a company</span>
+        </a>
+      </p>
+      <div class="notice">
+        <i class="icon icon-important">
+          <span class="visuallyhidden">Warning</span>
+        </i>
+        <strong class="bold-small">It is an offence not to notify all required parties</strong>
+      </div>
+
+      <h2 class="heading-medium">How to cancel this request</h2>
+      <p>If you need to cancel this request so that Templeton Metal Work Limited remains on the register, you can <a href="">submit a withdrawal to strike off</a>.</p>
+    </div>
+    <div class="column-third">
+      <!--<aside class="govuk-related-items" role="complementary">
+      <h2 class="heading-medium" id="subsection-title">Popular forms</h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="font-xsmall">
+      <li><a href="#">Change of address (AD01)</a></li>
+      <li><a href="#">Company name change (NM01)</a></li>
+      <li><a href="#">Appoint a director (AP01)</a></li>
+      <li><a href="#" class="bold-xsmall">More <span class="visuallyhidden">forms for limited companies</span></a></li>
+    </ul>
+  </nav>
+</aside>-->
+</div>
+</div>
+
+</main>
+
+{% endblock %}

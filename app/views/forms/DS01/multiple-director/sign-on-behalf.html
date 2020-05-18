@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Blank page
+{% endblock %}
+
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% block phase_banner %}
+  {% include "includes/phase_banner_alpha.html" %}
+  {% endblock %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li><a href="">Companies House Forms</a></li>
+      <li>Strike off a company from the register (DS01)</li>
+    </ol>
+  </div>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+        <h1 class="heading-xlarge">Approving on behalf of another director</h1>
+
+        <p class="lede">Some directors may need a Power of Attorney or someone else to sign on their behalf if their deceased.</p>
+
+        <h3 class="heading-medium">Do any of your company directors need someone to sign on their behalf?</h3>
+      <form class="table-spacing" method="POST" action="sign-on-behalf" name="directors">
+        <div class="form-group">
+        <fieldset class="inline">
+
+          <legend class="visuallyhidden">Do any of the directors need someone to approve this application on their behalf?</legend>
+
+          <label class="block-label" for="radio-inline-1">
+            <input id="radio-inline-1" type="radio" name="signOnBehalf" value="Yes">
+            Yes
+          </label>
+          <label class="block-label" for="radio-inline-2">
+            <input id="radio-inline-2" type="radio" name="signOnBehalf" value="No">
+            No
+          </label>
+
+        </fieldset>
+      </div>
+
+      <div class="form-group">
+        <input class="button" type="submit" value="Continue">
+      </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="column-third">
+
+    <!--<aside class="govuk-related-items" role="complementary">
+    <h2 class="heading-medium" id="subsection-title">Subsection</h2>
+    <nav role="navigation" aria-labelledby="subsection-title">
+    <ul class="font-xsmall">
+    <li><a href="#">Related link</a></li>
+    <li><a href="#">Related link</a></li>
+    <li><a href="#" class="bold-xsmall">More <span class="visuallyhidden">in Subsection</span></a></li>
+  </ul>
+</nav>
+</aside>-->
+
+</div>
+</div>
+
+</main>
+
+{% endblock %}
