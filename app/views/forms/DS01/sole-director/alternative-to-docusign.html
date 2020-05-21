@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Application to close a company (DS01)
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/url/of/previous/page">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Application to close a company (DS01)</h1>
+
+      <form class="form" action="/url/of/next/page" method="post">
+
+        <h2 class="govuk-heading-m">Company name: A TEST COMPANY LIMITED<br/>
+          Company number: 01234567</h2>
+
+        <div class="govuk-warning-text govuk-!-margin-top-9">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            You must read the following statements
+          </strong>
+        </div>
+
+        <h3 class="govuk-heading-m">Important notice for all interested parties</h3>
+
+        <p>The company has applied to be struck off and dissolved. The registrar will proceed unless there is a reasonable cause not to, and on dissolution and assets remaining in the company will be passed to the Crown.
+          <a href="">Guidance is available on the grounds for rejection</a>. If in doubt, seek professional advice.</p>
+
+        <h3 class="govuk-heading-m">Declaration of directors</h3>
+
+        <p>I/We as director(s) / the majority of directors apply for this company to be struck off the Register and declare that none of the circumstances described in section 1004 or 1005 of the Companies Act 2006 (being circumstances in which the directors
+          would otherwise be prohibited under those sections.</p>
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+        {{ govukCheckboxes({
+          idPrefix: "waste",
+          name: "waste",
+          fieldset: {
+            legend: {
+              text: "I confirm I have read the statements",
+              isPageHeading: false,
+              classes: "govuk-visually-hidden"
+            }
+          },
+
+
+          items: [
+            {
+              value: "carcasses",
+              text: "I confirm I have read the statements"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="full-name">
+            Enter your name
+          </label>
+          <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false">
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <p class="govuk-!-margin-bottom-2">
+                Enter today's date
+              </p>
+            </legend>
+
+            <div class="govuk-date-input" id="passport-issued">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Authorise application</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
