@@ -1,78 +1,80 @@
 {% extends "layout.html" %}
 
-{% block page_title %}
-  Before you start
+{% block pageTitle %}
+  Who to tell about the company closing
 {% endblock %}
-
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+{% endblock %}
 {% block content %}
 
   <main id="content" role="main">
 
-    {% block phase_banner %}
-      {% include "includes/phase_banner_beta.html" %}
-    {% endblock %}
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "#"
+    }) }}
 
     <div class="govuk-grid-row">
-      <div class="column-two-thirds">
-        <p>
-          <a href="start" class="link-back">Back</a>
-        </p>
-        {% if declarationErr %}
-          <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
-            <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
-              There's an error
-            </h2>
-            <ul class="error-summary-list">
-              <li>
-                <a href="#declaration">{{ declarationErr.msg }}</a>
-              </li>
-            </ul>
-          </div>
-        {% endif %}
-        <h1 class="heading-xlarge">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
           Who to tell about the company closing
         </h1>
-        <p>The director(s) must give a copy of the application to all interested parties within 7 days of it's submission.</p>
-        <p>Interested parties may include</p>
-        <ul class="list list-bullet">
-          <li>members, usually shareholders</li>
-          <li>creditors</li>
-          <li>employees</li>
-        </ul>
-        <p>
-          Read the full list of
-          <a href="https://www.gov.uk/government/publications/company-strike-off-dissolution-and-restoration/strike-off-dissolution-and-restoration-gp4#how-to-apply-for-strike-off-and-who-to-tell" title="Who to tell about the company closing">who to tell<span class="visuallyhidden">
-              about the company closing</span>
-          </a>.
-        </p>
-        <div class="notice" style="margin-bottom: 1.5em;">
-          <i class="icon icon-important">
-            <span class="visuallyhidden">Warning</span>
-          </i>
-          <strong class="bold-small">
-            It's a criminal offence not to tell all interested parties
-          </strong>
-        </div>
-        <form method="POST" action="">
-          <div class="form-group {% if declarationErr %}form-group-error{% endif %}">
-            <fieldset>
-              <div class="multiple-choice">
-                <input id="declaration" name="declaration" type="checkbox" value="agree" checked="checked">
-                <label for="declaration">
-                  The directors understand that they are responsible for notifying all interested parties
-                  {% if declarationErr %}
-                    <span class="error-message">
-                      {{declarationErr.msg}}
-                    </span>
-                  {% endif %}
-                </label>
-              </div>
-            </fieldset>
+        <p class="govuk-body-l">The director(s) must give a copy of the application to all interested parties within 7 days of it's submission.</p>
+
+        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              See the list of who to tell
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <ul class="govuk-list govuk-list--bullet">
+              <li>shareholders</li>
+              <li>creditors</li>
+              <li>employees</li>
+              <li>managers or trustees of any employee pension fund</li>
+              <li>directors who have not signed the form</li>
+            </ul>
           </div>
-          <div class="form-group">
-            <input type="submit" class="button" value="Continue"/>
-          </div>
-        </form>
+        </details>
+
+        {{ govukWarningText({
+          text: "It's a criminal offence not to tell all interested parties",
+          iconFallbackText: "Warning"
+        }) }}
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+    idPrefix: "waste",
+    name: "waste",
+    fieldset: {
+      legend: {
+        text: "The directors understand that they are responsible for ensuring all interested parties are notified.",
+        isPageHeading: false,
+        classes: "govuk-visually-hidden"
+      }
+    },
+
+    items: [
+      {
+        value: "farm",
+        text: "The directors understand that they are responsible for ensuring all interested parties are notified."
+      }
+    ]
+  }) }}
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Continue",
+          href: "which-company-to-close"
+        }) }}
       </div>
     </div>
   </main>
