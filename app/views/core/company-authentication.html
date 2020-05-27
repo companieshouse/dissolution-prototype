@@ -1,63 +1,38 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Blank page
+  Company authentication
 {% endblock %}
 
 {% block content %}
 
   <main id="content" role="main">
 
-    {% block phase_banner %}
-      {% include "includes/phase_banner_beta.html" %}
-    {% endblock %}
-
     <div class="govuk-grid-row">
-      <div class="column-two-thirds">
-        <p>
-          <a href="which-company-to-close" class="link-back">Back</a>
-        </p>
-
-        {% if authCodeErr %}
-          <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
-            <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
-              There's an error
-            </h2>
-            <ul class="error-summary-list">
-              <li>
-                <a href="#company-auth-code">{{ authCodeErr.msg }}</a>
-              </li>
-            </ul>
-          </div>
-        {% endif %}
-
-        <h1 class="heading-xlarge">Company authentication</h1>
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Company authentication</h1>
         <form class="form" method="POST" action="">
           <p>To file company information you will need an authentication code.</p>
           <p>Authenticating for
             <br>
-            <span class="heading-medium" id="company-details">{{ scenario.company.name }}
-              ({{ scenario.company.number }})</span>
+            <span class="govuk-heading-m" id="company-details">A TEST COMPANY LIMITED</span>
           </p>
-          <div class="form-group {% if authCodeErr %}form-group-error{% endif %}">
-            <label class="form-label" for="company-auth-code">Authenticaton code
-
-              {% if authCodeErr %}
-                <span class="error-message">
-                  {{ authCodeErr.msg }}
-                </span>
-              {% endif %}
-
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+              Authentication code
             </label>
-            <input class="form-control" id="company-auth-code" name="authCode" type="text" value="8D95VF">
+            <input class="govuk-input govuk-!-width-three-quarters" id="event-name" name="event-name" type="password">
           </div>
-          <div class="form-group">
-            <input class="button" type="submit" value="Continue">
-          </div>
-          <a id="auth_code_request" href="">Request an authentication code</a>
-        </form>
-      </div>
-    </div>
-  </main>
 
-{% endblock %}
+          {{ govukButton({
+          text: "Authenticate",
+          href: "../forms/DS01/sole-director-v2/alternative-to-docusign"
+        }) }}
+          <p>
+            <a href="">Request an authentication code</a>
+          </p>
+        </div>
+      </div>
+    </main>
+
+  {% endblock %}

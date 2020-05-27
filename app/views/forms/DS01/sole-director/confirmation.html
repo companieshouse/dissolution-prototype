@@ -1,65 +1,53 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Confirmation page example
+  Submission complete
 {% endblock %}
-
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+{% endblock %}
 {% block content %}
 
-<main id="content" role="main">
+  <main id="content" role="main">
 
-  {% block phase_banner %}
-  {% include "includes/phase_banner_alpha.html" %}
-  {% endblock %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            We've received your application
+          </h1>
+          <div class="govuk-panel__body">
+            Application reference<br>
+            <strong>07253459
+            </strong>
+          </div>
+        </div>
 
-  <div class="govuk-grid-row">
-    <div class="column-two-thirds">
-
-      <div class="govuk-box-highlight">
-        <h1 class="bold-large">Submission complete</h1>
-        <p>
-          Your reference number is <br>
-          <strong class="heading-medium">DS01-05647510-AA57D</strong>
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p>We will email you within 2 working days to confirm acceptance or rejection of this application.
         </p>
+        <p>
+          <a href="https://coredbeta-coredev.cs83.force.com/servlet/servlet.FileDownload?file=00P4E000003jorEUAQ" target="_blank">Download a copy of the application (PDF 238Kb)</a>
+        </p>
+
+        <p>The director(s) must give a copy of the application to all interested parties within 7 days of it being submitted.
+          <a href="https://www.gov.uk/government/publications/company-strike-off-dissolution-and-restoration/strike-off-dissolution-and-restoration#who-to-tell-about-the-strike-off-application" target="_blank">Read the full list of who to tell.</a>
+        </p>
+        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+        {{ govukWarningText({
+          text: " Warning It is a criminal offence not to tell all interested parties ",
+          iconFallbackText: "Warning"
+        }) }}
+
+        <h2 class="govuk-heading-m">Cancel an application</h2>
+        <p>
+          <a href="">Cancel your application</a>
+          to close A TEST COMPANY LIMITED.</p>
       </div>
 
-      <h2 class="heading-medium">What happens now?</h2>
-      <p>We'll send you an email confirming your request to strike off Temlpleton Metal Work Limited.</p>
-      <div class="panel panel-border-wide">
-        <p><a href="/public/images/completed-form-newpdf.gif" target="_blank">Download a copy of your submitted request (PDF, 205Kb)</a></p>
-      </div>
-
-      <p>After <span class="bold-small">2 months</span>, Templeton Metal Work Limited will be removed from the register.</p>
-      <h2 class="heading-medium">Your next steps</h2>
-      <p>You must notify all notifiable parties by 14 April 2016 that this submission has been made. For more information, read the guidance on
-        <a href="https://www.gov.uk/government/publications/company-strike-off-dissolution-and-restoration/strike-off-dissolution-and-restoration-gp4">who to inform<span class="visuallyhidden"> when striking off a company</span>
-        </a>
-      </p>
-      <div class="notice">
-        <i class="icon icon-important">
-          <span class="visuallyhidden">Warning</span>
-        </i>
-        <strong class="bold-small">It is an offence not to notify all required parties</strong>
-      </div>
-
-      <h2 class="heading-medium">How to cancel this request</h2>
-      <p>If you need to cancel this request so that Templeton Metal Work Limited remains on the register, you can <a href="">submit a withdrawal to strike off</a>.</p>
     </div>
-    <div class="column-third">
-      <!--<aside class="govuk-related-items" role="complementary">
-      <h2 class="heading-medium" id="subsection-title">Popular forms</h2>
-      <nav role="navigation" aria-labelledby="subsection-title">
-      <ul class="font-xsmall">
-      <li><a href="#">Change of address (AD01)</a></li>
-      <li><a href="#">Company name change (NM01)</a></li>
-      <li><a href="#">Appoint a director (AP01)</a></li>
-      <li><a href="#" class="bold-xsmall">More <span class="visuallyhidden">forms for limited companies</span></a></li>
-    </ul>
-  </nav>
-</aside>-->
-</div>
-</div>
 
-</main>
+  </main>
 
 {% endblock %}

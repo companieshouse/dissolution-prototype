@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Payment review
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="payment" method="get" class="form">
+        <h1 class="govuk-heading-l">
+          Payment review
+        </h1>
+        {% from "govuk/components/table/macro.njk" import govukTable %}
+        {{ govukTable({
+                caption: "Payment review",
+                captionClasses: "govuk-visually-hidden",
+                firstCellIsHeader: true,
+                head: [
+                  {
+                    text: "Item"
+                  },
+                  {
+                    text: "Amount to pay",
+                    format: "numeric"
+
+                  }
+                ],
+                rows: [
+                  [
+                    {
+                        text: "Close a company"
+                    },
+                    {
+                      text: "£8",
+                      format: "numeric"
+
+                    }
+                  ]
+                ]
+              }) }}
+
+        <h3 class="govuk-heading-m">The total amount to pay is £8</h3>
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        {{ govukButton({
+              text: "Continue to payment"
+            }) }}
+
+      </form>
+
+    </div>
+    <!--govuk-grid-row-->
+  </div>
+  <!--govuk-grid-column-two-thirds-->
+
+</main>
+</div>
+<!---govuk-width-container-->
+
+{% endblock %}
