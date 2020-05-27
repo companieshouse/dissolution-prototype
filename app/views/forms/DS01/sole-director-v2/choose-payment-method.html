@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  How do you want to pay?
+
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">How do you want to pay?
+        </h1>
+        <p class="govuk-body-l">You need to pay £8.00 before you can submit this application.
+        </p>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          idPrefix: "where-do-you-live",
+          name: "where-do-you-live",
+          fieldset: {
+            legend: {
+              text: "How do you want to pay?",
+              isPageHeading: false,
+              classes: "govuk-visually-hidden"
+            }
+          },
+          items: [
+            {
+              value: "england",
+              text: "Credit or debit card"
+            },
+            {
+              value: "scotland",
+              text: "PayPal"
+            },
+            {
+              value: "wales",
+              text: "Companies House account"
+            }
+          ]
+        }) }}
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+        text: "Continue",
+        href: "payment-review"
+      }) }}
+
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
