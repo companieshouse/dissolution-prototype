@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Check the company details
+  Confirm this is the correct company
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -19,7 +19,8 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Check company details</h1>
+        <h1 class="govuk-heading-xl">Confirm this is the correct company
+        </h1>
         <h2 class="govuk-heading-l">
           A TEST COMPANY LIMITED
         </h2>
@@ -53,7 +54,7 @@
         {% from "govuk/components/button/macro.njk" import govukButton %}
 
         {{ govukButton({
-        text: "Continue",
+        text: "Confirm",
         href: "/core/company-authentication"
       }) }}
 

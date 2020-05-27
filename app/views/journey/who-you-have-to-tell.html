@@ -22,26 +22,16 @@
         <h1 class="govuk-heading-xl">
           Who to tell about the company closing
         </h1>
-        <p class="govuk-body-l">The director(s) must give a copy of the application to all interested parties within 7 days of it's submission.</p>
+        <p class="govuk-body-l">Directors must give a copy of the application to all interested parties within 7 days of it being submitted.
+        </p>
+        <p>
+          <a href="https://www.gov.uk/government/publications/company-strike-off-dissolution-and-restoration/strike-off-dissolution-and-restoration#who-to-tell-about-the-strike-off-application">See the list of who to tell</a>
+        </p>
 
         {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-        <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              See the list of who to tell
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            <ul class="govuk-list govuk-list--bullet">
-              <li>shareholders</li>
-              <li>creditors</li>
-              <li>employees</li>
-              <li>managers or trustees of any employee pension fund</li>
-              <li>directors who have not signed the form</li>
-            </ul>
-          </div>
-        </details>
+        <!-- <details class="govuk-details" data-module="govuk-details"> <summary class="govuk-details__summary"> <span class="govuk-details__summary-text"> See the list of who to tell </span> </summary> <div class="govuk-details__text"> <ul
+        class="govuk-list govuk-list--bullet"> <li>shareholders</li> <li>creditors</li> <li>employees</li> <li>managers or trustees of any employee pension fund</li> <li>directors who have not signed the form</li> </ul> </div> </details>-->
 
         {{ govukWarningText({
           text: "It's a criminal offence not to tell all interested parties",
@@ -51,11 +41,11 @@
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
         {{ govukCheckboxes({
-    idPrefix: "waste",
-    name: "waste",
+    idPrefix: "",
+    name: "",
     fieldset: {
       legend: {
-        text: "The directors understand that they are responsible for ensuring all interested parties are notified.",
+        text: "The directors understand that they are responsible for notifying all interested parties.",
         isPageHeading: false,
         classes: "govuk-visually-hidden"
       }
@@ -63,8 +53,8 @@
 
     items: [
       {
-        value: "farm",
-        text: "The directors understand that they are responsible for ensuring all interested parties are notified."
+        value: "",
+        text: "The directors understand that they are responsible for notifying all interested parties."
       }
     ]
   }) }}

@@ -23,6 +23,7 @@
             </label>
             <input class="govuk-input govuk-!-width-three-quarters" id="event-name" name="event-name" type="password">
           </div>
+          {% from "govuk/components/button/macro.njk" import govukButton %}
 
           {{ govukButton({
           text: "Authenticate",

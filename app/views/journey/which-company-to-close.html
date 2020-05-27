@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Tell us which company you want to close
+  What is the company number?
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -19,21 +19,23 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Tell us which company you want to close</h1>
+        <h1 class="govuk-heading-xl">What is the company number?
+        </h1>
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
         {{ govukInput({
             label: {
-              text: "Enter the company number"
+              text: "This is the 8 character reference issued by Companies House when the company was set up. "
             },
             id: "event-name",
+            classes: " govuk-!-width-one-quarter",
             name: "event-name"
           }) }}
 
         <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
-              Help with the company number
+              Help with company number
             </span>
           </summary>
           <div class="govuk-details__text">
@@ -47,7 +49,7 @@
 
         {{ govukButton({
         text: "Continue",
-        href: "/forms/DS01/single-director-v2/confirm-the-company"
+        href: "/forms/DS01/sole-director-v2/confirm-the-company"
       }) }}
 
       </div>
