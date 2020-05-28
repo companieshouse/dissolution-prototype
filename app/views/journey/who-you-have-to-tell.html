@@ -22,10 +22,11 @@
         <h1 class="govuk-heading-xl">
           Who to tell about the company closing
         </h1>
-        <p class="govuk-body-l">Directors must give a copy of the application to all interested parties within 7 days of it being submitted.
+        <p class="govuk-body">Directors must give a copy of this application to all interested parties within 7 days of it being submitted.
         </p>
-        <p>
-          <a href="https://www.gov.uk/government/publications/company-strike-off-dissolution-and-restoration/strike-off-dissolution-and-restoration#who-to-tell-about-the-strike-off-application">See the list of who to tell</a>
+
+<p>Read the
+          <a href="https://www.gov.uk/government/publications/company-strike-off-dissolution-and-restoration/strike-off-dissolution-and-restoration#who-to-tell-about-the-strike-off-application">full list of parties you must tell about the company closing (opens in a new window or tab)</a>.
         </p>
 
         {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
@@ -34,7 +35,7 @@
         class="govuk-list govuk-list--bullet"> <li>shareholders</li> <li>creditors</li> <li>employees</li> <li>managers or trustees of any employee pension fund</li> <li>directors who have not signed the form</li> </ul> </div> </details>-->
 
         {{ govukWarningText({
-          text: "It's a criminal offence not to tell all interested parties",
+          text: "Directors can be fined or imprisoned if they do not inform all interested parties. ",
           iconFallbackText: "Warning"
         }) }}
 
