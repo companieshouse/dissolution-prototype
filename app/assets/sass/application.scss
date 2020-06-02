@@ -247,3 +247,9 @@ table {
   padding: 15px;
   background-color: #f8f8f8;
 }
+
+.sticky {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 10px;
+}

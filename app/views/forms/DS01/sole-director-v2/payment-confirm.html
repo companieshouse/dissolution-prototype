@@ -13,11 +13,6 @@
         <h1 class="govuk-heading-l">
           Confirm your payment
         </h1>
-        {% from "govuk/components/button/macro.njk" import govukButton %}
-
-        {{ govukButton({
-              html: "Pay <strong>£8</strong> now"
-            }) }}
 
         <h2 class="govuk-heading-m">Payment summary</h2>
         {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
@@ -64,7 +59,11 @@
             }
           ]
         }) }}
+        {% from "govuk/components/button/macro.njk" import govukButton %}
 
+        {{ govukButton({
+              html: "Pay <strong>£8</strong> now"
+            }) }}
         <p>
           <a href="#" class="govuk-link">Cancel payment</a>
         </p>

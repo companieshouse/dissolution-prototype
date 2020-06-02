@@ -1,75 +1,44 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Blank page
+  Sign in
 {% endblock %}
 
 {% block content %}
 
   <main id="content" role="main">
 
-    {% block phase_banner %}
-      {% include "includes/phase_banner_beta.html" %}
-    {% endblock %}
-
     <div class="govuk-grid-row">
-      <div class="column-two-thirds">
-        {% if errorEmail or errorPassword %}
-          <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
-            <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
-              There's an error
-            </h2>
-            <ul class="error-summary-list">
-              {% if errorEmail.type %}
-                <li>
-                  <a href="#declaration">{{ errorEmail.msg }}</a>
-                </li>
-              {% endif %}
-              {% if errorPassword.type %}
-                <li>
-                  <a href="#declaration">{{ errorPassword.msg }}</a>
-                </li>
-              {% endif %}
-            </ul>
-          </div>
-        {% endif %}
-        <h1 class="heading-xlarge">Sign in to Companies House</h1>
-        <form class="form" method="POST" action="" name="signin">
-          <div class="form-group {% if errorEmail %}form-group-error{% endif %}">
-            <label class="form-label" for="signin-email">
-              Email address
-              {% if errorEmail %}
-                <span class="error-message">
-                  {{ errorEmail.msg }}
-                </span>
-              {% endif %}
-            </label>
-            <input class="form-control" id="signin-email" name="email" type="email" value="owilliams@companieshouse.gov.uk">
-          </div>
-          <div class="form-group {% if errorPassword %}form-group-error{% endif %}">
-            <label class="form-label" for="signin-password">
-              Password
-              {% if errorPassword %}
-                <span class="error-message">
-                  {{ errorPassword.msg }}
-                </span>
-              {% endif %}
-            </label>
-            <input class="form-control" id="signin-password" name="password" type="password" value="12345678">
-          </div>
-          <div class="form-group">
-            <input class="button" type="submit" value="Sign in">
-          </div>
-          <p>
-            <a href="register">Register</a>
-          </p>
-          <p>
-            <a href="password-reminder">Forgotten your password?</a>
-          </p>
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Sign in to Companies House</h1>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="signin-email">
+            Email address
 
-        </form>
+          </label>
+          <input class="govuk-input  govuk-!-width-three-quarters" id="signin-email" name="email" type="email" value="">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="signin-password">
+            Password
+
+          </label>
+          <input class="govuk-input  govuk-!-width-three-quarters" id="signin-password" name="password" type="password" value="">
+        </div>
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Sign in",
+          href: "/which-company-to-close"
+        }) }}
+        <p>
+          <a href="register">Register</a>
+        </p>
+        <p>
+          <a href="password-reminder">Forgotten your password?</a>
+        </p>
+
       </div>
-      <div class="column-third"></aside>
 
     </div>
   </div>
