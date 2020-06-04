@@ -10,27 +10,29 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Sign in to Companies House</h1>
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="signin-email">
-            Email address
+        <form class="form" action="/which-company-to-close" method="get">
 
-          </label>
-          <input class="govuk-input  govuk-!-width-three-quarters" id="signin-email" name="email" type="email" value="">
-        </div>
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="signin-password">
-            Password
+          <h1 class="govuk-heading-xl">Sign in to Companies House</h1>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="signin-email">
+              Email address
 
-          </label>
-          <input class="govuk-input  govuk-!-width-three-quarters" id="signin-password" name="password" type="password" value="">
-        </div>
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+            </label>
+            <input class="govuk-input  govuk-!-width-three-quarters" id="signin-email" name="signin-email" type="email" value="">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="signin-password">
+              Password
 
-        {{ govukButton({
-          text: "Sign in",
-          href: "/which-company-to-close"
+            </label>
+            <input class="govuk-input  govuk-!-width-three-quarters" id="signin-password" name="password" type="password" value="">
+          </div>
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+          text: "Sign in"
         }) }}
+        </form>
         <p>
           <a href="register">Register</a>
         </p>
