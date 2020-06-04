@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who is signing for John SMITH?
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/forms/DS01/sole-director-v2/check-before-you-submit-other-signer-on-behalf" method="get">
+
+          <h1 class="govuk-heading-xl">
+            Who is signing for John SMITH?
+          </h1>
+          {% from "govuk/components/input/macro.njk" import govukInput %}
+
+          {{ govukInput({
+        label: {
+                text: "What is the name of the person signing for John SMITH?"
+              },
+              id: "v2-behalf-signing-name",
+              name: "v2-behalf-signing-name"
+            }) }}
+
+          {{ govukInput({
+          label: {
+                  text: "What is their email address?"
+                },
+                id: "v2-behalf-signing-email",
+                name: "v2-behalf-signing-email"
+              }) }}
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+        text: "Continue"
+      }) }}
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

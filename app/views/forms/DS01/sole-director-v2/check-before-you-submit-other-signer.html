@@ -24,32 +24,60 @@
         <h1 class="govuk-heading-xl">Check your answers</h1>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Name of director signing
+              Is someone else signing on behalf of John SMITH?
             </dt>
             <dd class="govuk-summary-list__value">
-              John Smith
+              No
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
                 Change<span class="govuk-visually-hidden">
-                  contact details</span>
+                  is someone else signing on behalf of John SMITH?</span>
               </a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Date of signing
+              John SMITH's email address
             </dt>
             <dd class="govuk-summary-list__value">
-              2 June 2020
+              jsmith@testcompany.co.uk
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
                 Change<span class="govuk-visually-hidden">
-                  contact details</span>
+                  John SMITH's email address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Your name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Jane Doe
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden">
+                  your name</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Your phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              01234 567890
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden">
+                  your name</span>
               </a>
             </dd>
           </div>
@@ -59,8 +87,8 @@
         {% from "govuk/components/button/macro.njk" import govukButton %}
 
         {{ govukButton({
-        text: "Continue to payment",
-        href: "payment"
+        text: "Confirm",
+        href: "/forms/DS01/sole-director-v2/wait-to-sign"
       }) }}
 
       </div>

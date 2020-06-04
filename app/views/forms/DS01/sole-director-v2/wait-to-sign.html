@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Wait for John SMITH to approve the application
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% set mainClasses = "govuk-main-wrapper--l" %}
+
+        {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+        {{ govukPanel({
+                titleText: "Wait for John Smith to approve the application"
+              }) }}
+
+        <p class="govuk-body">We've sent John SMITH an email at
+          <span class="govuk-!-font-weight-bold">jsmith@testcompany.co.uk</span>
+          to request their approval.</p>
+
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

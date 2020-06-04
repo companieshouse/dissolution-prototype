@@ -5,6 +5,8 @@
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
 {% endblock %}
 {% block content %}
 
@@ -27,9 +29,9 @@
             label: {
               text: "This is the 8 character reference issued by Companies House when the company was set up. "
             },
-            id: "event-name",
+            id: "which-company-to-close",
             classes: " govuk-!-width-one-quarter",
-            name: "event-name"
+            name: "which-company-to-close"
           }) }}
 
         <details class="govuk-details" data-module="govuk-details">

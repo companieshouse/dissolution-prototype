@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Is someone else signing for John SMITH?
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/forms/DS01/sole-director-v2/check-before-you-submit-other-signer" method="get">
+
+          <h1 class="govuk-heading-xl">
+            Is someone else signing for John SMITH?
+          </h1>
+
+          {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+          {{ govukWarningText({
+          text: "Only someone with the power of attorney can approve this application.",
+          iconFallbackText: "Warning"
+        }) }}
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "v2someoneElseSigning",
+            name: "v2someoneElseSigning",
+            fieldset: {
+              legend: {
+                text: "  Is someone else signing for John SMITH?",
+                isPageHeading: false,
+                classes: "govuk-visually-hidden"
+              }
+            },
+
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+        text: "Continue"
+      }) }}
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
