@@ -43,7 +43,7 @@
               Name of person signing
             </dt>
             <dd class="govuk-summary-list__value">
-              A N Other
+              {{ data['v2-behalf-signing-name'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -57,7 +57,7 @@
               The person's email address
             </dt>
             <dd class="govuk-summary-list__value">
-              another@example.co.uk
+              {{ data['v2-behalf-signing-email'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -72,7 +72,7 @@
         {% from "govuk/components/button/macro.njk" import govukButton %}
 
         {{ govukButton({
-        text: "Confirm",
+        text: "Confirm and continue",
         href: "/forms/DS01/sole-director-v2/wait-to-sign-other-signer"
       }) }}
 

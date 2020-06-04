@@ -14,6 +14,10 @@
 
     {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
+    {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+          }) }}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <form class="form" action="/forms/DS01/sole-director-v2/check-before-you-submit-other-signer-on-behalf" method="get">

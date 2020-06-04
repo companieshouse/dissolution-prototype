@@ -14,6 +14,13 @@
 
     {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
+    {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+          }) }}
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
@@ -21,12 +28,20 @@
 
         {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
-        {{ govukPanel({
-                titleText: "Wait for A N Other to approve the application"
-              }) }}
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Wait for
+            {{ data['v2-behalf-signing-name'] }}
+            to approve the application
+          </h1>
 
-        <p class="govuk-body">We've sent A N Other an email at
-          <span class="govuk-!-font-weight-bold">another@example.co.uk</span>
+        </div>
+
+        <p class="govuk-body">We've sent
+          {{ data['v2-behalf-signing-name'] }}
+          an email at
+          <span class="govuk-!-font-weight-bold">
+            {{ data['v2-behalf-signing-email'] }}</span>
           to request their approval.</p>
 
       </div>
