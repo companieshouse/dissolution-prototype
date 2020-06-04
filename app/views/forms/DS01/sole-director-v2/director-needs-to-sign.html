@@ -40,30 +40,8 @@
             name: "v2-behalf-director-email"
           }) }}
 
-          {{ govukInput({
-        label: {
-                text: "What is your name? (optional)"
-              },
-              hint: {
-                text: "We need this in case we need to contact you"
-              },
-              id: "v2-behalf-contact-name",
-              name: "v2-behalf-contact-name"
-            }) }}
-
-          {{ govukInput({
-            label: {
-              text: "What is your phone number? (optional)"
-            },
-            hint: {
-              text: "We need this in case we need to contact you"
-            },
-            id: "v2-behalf-contact-phone",
-            name: "v2-behalf-contact-phone",
-            type: "tel",
-            autocomplete: "tel",
-            classes: "govuk-input--width-20"
-          }) }}
+          <!-- {{ govukInput({ label: { text: "What is your name? (optional)" }, hint: { text: "We need this in case we need to contact you" }, id: "v2-behalf-contact-name", name: "v2-behalf-contact-name" }) }} {{ govukInput({ label: { text: "What is your
+          phone number? (optional)" }, hint: { text: "We need this in case we need to contact you" }, id: "v2-behalf-contact-phone", name: "v2-behalf-contact-phone", type: "tel", autocomplete: "tel", classes: "govuk-input--width-20" }) }}-->
           {% from "govuk/components/button/macro.njk" import govukButton %}
 
           {{ govukButton({
