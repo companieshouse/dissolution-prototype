@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Which directors will be authorising the application?
+  Which director(s) will be authorising the application?
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -32,7 +32,7 @@
             name: "waste",
             fieldset: {
               legend: {
-                text: "Which directors will be authorising the application?",
+                text: "Which director(s) will be authorising the application?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--xl"
               }
@@ -46,21 +46,14 @@
               text: "John SMITH "
             },
               {
-                value: "janeLouiseSmith",
-                text: "Jane Louise SMITH "
+                value: "janeEvans",
+                text: "Jane EVANS"
               },
               {
                 value: "drAWilliams",
                 text: "Dr A WILLIAMS"
-              },
-              {
-                value: "lisaThomas",
-                text: "Lisa THOMAS"
-              },
-              {
-                value: "arthurStuartEvans",
-                text: "Arthur Stuart EVANS"
               }
+
             ]
           }) }}
 
