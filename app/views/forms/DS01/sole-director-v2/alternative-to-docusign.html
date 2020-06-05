@@ -47,8 +47,8 @@
 
           {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
           {{ govukCheckboxes({
-          idPrefix: "waste",
-          name: "waste",
+          idPrefix: "confirmStatements",
+          name: "confirmStatements",
           fieldset: {
             legend: {
               text: "I confirm I have read the statements",
@@ -61,7 +61,7 @@
           items: [
             {
               value: "carcasses",
-              html: "I confirm I have read and understood the statements - <strong>John SMITH</strong> on <strong>4 June 2020</strong>"
+              html: "I confirm I have read and understood the statements - <strong>John SMITH</strong> on <strong>8 June 2020</strong>"
             }
           ]
         }) }}

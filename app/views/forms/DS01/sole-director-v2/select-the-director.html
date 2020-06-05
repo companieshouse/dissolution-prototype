@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Which directors will be authorising the application?
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+          }) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/forms/DS01/sole-director-v2/alternative-to-docusign" method="get">
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+          {{ govukCheckboxes({
+            idPrefix: "waste",
+            name: "waste",
+            fieldset: {
+              legend: {
+                text: "Which directors will be authorising the application?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            hint: {
+              text: "A majority of directors must authorise the application"
+            },
+            items: [
+            {
+              value: "johnSmith",
+              text: "John SMITH "
+            },
+              {
+                value: "janeLouiseSmith",
+                text: "Jane Louise SMITH "
+              },
+              {
+                value: "drAWilliams",
+                text: "Dr A WILLIAMS"
+              },
+              {
+                value: "lisaThomas",
+                text: "Lisa THOMAS"
+              },
+              {
+                value: "arthurStuartEvans",
+                text: "Arthur Stuart EVANS"
+              }
+            ]
+          }) }}
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+              text: "Confirm"
+            }) }}
+
+          <!-- {% from "govuk/components/radios/macro.njk" import govukRadios %} {{ govukRadios({ idPrefix: "whichDirectorAreYou", name: "whichDirectorAreYou", fieldset: { legend: { text: "Which director are you?", isPageHeading: true, classes:
+          "govuk-fieldset__legend--xl" } }, items: [ { value: "johnSmith", text: "John SMITH" }, { divider: "or" }, { value: "notDirector", text: "I am not a director of this company" } ] }) }} {{ govukButton({ text: "Confirm" }) }}-->
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
