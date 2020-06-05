@@ -18,7 +18,7 @@ require( './routes/journey.js' )( router )
 router.get( '/forms/DS01/sole-director-v2/alternative-to-docusign', function ( req, res ) {
 	var v2confirmDirector = req.query.v2confirmDirector
 	if ( v2confirmDirector === 'no' ) {
-		res.redirect( '/forms/DS01/sole-director-v2/director-needs-to-sign' )
+		res.redirect( '/forms/DS01/sole-director-v2/someone-else-signing' )
 	} else {
 		res.render( 'forms/DS01/sole-director-v2/alternative-to-docusign' )
 	}
@@ -26,12 +26,12 @@ router.get( '/forms/DS01/sole-director-v2/alternative-to-docusign', function ( r
 
 //   V2 Is someone else signing for John SMITH?
 
-router.get( '/forms/DS01/sole-director-v2/check-before-you-submit-other-signer', function ( req, res ) {
+router.get( '/forms/DS01/sole-director-v2/director-needs-to-sign', function ( req, res ) {
 	var v2someoneElseSigning = req.query.v2someoneElseSigning
 	if ( v2someoneElseSigning === 'yes' ) {
 		res.redirect( '/forms/DS01/sole-director-v2/who-is-signing' )
 	} else {
-		res.render( 'forms/DS01/sole-director-v2/check-before-you-submit-other-signer' )
+		res.render( 'forms/DS01/sole-director-v2/director-needs-to-sign' )
 	}
 } )
 
