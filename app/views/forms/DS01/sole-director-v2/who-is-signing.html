@@ -25,11 +25,11 @@
           <h1 class="govuk-heading-xl">
             Who is signing for John SMITH?
           </h1>
-          {% from "govuk/components/input/macro.njk" import govukInput %}
+            {% from "govuk/components/input/macro.njk" import govukInput %}
 
           {{ govukInput({
         label: {
-                text: "What is the name of the person signing for John SMITH?"
+                text: "Full name"
               },
               id: "v2-behalf-signing-name",
               name: "v2-behalf-signing-name"
@@ -37,7 +37,10 @@
 
           {{ govukInput({
           label: {
-                  text: "What is their email address?"
+                  text: "Email address"
+                },
+                hint: {
+                  text: "We will email them to sign the application"
                 },
                 id: "v2-behalf-signing-email",
                 name: "v2-behalf-signing-email"
