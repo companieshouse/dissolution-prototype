@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Are you John SMITH?
+  Are you Robin SMITH?
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -25,12 +25,12 @@
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-          {{ govukRadios({ classes: "govuk-radios--inline", idPrefix: "v2confirmDirector", name: "v2confirmDirector", fieldset: { legend: { text: "Are you John SMITH?", isPageHeading: true, classes: "govuk-fieldset__legend--xl" } }, items: [ { value:
+          {{ govukRadios({ classes: "govuk-radios--inline", idPrefix: "v2confirmDirector", name: "v2confirmDirector", fieldset: { legend: { text: "Are you Robin SMITH?", isPageHeading: true, classes: "govuk-fieldset__legend--xl" } }, items: [ { value:
           "yes", text: "Yes" }, { value: "no", text: "No" } ] }) }}
           {% from "govuk/components/button/macro.njk" import govukButton %}
           {{ govukButton({ text: "Confirm" }) }}
           <!-- <p class="govuk-!-margin-top-9"></p> {% from "govuk/components/radios/macro.njk" import govukRadios %} {{ govukRadios ({ idPrefix: "whichDirectorAreYou", name: "whichDirectorAreYou", fieldset: { legend: { text: "Which director are you?",
-          isPageHeading: true, classes: "govuk-fieldset__legend--xl" } }, items: [ { value: "johnSmith", text: "John SMITH" }, { value: "janeLouiseSmith", text: "Jane Louise SMITH" }, { value: "drAWilliams", text: "Dr A WILLIAMS" }, { value: "lisaThomas",
+          isPageHeading: true, classes: "govuk-fieldset__legend--xl" } }, items: [ { value: "johnSmith", text: "Robin SMITH" }, { value: "janeLouiseSmith", text: "Jane Louise SMITH" }, { value: "drAWilliams", text: "Dr A WILLIAMS" }, { value: "lisaThomas",
           text: "Lisa THOMAS" }, { value: "arthurStuartEvans", text: "Arthur Stuart EVANS" }, { divider: "or" }, { value: "notDirector", text: "I am not a director of this company" } ] }) }} {{ govukButton({ text: "Confirm" }) }}-->
 
         </form>

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  John SMITH needs to sign this application
+  Robin SMITH needs to sign this application
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -25,13 +25,13 @@
       <div class="govuk-grid-column-two-thirds">
         <form class="form" action="check-before-you-submit-other-signer" method="get">
 
-          <h1 class="govuk-heading-xl">John SMITH needs to sign this application</h1>
+          <h1 class="govuk-heading-xl">Robin SMITH needs to sign this application</h1>
 
           {% from "govuk/components/input/macro.njk" import govukInput %}
 
           {{ govukInput({
       label: {
-              text: "What is John SMITH's email address?"
+              text: "What is Robin SMITH's email address?"
             },
             hint: {
               text: "We'll send an email to ask them to sign the application. "

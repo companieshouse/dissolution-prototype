@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Wait for John SMITH to approve the application
+  Wait for Robin SMITH to approve the application
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -29,10 +29,10 @@
         {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
         {{ govukPanel({
-                titleText: "Wait for John Smith to approve the application"
+                titleText: "Wait for Robin SMITH to approve the application"
               }) }}
 
-        <p class="govuk-body">We've sent John SMITH an email at
+        <p class="govuk-body">We've sent Robin SMITH an email at
           <span class="govuk-!-font-weight-bold">{{ data['v2-behalf-director-email'] }}</span>
           to request their approval.</p>
 

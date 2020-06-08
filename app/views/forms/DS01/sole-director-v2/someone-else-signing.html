@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Is someone else signing for John SMITH?
+  Is someone else signing for Robin SMITH?
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -23,13 +23,13 @@
         <form class="form" action="/forms/DS01/sole-director-v2/director-needs-to-sign" method="get">
 
           <h1 class="govuk-heading-xl">
-            Is someone else signing for John SMITH?
+            Is someone else signing for Robin SMITH?
           </h1>
 
           {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
           {{ govukWarningText({
-          text: "The person signing must have power of attorney for John SMITH.",
+          text: "The person signing must have power of attorney for Robin SMITH.",
           iconFallbackText: "Warning"
         }) }}
 
@@ -41,7 +41,7 @@
             name: "v2someoneElseSigning",
             fieldset: {
               legend: {
-                text: "  Is someone else signing for John SMITH?",
+                text: "  Is someone else signing for Robin SMITH?",
                 isPageHeading: false,
                 classes: "govuk-visually-hidden"
               }

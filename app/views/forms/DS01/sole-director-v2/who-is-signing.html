@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Who is signing for John SMITH?
+  Who is signing for Robin SMITH?
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -23,9 +23,9 @@
         <form class="form" action="/forms/DS01/sole-director-v2/check-before-you-submit-other-signer-on-behalf" method="get">
 
           <h1 class="govuk-heading-xl">
-            Who is signing for John SMITH?
+            Who is signing for Robin SMITH?
           </h1>
-            {% from "govuk/components/input/macro.njk" import govukInput %}
+          {% from "govuk/components/input/macro.njk" import govukInput %}
 
           {{ govukInput({
         label: {
