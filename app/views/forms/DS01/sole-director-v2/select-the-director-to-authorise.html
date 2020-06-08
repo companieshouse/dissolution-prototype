@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Which director are you?
+  Which other director(s) will be authorising the application?
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -21,25 +21,21 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/forms/DS01/sole-director-v2/select-the-director-to-authorise" method="get">
+        <form class="form" action="/forms/DS01/sole-director-v2/select-the-directors-method" method="get">
 
-          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
-          {{ govukRadios({
+          {{ govukCheckboxes({
             idPrefix: "waste",
             name: "waste",
             fieldset: {
               legend: {
-                text: "Which director are you?",
+                text: "  Which other director(s) will be authorising the application?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--xl"
               }
             },
             items: [
-            {
-              value: "johnSmith",
-              text: "Robin SMITH "
-            },
               {
                 value: "janeEvans",
                 text: "Jane EVANS"
@@ -55,14 +51,7 @@
               {
                 value: "simonPaulThomas",
                 text: "Simon Paul THOMAS"
-              },
-                {
-                  divider: "or"
-                },
-                {
-                  value: "notDirector",
-                  text: "I am not a director of this company"
-                }
+              }
 
             ]
           }) }}

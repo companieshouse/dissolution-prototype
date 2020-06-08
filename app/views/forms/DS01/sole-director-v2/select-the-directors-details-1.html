@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  How will the director(s) be authorising the application?
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+          }) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/forms/DS01/sole-director-v2/select-the-directors-check-before-you-submit" method="get">
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+          <h1 class="govuk-heading-xl">
+            Page title
+          </h1>
+
+          <h2 class="govuk-heading-l">Director(s) you've told us will be signing</h2>
+        </h2>
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        <h3 class="govuk-heading-m">Jane EVANS</h2>
+      </h3>
+      {{ govukInput({
+        label: {
+                text: "What is Jane EVANS email address?"
+              },
+              hint: {
+                text: "We'll send an email to ask them to sign the application. "
+              },
+              id: "v2-behalf-director-email",
+              name: "v2-behalf-director-email"
+            }) }}
+
+      <h2 class="govuk-heading-l">Director(s) you've told us that someone will be signing on their behalf</h2>
+    </h2>
+
+    <h3 class="govuk-heading-m">Dr A WILLIAMS</h2>
+  </h3>
+  {{ govukInput({
+  label: {
+          text: "Enter the name of the person authorised to sign on behalf of Dr A WILLIAMS"
+        },
+        id: "v2-behalf-signing-name",
+        name: "v2-behalf-signing-name"
+      }) }}
+
+  {{ govukInput({
+    label: {
+            text: "Email address"
+          },
+          hint: {
+            text: "We'll send an email to ask them to sign the application."
+          },
+          id: "v2-behalf-signing-email",
+          name: "v2-behalf-signing-email"
+        }) }}
+
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+  {{ govukButton({
+              text: "Confirm"
+            }) }}
+
+</form>
+
+</div>
+</div>
+</main>
+
+{% endblock %}
