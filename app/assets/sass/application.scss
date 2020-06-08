@@ -270,3 +270,52 @@ ul#navigation {
     overflow-wrap: break-word;
   }
 }
+/// interruption card ///
+
+.interruption-card {
+  padding: 2em 3em;
+  background: #1d70b8 url("/public/images/file-accounts-and-cic-report-transparent.png") no-repeat 95% 60%;
+
+  .govuk-button {
+    background-color: #fff;
+    color: #000;
+
+    &:hover {
+      background-color: #b1b4b6;
+    }
+  }
+
+  h1 {
+    color: #fff;
+  }
+
+  h2 {
+    display: inline;
+    color: #fff;
+  }
+
+  a:link,
+  a:visited {
+    color: #fff !important;
+  }
+
+  .button {
+    background-color: #1d70b8;
+    color: #1d70b8;
+    font-weight: 700;
+
+    &:focus,
+    &:hover {
+      background-color: #1d70b8;
+      color: #1d70b8;
+    }
+  }
+
+  .circle-white {
+    background-color: #fff;
+    color: #000;
+    margin-right: 0.5em;
+    position: relative;
+    top: -.3em;
+  }
+}

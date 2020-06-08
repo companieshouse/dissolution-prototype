@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  How will the other director(s) be authorising the application?
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+          }) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/forms/DS01/sole-director-v2/select-the-directors-details-1" method="get">
+          <div class="interruption-card">
+            <header>
+              <h1 class="govuk-heading-l">You're about to do something</h1>
+            </header>
+
+            {% from "govuk/components/button/macro.njk" import govukButton %}
+
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
