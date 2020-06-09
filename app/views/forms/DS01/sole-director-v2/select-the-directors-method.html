@@ -40,16 +40,34 @@
                 }) }}
           {% endset -%}
 
+          {% set drHtml %}
+          {{ govukInput({
+          label: {
+                  text: "Enter the name of the person authorised to sign on behalf of Dr A WILLIAMS"
+                },
+                id: "v2-behalf-signing-name",
+                name: "v2-behalf-signing-name"
+              }) }}
+
+          {{ govukInput({
+            label: {
+                    text: "Email address"
+                  },
+                  hint: {
+                    text: "We'll send an email to ask them to sign the application."
+                  },
+                  id: "v2-behalf-signing-email",
+                  name: "v2-behalf-signing-email"
+                }) }}
+          {% endset -%}
+
           <h1 class="govuk-heading-xl">
             How will the other directors be authorising the application?
           </h1>
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-m">Jane EVANS</h2>
-            </div>
 
-            <div class="govuk-grid-column-two-thirds">
-              {{ govukRadios({
+          <h2 class="govuk-heading-m">Jane EVANS</h2>
+
+          {{ govukRadios({
                   classes: "govuk-radios--inline",
                   idPrefix: "janeEVANS",
                   name: "janeEVANS",
@@ -74,17 +92,13 @@
                     }
                   ]
                 }) }}
-            </div>
-          </div>
-          <hr class="govuk-section-break govuk-section-break--s govuk-!-margin-bottom-6 govuk-section-break--visible">
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-m">Dr A WILLIAMS</h2>
-            </div>
 
-            <div class="govuk-grid-column-two-thirds">
-              {{ govukRadios({
-                  classes: "govuk-radios--inline",
+          <hr class="govuk-section-break govuk-section-break--s govuk-!-margin-bottom-6 govuk-section-break--visible">
+
+          <h2 class="govuk-heading-m">Dr A WILLIAMS</h2>
+
+          {{ govukRadios({
+                  classes: "govuk-radios",
                   idPrefix: "drAWILLIAMS",
                   name: "drAWILLIAMS",
                   fieldset: {
@@ -101,13 +115,13 @@
                     },
                     {
                       value: "drAWILLIAMSsomeone",
-                      text: "Someone will sign for them"
+                      text: "Someone will sign for them",
+                      conditional: {
+                        html: drHtml
+                      }
                     }
                   ]
                 }) }}
-            </div>
-
-          </div>
 
           {% from "govuk/components/button/macro.njk" import govukButton %}
 
