@@ -38,12 +38,12 @@ router.get( '/forms/DS01/sole-director-v2/director-needs-to-sign', function ( re
 //   V2  Which director are you? SINGLE
 
 
-router.get( '/forms/DS01/sole-director-v2/select-the-director-to-authorise-single', function ( req, res ) {
+router.get( '/forms/DS01/sole-director-v2/select-the-directors-method-single', function ( req, res ) {
 	var whichDirectorSingle = req.query.whichDirectorSingle
 	if ( whichDirectorSingle === 'robinSmith' ) {
 		res.redirect( '/forms/DS01/sole-director-v2/alternative-to-docusign' )
 	} else {
-		res.render( 'forms/DS01/sole-director-v2/select-the-director-to-authorise-single' )
+		res.render( 'forms/DS01/sole-director-v2/select-the-directors-method-single' )
 	}
 } )
 

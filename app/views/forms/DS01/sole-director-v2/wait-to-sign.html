@@ -29,13 +29,20 @@
         {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
         {{ govukPanel({
-                titleText: "Wait for Robin SMITH to approve the application"
+                titleText: "Wait for other people to sign the application"
               }) }}
 
-        <p class="govuk-body">We've sent Robin SMITH an email at
-          <span class="govuk-!-font-weight-bold">{{ data['v2-behalf-director-email'] }}</span>
+        <p class="govuk-body">We've sent
+          <span class="govuk-!-font-weight-bold">Jane EVANS</span>
+          an email at
+          <span class="govuk-!-font-weight-bold">{{ data['janeevans-email'] }}</span>
           to request their approval.</p>
-
+        <p class="govuk-body">We've sent
+          <span class="govuk-!-font-weight-bold">{{ data['behalfnamedrwilliams'] }}</span>
+          an email at
+          <span class="govuk-!-font-weight-bold">{{ data['behalfemaildrwilliams'] }}</span>
+          to request their approval on behalf of
+          <span class="govuk-!-font-weight-bold">Dr Ian WILLIAMS</span>.</p>
       </div>
     </div>
   </main>

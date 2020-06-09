@@ -20,7 +20,7 @@ Example usage:
 module.exports = {
 	"signin-email": "user@testcompany.co.uk",
 	"janeevans-email": "jevans@testcompany.co.uk",
-	"behalfname-drwilliams": "asolicitor@example.com",
-	"behalfemail-drwilliams": "A Solicitor",
+	"behalfnamedrwilliams": "A Solicitor",
+	"behalfemaildrwilliams": "asolicitor@example.com",
 	"whichcompany-toclose": "01234567"
 }
