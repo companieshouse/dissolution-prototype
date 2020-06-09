@@ -21,7 +21,7 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/forms/DS01/sole-director-v2/select-the-directors-details-1" method="get">
+        <form class="form" action="/forms/DS01/sole-director-v2/select-the-directors-details" method="get">
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -48,16 +48,19 @@
                   },
                   items: [
                     {
-                      value: "scotland",
+                      value: "janeEVANSSign",
                       text: "Will sign themselves"
                     },
                     {
-                      value: "wales",
+                      value: "janeEVANSsomeone",
                       text: "Someone will sign for them"
                     }
                   ]
                 }) }}
             </div>
+          </div>
+          <hr class="govuk-section-break govuk-section-break--s govuk-!-margin-bottom-6 govuk-section-break--visible">
+          <div class="govuk-grid-row">
             <div class="govuk-grid-column-one-third">
               <h2 class="govuk-heading-m">Dr A WILLIAMS</h2>
             </div>
@@ -65,8 +68,8 @@
             <div class="govuk-grid-column-two-thirds">
               {{ govukRadios({
                   classes: "govuk-radios--inline",
-                  idPrefix: "drAWilliams",
-                  name: "drAWilliams",
+                  idPrefix: "drAWILLIAMS",
+                  name: "drAWILLIAMS",
                   fieldset: {
                     legend: {
                       text: "Tell us about Dr A WILLIAMS",
@@ -76,11 +79,11 @@
                   },
                   items: [
                     {
-                      value: "scotland",
+                      value: "drAWILLIAMSsign",
                       text: "Will sign themselves"
                     },
                     {
-                      value: "wales",
+                      value: "drAWILLIAMSsomeone",
                       text: "Someone will sign for them"
                     }
                   ]
