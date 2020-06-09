@@ -21,13 +21,13 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/forms/DS01/sole-director-v2/select-the-director-to-authorise" method="get">
+        <form class="form" action="/forms/DS01/sole-director-v2/select-the-director-to-authorise-single" method="get">
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
           {{ govukRadios({
-            idPrefix: "whichDirector",
-            name: "whichDirector",
+            idPrefix: "whichDirectorSingle",
+            name: "whichDirectorSingle",
             fieldset: {
               legend: {
                 text: "Which director are you?",
@@ -40,22 +40,6 @@
               value: "robinSmith",
               text: "Robin SMITH "
             },
-              {
-                value: "janeEvans",
-                text: "Jane EVANS"
-              },
-              {
-                value: "drAWilliams",
-                text: "Dr A WILLIAMS"
-              },
-              {
-                value: "claireWilliams",
-                text: "Claire WILLIAMS"
-              },
-              {
-                value: "simonPaulThomas",
-                text: "Simon Paul THOMAS"
-              },
                 {
                   divider: "or"
                 },
@@ -75,7 +59,7 @@
 
         </form>
         <p>
-          <a href="select-the-director-single" style="color: #b1b4b6; float: right; font-size:12px">Single</a>
+          <a href="select-the-director" style="color: #b1b4b6; float: right; font-size:12px">Multi</a>
         </p>
       </div>
     </div>

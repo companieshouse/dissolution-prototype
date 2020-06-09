@@ -19,6 +19,10 @@ Example usage:
 
 module.exports = {
 
-  // Insert values here
+	"signin-email": "rsmith@testcompany.co.uk",
+	"jane-evans-email": "jevans@testcompany.co.uk",
+	"behalf-name-drwilliams": "asolicitor@example.com",
+	"behalf-email-drwilliams": "A Solicitor",
+	"which-company-to-close": "01234567"
 
 }

@@ -23,6 +23,37 @@
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">Check your answers</h1>
 
+        <h2 class="govuk-heading-m">Robin SMITH</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Will be signing
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="select-the-director">
+                Change<span class="govuk-visually-hidden">
+                  name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['signin-email'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!-- <a class="govuk-link" href="#"> Change<span class="govuk-visually-hidden"> date of birth</span> </a>-->
+            </dd>
+          </div>
+
+        </dl>
+
         <h2 class="govuk-heading-m">Jane EVANS</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -34,7 +65,7 @@
               Yes
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="forms/DS01/sole-director-v2/select-the-directors-method">
                 Change<span class="govuk-visually-hidden">
                   name</span>
               </a>
@@ -45,7 +76,7 @@
               Email address
             </dt>
             <dd class="govuk-summary-list__value">
-              jevans@test.co.uk
+              {{ data['jane-evans-email'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -69,7 +100,7 @@
               No
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/select-the-director-to-authorise">
                 Change<span class="govuk-visually-hidden">
                   previous application number</span>
               </a>
@@ -80,10 +111,10 @@
               Name of signer
             </dt>
             <dd class="govuk-summary-list__value">
-              Eddie Solicitor
+              {{ data['behalf-name-drwilliams'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/select-the-director-to-authorise">
                 Change<span class="govuk-visually-hidden">
                   licence type</span>
               </a>
@@ -94,10 +125,10 @@
               Email address of signer
             </dt>
             <dd class="govuk-summary-list__value">
-              eddie@solicitor.com
+              {{ data['behalf-email-drwilliams'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="forms/DS01/sole-director-v2/select-the-directors-method">
                 Change<span class="govuk-visually-hidden">
                   home address</span>
               </a>
@@ -106,43 +137,10 @@
 
         </dl>
 
-        <h2 class="govuk-heading-m">Claire WILLIAMS</h2>
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Will be signing
-            </dt>
-            <dd class="govuk-summary-list__value">
-              No
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden">
-                  previous application number</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
-
-        <h2 class="govuk-heading-m">Simon Paul THOMAS</h2>
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Will be signing
-            </dt>
-            <dd class="govuk-summary-list__value">
-              No
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden">
-                  previous application number</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
+        <!-- <h2 class="govuk-heading-m">Claire WILLIAMS</h2> <dl class="govuk-summary-list govuk-!-margin-bottom-9"> <div class="govuk-summary-list__row"> <dt class="govuk-summary-list__key"> Will be signing </dt> <dd class="govuk-summary-list__value"> No
+        </dd> <dd class="govuk-summary-list__actions"> <a class="govuk-link" href="/forms/DS01/sole-director-v2/select-the-director-to-authorise"> Change<span class="govuk-visually-hidden"> previous application number</span> </a> </dd> </div> </dl> <h2
+        class="govuk-heading-m">Simon Paul THOMAS</h2> <dl class="govuk-summary-list govuk-!-margin-bottom-9"> <div class="govuk-summary-list__row"> <dt class="govuk-summary-list__key"> Will be signing </dt> <dd class="govuk-summary-list__value"> No </dd>
+        <dd class="govuk-summary-list__actions"> <a class="govuk-link" href="#"> Change<span class="govuk-visually-hidden"> previous application number</span> </a> </dd> </div> </dl>-->
 
         {% from "govuk/components/button/macro.njk" import govukButton %}
 

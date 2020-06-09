@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Which other directors will be signing the application?
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+          }) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/forms/DS01/sole-director-v2/select-the-directors-method-single" method="get">
+
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+          {{ govukCheckboxes({
+            idPrefix: "otherAuthorise",
+            name: "otherAuthorise",
+            fieldset: {
+              legend: {
+                text: "Which other directors will be signing the application?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            hint: {
+              text: "Select the directors signing the application, including those with someone signing for them."
+            },
+            items: [
+              {
+                value: "robinSMITH",
+                text: "Robin SMITH"
+              }        ]
+          }) }}
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+              text: "Confirm"
+            }) }}
+
+          <!-- {% from "govuk/components/radios/macro.njk" import govukRadios %} {{ govukRadios({ idPrefix: "whichDirectorAreYou", name: "whichDirectorAreYou", fieldset: { legend: { text: "Which director are you?", isPageHeading: true, classes:
+          "govuk-fieldset__legend--xl" } }, items: [ { value: "johnSmith", text: "Robin SMITH" }, { divider: "or" }, { value: "notDirector", text: "I am not a director of this company" } ] }) }} {{ govukButton({ text: "Confirm" }) }}-->
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

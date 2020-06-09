@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  How will the other directors be signing the application?
+  How will Robin SMITH be signing the application?
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -21,32 +21,32 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/forms/DS01/sole-director-v2/select-the-directors-check-before-you-submit" method="get">
+        <form class="form" action="" method="get">
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
           {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
           {% from "govuk/components/input/macro.njk" import govukInput %}
 
-          {% set janeHtml %}
+          {% set robinEmailHtml %}
           {{ govukInput({
             label: {
-                    text: "What is Jane EVANS email address?"
+                    text: "What is Robin SMITH email address?"
                   },
                   hint: {
                     text: "We'll send an email to ask them to sign the application. "
                   },
-                  id: "jane-evans-email",
-                  name: "jane-evans-email"
+                  id: "robin-smith-alt-email",
+                  name: "robin-smith-alt-email"
                 }) }}
           {% endset -%}
 
-          {% set drHtml %}
+          {% set robinMethodHtml %}
           {{ govukInput({
           label: {
-                  text: "Enter the name of the person authorised to sign on behalf of Dr A WILLIAMS"
+                  text: "Enter the name of the person authorised to sign on behalf of Robin SMITH"
                 },
-                id: "behalf-name-drwilliams",
-                name: "behalf-name-drwilliams"
+                id: "behalf-name-robinsmith",
+                name: "behalf-name-robinsmith"
               }) }}
 
           {{ govukInput({
@@ -56,68 +56,41 @@
                   hint: {
                     text: "We'll send an email to ask them to sign the application."
                   },
-                  id: "behalf-email-drwilliams",
+                  id: "behalf-email-robinsmith",
                   name: "behalf-email-drwilliams"
                 }) }}
           {% endset -%}
 
           <h1 class="govuk-heading-xl">
-            How will the other directors be signing the application?
+            How will Robin SMITH be signing the application?
           </h1>
 
-          <h2 class="govuk-heading-m">Jane EVANS</h2>
+          <!--<h2 class="govuk-heading-m">Robin SMITH</h2>-->
 
           {{ govukRadios({
                   classes: "govuk-radios--inline",
-                  idPrefix: "janeEVANS",
-                  name: "janeEVANS",
+                  idPrefix: "robinSMITH",
+                  name: "robinSMITH",
                   fieldset: {
                     legend: {
-                      text: "Tell us about Jane EVANS",
+                      text: "Tell us about Robin SMITH",
                       isPageHeading: false,
                       classes: "govuk-visually-hidden"
                     }
                   },
                   items: [
                     {
-                      value: "janeEVANSSign",
+                      value: "robinSMITHsign",
                       text: "Will sign themselves",
                       conditional: {
-                        html: janeHtml
+                        html: robinEmailHtml
                       }
                     },
                     {
-                      value: "janeEVANSsomeone",
-                      text: "Someone will sign for them"
-                    }
-                  ]
-                }) }}
-
-          <hr class="govuk-section-break govuk-section-break--s govuk-!-margin-bottom-6 govuk-section-break--visible">
-
-          <h2 class="govuk-heading-m">Dr A WILLIAMS</h2>
-
-          {{ govukRadios({
-                  classes: "govuk-radios",
-                  idPrefix: "drAWILLIAMS",
-                  name: "drAWILLIAMS",
-                  fieldset: {
-                    legend: {
-                      text: "Tell us about Dr A WILLIAMS",
-                      isPageHeading: false,
-                      classes: "govuk-visually-hidden"
-                    }
-                  },
-                  items: [
-                    {
-                      value: "drAWILLIAMSsign",
-                      text: "Will sign themselves"
-                    },
-                    {
-                      value: "drAWILLIAMSsomeone",
+                      value: "robinSMITHsomeone",
                       text: "Someone will sign for them",
                       conditional: {
-                        html: drHtml
+                        html: robinMethodHtml
                       }
                     }
                   ]
