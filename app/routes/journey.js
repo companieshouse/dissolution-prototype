@@ -20,7 +20,7 @@ module.exports = function ( router ) {
 			req.session.declaration = req.body.declaration
 			res.redirect( '/sign-in' )
 		} else {
-			declarationErr.msg = 'The director(s) must agree to tell all interested parties.'
+			declarationErr.msg = 'The directors must agree to tell all interested parties.'
 			res.render( 'journey/who-you-have-to-tell', {
 				declarationErr: declarationErr
 			} )
