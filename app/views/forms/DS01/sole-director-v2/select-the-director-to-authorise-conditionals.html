@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Which other directors will be signing the application?
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+          }) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/forms/DS01/sole-director-v2/select-the-directors-method" method="get">
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+          {% from "govuk/components/input/macro.njk" import govukInput %}
+
+          {% set janeHtml %}
+
+          {{ govukRadios({
+                            classes: "govuk-radios",
+                            idPrefix: "janeEVANS",
+                            name: "janeEVANS",
+                            fieldset: {
+                              legend: {
+                                text: "Tell us about Jane EVANS",
+                                isPageHeading: false,
+                                classes: "govuk-visually-hidden"
+                              }
+                            },
+                            items: [
+                              {
+                                value: "janeEVANSSign",
+                                text: "Will sign themselves",
+                                conditional: {
+                                  html: janeHtml
+                                }
+                              },
+                              {
+                                value: "janeEVANSsomeone",
+                                text: "Someone will sign for them"
+                              }
+                            ]
+                          }) }}
+          {% endset -%}
+
+          {% set drHtml %}
+
+          {{ govukRadios({
+                  classes: "govuk-radios",
+                  idPrefix: "drAWILLIAMS",
+                  name: "drAWILLIAMS",
+                  fieldset: {
+                    legend: {
+                      text: "Tell us about Dr A WILLIAMS",
+                      isPageHeading: false,
+                      classes: "govuk-visually-hidden"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "drAWILLIAMSsign",
+                      text: "Will sign themselves"
+                    },
+                    {
+                      value: "drAWILLIAMSsomeone",
+                      text: "Someone will sign for them",
+                      conditional: {
+                        html: drHtml
+                      }
+                    }
+                  ]
+                }) }}
+
+          {% endset -%}
+
+          {{ govukCheckboxes({
+            idPrefix: "otherAuthorise",
+            name: "otherAuthorise",
+            fieldset: {
+              legend: {
+                text: "  Which other directors will be signing the application?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+
+            items: [
+              {
+                value: "janeEvans",
+                text: "Jane EVANS",
+                conditional: {
+                  html: janeHtml
+                }
+              },
+              {
+                value: "drAWilliams",
+                text: "Dr A WILLIAMS",
+                conditional: {
+                  html: drHtml
+                }
+              },
+              {
+                value: "claireWilliams",
+                text: "Claire WILLIAMS"
+              },
+              {
+                value: "simonPaulThomas",
+                text: "Simon Paul THOMAS"
+              }
+
+            ]
+          }) }}
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+              text: "Confirm"
+            }) }}
+
+          <!-- {% from "govuk/components/radios/macro.njk" import govukRadios %} {{ govukRadios({ idPrefix: "whichDirectorAreYou", name: "whichDirectorAreYou", fieldset: { legend: { text: "Which director are you?", isPageHeading: true, classes:
+          "govuk-fieldset__legend--xl" } }, items: [ { value: "johnSmith", text: "Robin SMITH" }, { divider: "or" }, { value: "notDirector", text: "I am not a director of this company" } ] }) }} {{ govukButton({ text: "Confirm" }) }}-->
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
