@@ -24,8 +24,22 @@
         <form class="form" action="/forms/DS01/sole-director-v2/select-the-directors-details" method="get">
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
           {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+          {% from "govuk/components/input/macro.njk" import govukInput %}
+
+          {% set janeHtml %}
+          {{ govukInput({
+            label: {
+                    text: "What is Jane EVANS email address?"
+                  },
+                  hint: {
+                    text: "We'll send an email to ask them to sign the application. "
+                  },
+                  id: "v2-behalf-director-email",
+                  name: "v2-behalf-director-email"
+                }) }}
+          {% endset -%}
+
           <h1 class="govuk-heading-xl">
             How will the other directors be authorising the application?
           </h1>
@@ -49,7 +63,10 @@
                   items: [
                     {
                       value: "janeEVANSSign",
-                      text: "Will sign themselves"
+                      text: "Will sign themselves",
+                      conditional: {
+                        html: janeHtml
+                      }
                     },
                     {
                       value: "janeEVANSsomeone",
