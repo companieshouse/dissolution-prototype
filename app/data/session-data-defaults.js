@@ -18,11 +18,9 @@ Example usage:
 */
 
 module.exports = {
-
-	"signin-email": "rsmith@testcompany.co.uk",
-	"jane-evans-email": "jevans@testcompany.co.uk",
-	"behalf-name-drwilliams": "asolicitor@example.com",
-	"behalf-email-drwilliams": "A Solicitor",
-	"which-company-to-close": "01234567"
-
+	"signin-email": "user@testcompany.co.uk",
+	"janeevans-email": "jevans@testcompany.co.uk",
+	"behalfname-drwilliams": "asolicitor@example.com",
+	"behalfemail-drwilliams": "A Solicitor",
+	"whichcompany-toclose": "01234567"
 }
