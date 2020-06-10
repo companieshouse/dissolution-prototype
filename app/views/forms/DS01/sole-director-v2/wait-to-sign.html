@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  We now need the application to be signed by the other directors or those signing for them before you can submit it
+  We need the application to be signed by the other directors or those signing for them.
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -20,11 +20,11 @@
         {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
         {{ govukPanel({
-                titleText: "We now need the application to be signed by the other directors or those signing for them before you can submit it"
+                titleText: "You must wait for others to sign before you can submit the application"
               }) }}
-
-        <p class="govuk-body">We have emailed and asked them to sign. It may take some time for the signatures to be sent to us.</p>
-        <p class="govuk-body">When we receive all of the signatures, we will email you with instructions to pay for and submit this application.</p>
+          <p class="govuk-body">We have emailed the other directors or those signing for them to ask them to sign the application. It may take some time for them to sign.</p>
+          <p class="govuk-body">We will email you with instructions to pay for and submit this application when we have all the signatures.</p>
+          <p class="govuk-body">You can now exit this page. All details have been saved.</p>
       </div>
     </div>
   </main>
