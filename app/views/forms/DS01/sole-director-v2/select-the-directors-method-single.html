@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  How will Robin SMITH be signing the application?
+  How will the directors be signing the application?
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -62,8 +62,10 @@
           {% endset -%}
 
           <h1 class="govuk-heading-xl">
-            How will Robin SMITH be signing the application?
+            How will the directors be signing the application?
           </h1>
+
+          <h2 class="govuk-heading-m">Robin SMITH</h2>
 
           <!--<h2 class="govuk-heading-m">Robin SMITH</h2>-->
 
@@ -81,7 +83,7 @@
                   items: [
                     {
                       value: "robinSMITHsign",
-                      text: "Will sign themselves",
+                      text: "Will sign",
                       conditional: {
                         html: robinEmailHtml
                       }
