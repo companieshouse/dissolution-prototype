@@ -5,21 +5,11 @@
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
-  {% include "includes/user-bar.html" %}
 
 {% endblock %}
 {% block content %}
 
   <main id="content" role="main">
-
-    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-
-    {{ govukBackLink({
-            text: "Back",
-            href: "javascript:history.back()"
-          }) }}
-
-    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
@@ -30,19 +20,13 @@
 
         <div class="govuk-panel govuk-panel--confirmation">
           <h1 class="govuk-panel__title">
-            Wait for
-            {{ data['v2-behalf-signing-name'] }}
-            to approve the application
+            Main title
           </h1>
 
         </div>
 
-        <p class="govuk-body">We've sent
-          {{ data['v2-behalf-signing-name'] }}
-          an email at
-          <span class="govuk-!-font-weight-bold">
-            {{ data['v2-behalf-signing-email'] }}</span>
-          to request their approval.</p>
+        <p class="govuk-body">
+          Additional text if needed</p>
 
       </div>
     </div>
