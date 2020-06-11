@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Close a company
+  Shortcuts
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -15,35 +15,103 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <h1 class="govuk-heading-xl">
-            Close a company
+            Shortcuts
           </h1>
-          <p class="govuk-body-l">
-            Use this service to apply to close a company, also known as striking a company off the register or dissolution.
-          </p>
-          <p>It costs £8 to close a company and you'll need:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>the company number</li>
-            <li>a Companies House account, you can register for one in this service</li>
-            <li>the company authentication code</li>
-            <li>an email address for each director if the company has more than one</li>
-            <li>a credit or debit card</li>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/start.html">Start page</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/who-you-have-to-tell">Who to tell about the company closing</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/core/sign-in">Sign in to Companies House</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/which-company-to-close#">What is the company number?</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/confirm-the-company">Confirm this is the correct company
+              </a>
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/confirm-the-company-cannot-file">Confirm this is the correct company (cannot close)</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/core/company-authentication">Company authentication</a>
+            </li>
           </ul>
-          <!-- <p>Closing a company takes around 10 minutes. </p>-->
-          {% from "govuk/components/button/macro.njk" import govukButton %}
-          {{ govukButton({
-              text: "Start now",
-              isStartButton: true
-            }) }}
-          <h2 class="govuk-heading-m">Before you start</h2>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/select-the-director">
+                Which director are you? (Multi)
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/select-the-director-single">
+                Which director are you? (Single)</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/select-the-director-to-authorise">Which directors will be signing the application? (Multi: version A)</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/select-the-director-to-authorise-conditionals">Which directors will be signing the application? (Multi: version B)</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/select-the-directors-method">How will the directors be signing the application? (Multi: version A)</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="forms/DS01/sole-director-v2/select-the-directors-details">Tell us the contact details of those signing (Multi: version B)</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/select-the-directors-method-single">Which directors will be signing the application? (Single)</a>
+            </li>
+          </ul>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/select-the-directors-check-before-you-submit">Check your answers (Multi)</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/select-the-directors-check-before-you-submit-single">Check your answers (Single)</a>
+            </li>
 
-          <p>
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/alternative-to-docusign">Sign the application (DocuSign replacement)</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/wait-to-sign">You must wait (Primary director)</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/wait-to-sign-other-signer">You must wait (Other signers)</a>
+            </li>
+          </ul>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/payment">Payment</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director-v2/payment-confirm">Payment confirmation</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="/forms/DS01/sole-director/confirmation">
+                Application received
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#"></a>
+            </li>
+          </ul>
 
-            Read the
-            <a href="https://www.gov.uk/government/publications/company-strike-off-dissolution-and-restoration/strike-off-dissolution-and-restoration" target="_blank">guidance for closing a company (opens in a new tab)</a>.
-          </p>
+          <h2 class="govuk-heading-m">
+            Emails
+          </h2>
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link" href="/emails/sole-director-submission-confirmation">Request to close... has been submitted
+              </a>
+            </li>
+          </div>
         </div>
-      </div>
-    </form>
-  </main>
+      </form>
+    </main>
 
-{% endblock %}
+  {% endblock %}

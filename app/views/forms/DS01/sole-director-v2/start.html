@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Close a company
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    <form action="/who-you-have-to-tell" method="get" class="form">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">
+            Close a company
+          </h1>
+          <p class="govuk-body-l">
+            Use this service to apply to close a company, also known as striking a company off the register or dissolution.
+          </p>
+          <p>It costs £8 to close a company and you'll need:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>the company number</li>
+            <li>a Companies House account, you can register for one in this service</li>
+            <li>the company authentication code</li>
+            <li>an email address for each director if the company has more than one</li>
+            <li>a credit or debit card</li>
+          </ul>
+          <!-- <p>Closing a company takes around 10 minutes. </p>-->
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          {{ govukButton({
+              text: "Start now",
+              isStartButton: true
+            }) }}
+          <h2 class="govuk-heading-m">Before you start</h2>
+
+          <p>
+
+            Read the
+            <a href="https://www.gov.uk/government/publications/company-strike-off-dissolution-and-restoration/strike-off-dissolution-and-restoration" target="_blank">guidance for closing a company (opens in a new tab)</a>.
+          </p>
+        </div>
+      </div>
+    </form>
+  </main>
+
+{% endblock %}

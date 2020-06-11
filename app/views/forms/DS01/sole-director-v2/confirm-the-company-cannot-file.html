@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  You cannot close this company
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">You cannot close this company
+        </h1>
+        <div class="govuk-inset-text">
+          <p class="govuk-body">Information around reasons:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Reason 1</li>
+            <li>Reason 2</li>
+            <li>Reason 3</li>
+          </ul>
+        </div>
+        <h2 class="govuk-heading-l">
+          A TEST COMPANY LIMITED
+        </h2>
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">Company number</th>
+              <td class="govuk-table__cell ">{{ data['whichcompany-toclose'] }}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">Status</th>
+              <td class="govuk-table__cell ">Active</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">Incorporation date</th>
+              <td class="govuk-table__cell ">13 May 2010</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">Company type</th>
+              <td class="govuk-table__cell ">Private Limited Company</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row" style="vertical-align: top;">Registered office address</th>
+              <td class="govuk-table__cell ">1 Any Street<br>Anytown<br>London<br>AB12 3CD<br>United Kingdom
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          <a href="/which-company-to-close">Choose a different company</a>
+        </p>
+
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
