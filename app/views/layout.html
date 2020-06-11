@@ -54,13 +54,33 @@
     {{ govukFooter({
       meta: {
         items: [
+
           {
-            href: "https://govuk-prototype-kit.herokuapp.com/",
-            text: "GOV.UK Prototype Kit " + releaseVersion
+            href: "http://resources.companieshouse.gov.uk/legal/termsAndConditions.shtml",
+            text: "Policies"
+          },
+          {
+            href: "https://beta.companieshouse.gov.uk/help/cookies",
+            text: "Cookies"
+          },
+          {
+            href: "https://beta.companieshouse.gov.uk/help/contact-us",
+            text: "Contact us"
+          },
+          {
+            href: "javascript:void(0)",
+            text: "Accessibility statement"
+          },
+          {
+           divider: "&nbsp;"
           },
           {
             href: "/prototype-admin/clear-data",
             text: "Clear data"
+          },
+          {
+            href: "https://govuk-prototype-kit.herokuapp.com/",
+            text: "GOV.UK Prototype Kit " + releaseVersion
           }
         ]
       }
