@@ -20,14 +20,21 @@
 
         <div class="govuk-panel govuk-panel--confirmation">
           <h1 class="govuk-panel__title">
-            Main title
-          </h1>
+            Application signed</h1><br><div class="govuk-panel__body">Check the application's outcome with the person who is submitting it
+          </div>
 
         </div>
 
         <p class="govuk-body">
-          Additional text if needed</p>
+          We need to receive all signatures before the person making the application can pay for and submit it. It may take some time for others to sign.</p>
+          <h2 class="govuk-heading-m">What to do next</h2>
+<p class="govuk-body">You should check with the person making the application to confirm if it has been submitted, and if we have accepted or rejected it.</p>
+<p class="govuk-body">They can download a PDF copy of the signed application after it has been submitted. The directors or members must then send that PDF copy to all interested parties within 7 days of submission.</p>
 
+{{ govukWarningText({
+  text: "It is a criminal offence not to inform all interested parties. ",
+  iconFallbackText: "Warning"
+}) }}
       </div>
     </div>
   </main>
