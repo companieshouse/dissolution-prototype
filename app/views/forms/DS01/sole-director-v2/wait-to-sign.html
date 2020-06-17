@@ -17,8 +17,6 @@
 
         {% set mainClasses = "govuk-main-wrapper--l" %}
 
-        {% from "govuk/components/panel/macro.njk" import govukPanel %}
-
         {{ govukPanel({
                 titleText: "You must ask the other directors to sign the application before you can submit it"
               }) }}
@@ -38,7 +36,9 @@
         <p class="govuk-body">When all directors have signed we will email you with instructions to pay for and submit the application.</p>
         <p class="govuk-body">
           You can now exit this page.</p>
-
+        <p>
+          <a href="/emails/primary-director-everyone-has-signed-notification" style="color: #b1b4b6; float: right; margin-top:20px; font-size:12px">Link to email</a>
+        </p>
       </div>
     </div>
   </main>
