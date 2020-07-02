@@ -19,6 +19,17 @@
     }) }}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+        {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+          {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+              {
+                text: "You must confirm by checking the box to sign the application",
+                href: "#confirmStatements"
+              }
+            ]
+          }) }}
         <h1 class="govuk-heading-xl">Sign the application</h1>
 
         <h1 class="govuk-heading-m">Apply to strike off and dissolve a company</h1>
@@ -57,9 +68,12 @@
               classes: "govuk-visually-hidden"
             }
           },
+          errorMessage: {
+            text: "Check the box to sign the application"
+          },
           items: [
             {
-              value: "checked",
+              value: "carcasses",
               html: "I confirm I have read and understood the statements - signed <strong>Robin SMITH</strong> on <strong>11 June 2020</strong>"
             }
           ]
