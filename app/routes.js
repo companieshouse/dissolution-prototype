@@ -51,6 +51,7 @@ router.get( '/forms/DS01/sole-director-v2/select-the-directors-method-single', f
 
 router.get('/forms/DS01/sole-director-v2/payment', function(req,res) {
 	let signed = req.query.confirmStatements
+	let singleOrNot = req.query.otherAuthorise
 	if (signed === '_unchecked') {
 		res.redirect('/forms/DS01/sole-director-v2/alternative-to-docusign_error.html')
 	} else {

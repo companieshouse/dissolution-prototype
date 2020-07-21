@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  We need the application to be signed by the other directors or those signing for them.
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% set mainClasses = "govuk-main-wrapper--l" %}
+
+        {{ govukPanel({
+                titleText: "We've sent an email to the directors below requesting their approval to close A TEST COMPANY LIMITED."
+              }) }}
+        <h2 class="govuk-heading-s">When they receive the email, those signing must:</h2>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>select the link and start to go through the service</li>
+          <li>sign in to or register for a Companies House account using the email address that you have given us in this service</li>
+          <li>have the company's authentication code in order to sign</li>
+        </ul>
+        <p class="govuk-body">When all directors have signed we will email you with instructions to pay for and submit the application.</p>
+        <p class="govuk-body">
+          You can now exit this page.</p>
+        <p>
+          <a href="/emails/primary-director-everyone-has-signed-notification" style="color: #b1b4b6; float: right; margin-top:20px; font-size:12px">Link to email</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

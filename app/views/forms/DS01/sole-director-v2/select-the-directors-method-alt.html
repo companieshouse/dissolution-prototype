@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  How will the directors be signing the application?
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+          }) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/forms/DS01/sole-director-v2/select-the-directors-check-before-you-submit-alt" method="get">
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+          {% from "govuk/components/input/macro.njk" import govukInput %}
+
+          {% set janeHtml %}
+          {{ govukInput({
+            label: {
+                    text: "What is the email address for Jane EVANS?"
+                  },
+                  hint: {
+                    text: "We will use this to confirm their identity when they sign the application."
+                  },
+                  id: "janeevansemail",
+                  name: "janeevansemail"
+                }) }}
+          {% endset -%}
+
+          {% set drHtml %}
+          {{ govukInput({
+          label: {
+                  text: "What is the name of the person signing for Dr A WILLIAMS?"
+                },
+                id: "behalfnamedrwilliams",
+                name: "behalfnamedrwilliams"
+              }) }}
+
+          {{ govukInput({
+            label: {
+                    text: "What is the email address of the person signing for Dr A WILLIAMS?"
+                  },
+                  hint: {
+                    text: "We will use this to confirm their identity when they sign the application."
+                  },
+                  id: "behalfemaildrwilliams",
+                  name: "behalfemaildrwilliams"
+                }) }}
+          {% endset -%}
+
+          <h1 class="govuk-heading-xl">
+            How will the directors be signing the application?
+          </h1>
+
+          <h2 class="govuk-heading-m">Jane EVANS</h2>
+
+          {{ govukRadios({
+                  classes: "govuk-radios--inline",
+                  idPrefix: "janeEVANS",
+                  name: "janeEVANS",
+                  fieldset: {
+                    legend: {
+                      text: "Tell us about Jane EVANS",
+                      isPageHeading: false,
+                      classes: "govuk-visually-hidden"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "janeEVANSSign",
+                      text: "Will sign",
+                      conditional: {
+                        html: janeHtml
+                      }
+                    },
+                    {
+                      value: "janeEVANSsomeone",
+                      text: "Someone will sign for them"
+                    }
+                  ]
+                }) }}
+
+          <hr class="govuk-section-break govuk-section-break--s govuk-!-margin-bottom-6 govuk-section-break--visible">
+
+          <h2 class="govuk-heading-m">Dr A WILLIAMS</h2>
+
+          {{ govukRadios({
+                  classes: "govuk-radios",
+                  idPrefix: "drAWILLIAMS",
+                  name: "drAWILLIAMS",
+                  fieldset: {
+                    legend: {
+                      text: "Tell us about Dr A WILLIAMS",
+                      isPageHeading: false,
+                      classes: "govuk-visually-hidden"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "drAWILLIAMSsign",
+                      text: "Will sign"
+                    },
+                    {
+                      value: "drAWILLIAMSsomeone",
+                      text: "Someone will sign for them",
+                      conditional: {
+                        html: drHtml
+                      }
+                    }
+                  ]
+                }) }}
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+              text: "Continue"
+            }) }}
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

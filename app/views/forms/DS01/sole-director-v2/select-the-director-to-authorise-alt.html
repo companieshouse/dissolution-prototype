@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Which director are you?
+  Which directors will be signing the application?
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -21,25 +21,24 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/forms/DS01/sole-director-v2/select-the-director-to-authorise" method="get">
+        <form class="form" action="/forms/DS01/sole-director-v2/select-the-directors-method-alt" method="get">
 
-          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
-          {{ govukRadios({
-            idPrefix: "whichDirector",
-            name: "whichDirector",
+          {{ govukCheckboxes({
+            idPrefix: "otherAuthorise",
+            name: "otherAuthorise",
             fieldset: {
               legend: {
-                text: "Which director are you?",
+                text: "  Which directors will be signing the application?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--xl"
               }
             },
-            items: [
-            {
-              value: "robinSmith",
-              text: "Robin SMITH "
+            hint: {
+              text: "More than half of the directors must sign. You should also select directors who will have someone signing for them."
             },
+            items: [
               {
                 value: "janeEvans",
                 text: "Jane EVANS"
@@ -55,14 +54,7 @@
               {
                 value: "simonPaulThomas",
                 text: "Simon Paul THOMAS"
-              },
-                {
-                  divider: "or"
-                },
-                {
-                  value: "notDirector",
-                  text: "I am not a director of this company"
-                }
+              }
 
             ]
           }) }}
@@ -73,10 +65,12 @@
               text: "Continue"
             }) }}
 
+          <!-- {% from "govuk/components/radios/macro.njk" import govukRadios %} {{ govukRadios({ idPrefix: "whichDirectorAreYou", name: "whichDirectorAreYou", fieldset: { legend: { text: "Which director are you?", isPageHeading: true, classes:
+          "govuk-fieldset__legend--xl" } }, items: [ { value: "johnSmith", text: "Robin SMITH" }, { divider: "or" }, { value: "notDirector", text: "I am not a director of this company" } ] }) }} {{ govukButton({ text: "Continue" }) }}-->
+
         </form>
         <p>
-          <a href="select-the-director-single" style="color: #b1b4b6; float: right; font-size:12px">Single</a><br>
-          <a href="select-the-director-alt" style="color: #b1b4b6; float: right; font-size:12px">v2</a>
+          <a href="select-the-director-to-authorise-conditionals" style="color: #b1b4b6; float: right; font-size:12px">Conditional</a>
         </p>
       </div>
     </div>
