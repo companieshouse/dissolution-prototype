@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  We need the application to be signed by the other directors or those signing for them.
+  More than half of the directors must sign the application before you can submit it
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -18,11 +18,11 @@
         {% set mainClasses = "govuk-main-wrapper--l" %}
 
         {{ govukPanel({
-                titleText: "You must ask the other directors to sign the application before you can submit it"
+                titleText: "More than half of the directors must sign the application before you can submit it"
               }) }}
         <h2 class="govuk-heading-s">You must now:</h2>
         <ul class="govuk-list govuk-list--bullet">
-          <li>email the other directors or those signing for them to ask them to sign the application</li>
+          <li>email the directors or those signing for them to ask them to sign the application</li>
           <li>give them the link to the Apply to strike off or dissolve a company service:
             <a href="javascript:void(0)" class="govuk-link">https://guidedfiling.companieshouse.gov.uk/start?t=DS01</a>
           </li>
