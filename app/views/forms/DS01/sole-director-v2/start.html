@@ -12,7 +12,18 @@
 
     <form action="/who-you-have-to-tell" method="get" class="form">
 
-      <div class="govuk-grid-row">
+      <div class="govuk-notification-banner" aria-labelledby="notification-banner-title" role="region">
+  <h2 class="govuk-notification-banner__title" id="notification-banner-title">
+    You must complete your application before 11 October 2020
+  </h2>
+  <div class="govuk-notification-banner__body">
+    <p>
+      We will be updating this service. All incomplete applications will be deleted and you will have to start again.
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <h1 class="govuk-heading-xl">
             Apply to strike off and dissolve a company
@@ -28,7 +39,7 @@
             <li>an email address for each person signing the application</li>
             <li>a credit or debit card</li>
           </ul>
-          <p>You will not be able to save your answers. If you exit the service, you will have to start again.</p> 
+          <p>You will not be able to save your answers. If you exit the service, you will have to start again.</p>
           <!-- <p>Closing a company takes around 10 minutes. </p>-->
           {% from "govuk/components/button/macro.njk" import govukButton %}
           {{ govukButton({
