@@ -7,7 +7,7 @@ module.exports = function ( router ) {
 
 	// Are you sure you want to delete this application?
 
-	router.post( '/forms/DS01/sole-director-v2/start', function ( req, res ) {
+	router.get( '/forms/DS01/sole-director-v2/start', function ( req, res ) {
 		var deleteApplication = req.query.deleteApplication
 		if ( deleteApplication === 'no' ) {
 			res.redirect( 'javascript:history.back()' )
