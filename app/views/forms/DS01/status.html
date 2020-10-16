@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Status - Apply to strike off and dissolve a company - GOV.UK
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Status of application</h1>
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">
+                Name of director
+              </th>
+              <th class="govuk-table__header" scope="col">
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                Robin SMITH
+              </td>
+              <td class="govuk-table__cell">
+                {{govukTag({
+            text: "Signed",
+            classes: "govuk-tag--green"
+          })}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                Jane SMITH
+              </td>
+              <td class="govuk-table__cell">
+                {{govukTag({
+            text: "Signed",
+            classes: "govuk-tag--green"
+          })}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                Dr A WILLIAMS
+              </td>
+              <td class="govuk-table__cell">
+                {{govukTag({
+            text: "Not signed",
+            classes: "govuk-tag--red"
+
+          })}}
+              </td>
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </main>
+
+  {% endblock %}
