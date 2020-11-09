@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Which director are you?
+  How do you want to pay for the application?
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -21,31 +21,28 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/forms/DS01/sole-director-v2/select-the-directors-method-single" method="get">
+        <form class="form" action="/forms/DS01/sole-director-v2/payment" method="get">
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
           {{ govukRadios({
-            idPrefix: "whichDirectorSingle",
-            name: "whichDirectorSingle",
+            idPrefix: "howPay",
+            name: "howPay",
             fieldset: {
               legend: {
-                text: "Which director are you?",
+                text: "How do you want to pay for the application?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--xl"
               }
             },
             items: [
             {
-              value: "robinSmith",
-              text: "Robin SMITH "
+              value: "govpay",
+              text: "Credit or debit card"
             },
             {
-              divider: "or"
-            },
-            {
-              value: "notDirector",
-              text: "I am not a director of this company"
+              value: "chaccount",
+              text: "Companies House account"
             }
 
             ]
@@ -58,10 +55,7 @@
             }) }}
 
         </form>
-        <p>
-          <a href="select-the-director" style="color: #b1b4b6; float: right; font-size:12px">Multi V1</a><br>
-          <a href="select-the-director-alt" style="color: #b1b4b6; float: right; font-size:12px">Multi v2</a>
-        </p>
+
       </div>
     </div>
   </main>

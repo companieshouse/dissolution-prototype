@@ -49,15 +49,28 @@ router.get( '/forms/DS01/sole-director-v2/select-the-directors-method-single', f
 
 // Validation on `forms/DS01/sole-director-v2/alternative-to-docusign`
 
-router.get('/forms/DS01/sole-director-v2/payment', function(req,res) {
-	let signed = req.query.confirmStatements
-	let singleOrNot = req.query.otherAuthorise
-	if (signed === '_unchecked') {
-		res.redirect('/forms/DS01/sole-director-v2/alternative-to-docusign_error.html')
+//router.get('/forms/DS01/sole-director-v2/payment', function(req,res) {
+//	let signed = req.query.confirmStatements
+//let singleOrNot = req.query.otherAuthorise
+//	if (signed === '_unchecked') {
+//		res.redirect('/forms/DS01/sole-director-v2/alternative-to-docusign_error.html')
+//	} else {
+//		res.render('forms/DS01/sole-director-v2/payment')
+//	}
+//})
+
+
+//   Select payment method
+
+
+router.get( '/forms/DS01/sole-director-v2/payment', function ( req, res ) {
+	var howPay = req.query.howPay
+	if ( howPay === 'chaccount' ) {
+		res.redirect( '/forms/DS01/sole-director-v2/pay-on-account' )
 	} else {
-		res.render('forms/DS01/sole-director-v2/payment')
+		res.render( 'forms/DS01/sole-director-v2/payment' )
 	}
-})
+} )
 
 
 module.exports = router
