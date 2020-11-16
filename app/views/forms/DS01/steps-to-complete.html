@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Steps to complete - Apply to strike off and dissolve a company - GOV.UK
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+{% endblock %}
+{% block content %}
+
+<style type="text/css">
+ol.icon-list {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+  margin-left:-1em;
+}
+ol.icon-list li {
+  margin: 0 0 1rem 2em;
+  counter-increment: my-awesome-counter;
+  position: relative;
+}
+ol.icon-list li::before {
+  content: counter(my-awesome-counter);
+   color: #fff;
+   font-weight: bold;
+   position: absolute;
+   --size: 32px;
+   left: calc(-1 * var(--size) - 10px);
+   line-height: var(--size);
+   width: var(--size);
+   height: var(--size);
+   top: -2px;
+   background: black;
+   border-radius: 50%;
+   text-align: center;
+
+
+}
+  </style>
+
+  <main id="content" role="main">
+
+    <form action="/who-you-have-to-tell" method="get" class="form">
+
+<div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">
+            Steps to complete
+          </h1>
+          <p class="govuk-body-l">
+            There are 8 steps to complete
+          </p>
+          <ol class="govuk-list govuk-list--number icon-list govuk-!-margin-bottom-7">
+            <li>Read the full list of parties you must tell about the company closing</li>
+            <li>Tell us which company you are closing</li>
+            <li>Tell us who you are</li>
+            <li>Tell us which director(s) will be signing the application<span class="govuk-hint">You can tell us if someone is signing on behalf of any director</span></li>
+            <li>Tell us how the director(s) will be signing the application</li>
+            <li>The director(s) must sign the application<span class="govuk-hint">We will email other directors, where applicable</span></li>
+            <li>Payment £8<span class="govuk-hint">You will not be able to pay until all necessary directors have signed the application</span></li>
+            <li>Submit</li>
+          </ol>
+          {{ govukButton({
+              text: "Continue"
+            }) }}
+
+        </div>
+      </div>
+    </form>
+  </main>
+
+{% endblock %}
