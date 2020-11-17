@@ -14,9 +14,9 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/forms/DS01/primary-status" method="get">
 
         {% set mainClasses = "govuk-main-wrapper--l" %}
-
 
         <div class="govuk-panel govuk-panel--confirmation"  style="background-color:#1d70b8">
         <h1 class="govuk-panel__title">
@@ -30,18 +30,24 @@
         <p class="govuk-body">
         You can now exit this page.</p>
 
+        {{ govukButton({
+            text: "Check status of application"
+          }) }}
 
+
+        <p>
           <ul class="govuk-list" style="color: #b1b4b6; float: right; margin-top:20px; font-size:12px">
             <li>
               <a style="color: #b1b4b6; float: right; margin-top:20px; font-size:12px"href="/emails/primary-director-everyone-has-signed-notification">Link to email</a>
             </li>
             <li>
-              <a style="color: #b1b4b6; float: right; margin-top:20px; font-size:12px"href="wait-to-sign-primary-status-alt">With status</a>
+              <a style="color: #b1b4b6; float: right; margin-top:20px; font-size:12px" href="wait-to-sign-alt">Without status</a>
             </li>
             <li>
-              <a style="color: #b1b4b6; float: right; margin-top:20px; font-size:12px" href="wait-to-sign-primary-status">With status as link</a>
+              <a style="color: #b1b4b6; float: right; margin-top:20px; font-size:12px" href="wait-to-sign-primary-status-alt">With status</a>
             </li>
           </ul>
+          </form>
       </div>
     </div>
   </main>

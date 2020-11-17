@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Status - Apply to strike off and dissolve a company - GOV.UK
+Application status - Apply to strike off and dissolve a company - GOV.UK
 {% endblock %}
 {% block beforeContent %}
   {% include "includes/phase_banner_beta.html" %}
@@ -11,7 +11,7 @@ Status - Apply to strike off and dissolve a company - GOV.UK
 {% block content %}
 
 <style type="text/css">
-  strong {float:right;} //Adding this as style not working in prototype
+  .app-task-list strong {float:right;} //Adding this as style not working in prototype
   </style>
 
  <main id="content" role="main">
@@ -25,52 +25,42 @@ Status - Apply to strike off and dissolve a company - GOV.UK
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        Status
+        Application status
       </h1>
 
-      <ol class="app-task-list">
+      <ul class="govuk-list govuk-!-margin-bottom-7">
         <li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">1. </span> Apply to strike off and dissolve a company
-          </h2>
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="#" aria-describedby="eligibility-completed">
-                  Apply to strike off and dissolve a company
-                </a>
-              </span>
-              <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
-            </li>
-
-          </ul>
+          <a class="govuk-link" href="/forms/DS01/sole-director-v2/select-the-directors-check-before-you-submit-alt">I want to edit this application</a>
         </li>
         <li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> Sign the application
+          <a class="govuk-link" href="/forms/DS01/sole-director-v2/delete-application">I want to delete this application</a>
+        </li>
+      </ul>
+
+
+      <ol class="app-task-list">
+
+        <li>
+          <h2 class="app-task-list__section"><span class="app-task-list__section-number">1. </span> Sign the application
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/forms/DS01/sole-director-v2/select-the-director" aria-describedby="company-information-completed">
-                  Robin SMITH
-                </a>
+              Robin SMITH<br>rmsith@testcompany.co.uk
+
               </span>
               <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Signed</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/forms/DS01/sole-director-v2/select-the-director-to-authorise" aria-describedby="contact-details-completed">
-                  Jane EVANS
-                </a>
+              Jane EVANS<br>jevans@testcompany.co.uk
+
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-completed">Needs to sign</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/forms/DS01/sole-director-v2/select-the-director-to-authorise">
-                  Dr A WILLIAMS
-                </a>
+                  Mrs Lisa M TAYLOR<br>ltaylor2020@gmail.com<br>signing on behalf of Dr A WILLIAMS
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-completed">Needs to sign</strong>
 
@@ -78,8 +68,7 @@ Status - Apply to strike off and dissolve a company - GOV.UK
 
 
           </ul>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">3. </span> Payment
+          <h2 class="app-task-list__section"><span class="app-task-list__section-number">2. </span> Payment
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
@@ -90,8 +79,7 @@ Status - Apply to strike off and dissolve a company - GOV.UK
           </ul>
         </li>
         <li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">4. </span> Submit application
+          <h2 class="app-task-list__section"><span class="app-task-list__section-number">3. </span> Submit application
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
@@ -108,14 +96,7 @@ Status - Apply to strike off and dissolve a company - GOV.UK
 
 
 
-      {{ govukButton({
-            text: "Continue",
-            href: ""
-          }) }}
 
-          <p>
-            <a href="delete-application">Delete application</a>
-          </p>
     </div>
   </div>
   </main>
