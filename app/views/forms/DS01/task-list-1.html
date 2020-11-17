@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Task list
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+<style type="text/css">
+  strong {float:right;} //Adding this as style not working in prototype
+  </style>
+
+ <main id="content" role="main">
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Apply to strike off and dissolve a company
+      </h1>
+
+      <ol class="app-task-list">
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">1. </span> Apply to strike off and dissolve a company
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="eligibility-completed">
+                  Apply to strike off and dissolve a company
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+            </li>
+
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span> Sign the application
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/forms/DS01/sole-director-v2/select-the-director" aria-describedby="company-information-completed">
+                  Robin SMITH
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Signed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/forms/DS01/sole-director-v2/select-the-director-to-authorise" aria-describedby="contact-details-completed">
+                  Jane EVANS
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-completed">Needs to sign</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/forms/DS01/sole-director-v2/select-the-director-to-authorise">
+                  Dr A WILLIAMS
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-completed">Needs to sign</strong>
+
+            </li>
+
+
+          </ul>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span> Payment
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">Pay for application  </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-completed">Cannot start yet</strong>
+            </li>
+
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">4. </span> Submit application
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">Submit application</span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-completed">Cannot start yet</strong>
+            </li>
+
+          </ul>
+        </li>
+
+      </ol>
+
+
+
+
+
+      {{ govukButton({
+            text: "Continue",
+            href: ""
+          }) }}
+
+          <p>
+            <a href="delete-application">Delete application</a>
+          </p>
+    </div>
+  </div>
+  </main>
+
+{% endblock %}
