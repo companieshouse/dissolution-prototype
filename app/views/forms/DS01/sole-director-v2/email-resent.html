@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Email resent - Apply to strike off and dissolve a company - GOV.UK
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "/forms/DS01/sole-director-v2/wait-to-sign-primary-status-alt-2"
+        }) }}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">  Email resent</h1>
+
+
+
+      <p>We have resent the email to <span class="govuk-!-font-weight-bold">jevans@test.company.co.uk</span></p>
+
+      <p><a href="/forms/DS01/sole-director-v2/wait-to-sign-primary-status-alt-2">Go back</a></p>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

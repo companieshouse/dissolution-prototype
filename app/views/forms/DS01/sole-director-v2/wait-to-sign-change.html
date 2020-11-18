@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  How will the directors be signing the application?
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+          }) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/forms/DS01/sole-director-v2/wait-to-sign-primary-status-alt" method="get">
+
+
+
+          <h1 class="govuk-heading-xl">
+          Title
+          </h1>
+
+          <h2 class="govuk-heading-m">Jane EVANS</h2>
+
+          <div class="govuk-form-group">
+
+          <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-visually-hidden">
+
+            Tell us about Jane EVANS
+
+          </legend>
+
+
+          <div class="govuk-radios govuk-radios--inline govuk-radios--conditional" data-module="govuk-radios">
+
+
+
+
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="janeEVANS" name="janeEVANS" type="radio" checked="checked" value="janeEVANSSign" data-aria-controls="conditional-janeEVANS">
+                  <label class="govuk-label govuk-radios__label" for="janeEVANS">
+                Will sign
+              </label>
+
+                </div>
+
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-janeEVANS">
+
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="janeevansemail">
+            What is the email address for Jane EVANS?
+          </label>
+
+
+
+          <div id="janeevansemail-hint" class="govuk-hint">
+            We will use this to confirm their identity when they sign the application.
+          </div>
+
+        <input class="govuk-input" id="janeevansemail" name="janeevansemail" type="text" aria-describedby="janeevansemail-hint" value="jevans@test.company.uk">
+        </div>
+
+
+                  </div>
+
+
+
+
+
+
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="janeEVANS-2" name="janeEVANS" type="radio" value="janeEVANSsomeone">
+                  <label class="govuk-label govuk-radios__label" for="janeEVANS-2">
+                Someone will sign for them
+              </label>
+
+                </div>
+
+
+
+
+          </div>
+
+
+        </fieldset>
+
+
+        </div>
+
+          <hr class="govuk-section-break govuk-section-break--s govuk-!-margin-bottom-6 govuk-section-break--visible">
+
+
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+              text: "Change"
+            }) }}
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
