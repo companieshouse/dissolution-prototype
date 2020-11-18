@@ -9,14 +9,13 @@
 
 {% endblock %}
 {% block content %}
-<style type="text/css">
-  .app-task-list strong {float:right;} //Adding this as style not working in prototype
-  </style>
+
   <main id="content" role="main">
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <form class="form" action="/forms/DS01/primary-status" method="get">
+
 
         {% set mainClasses = "govuk-main-wrapper--l" %}
 
@@ -31,86 +30,64 @@
         <p class="govuk-body">When all directors have signed we will email you with instructions to pay for and submit the application.</p>
         <p class="govuk-body">
         You can now exit this page.</p>
+</div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+        <table class="govuk-table govuk-!-margin-top-6">
+  <caption class="govuk-table__caption govuk-heading-l">Application status</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Name</th>
+      <th scope="col" class="govuk-table__header">Email</th>
+      <th scope="col" class="govuk-table__header">Change</th>
+      <th scope="col" class="govuk-table__header">Resend</th>
+        <th scope="col" class="govuk-table__header">Signed</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Robin SMITH</td>
+      <td class="govuk-table__cell">rmsith@testcompany.co.uk</td>
+      <td class="govuk-table__cell"><a href="">Change</a></td>
+      <td class="govuk-table__cell"><a href="">Resend email</a></td>
+        <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-completed" id="company-information-completed" style="float:left;">Signed</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Jane EVANS</td>
+      <td class="govuk-table__cell">jevans@testcompany.co.uk</td>
+      <td class="govuk-table__cell"><a href="">Change</a></td>
+      <td class="govuk-table__cell"><a href="">Resend email</a></td>
+        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="company-information-completed">Not signed</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Mrs Lisa M TAYLOR</td>
+      <td class="govuk-table__cell">ltaylor2020@gmail.com</td>
+      <td class="govuk-table__cell"><a href="">Change</a></td>
+      <td class="govuk-table__cell"><a href="">Resend email</a></td>
+        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="company-information-completed">Not signed</strong></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-        <h2 class="govuk-heading-l">
-          Application status
-        </h2>
+              <p><a class="govuk-link" href="/forms/DS01/sole-director-v2/delete-application">I want to delete this application</p>
 
-              <ul class="govuk-list govuk-!-margin-bottom-7">
-                <li>
-                  <a class="govuk-link" href="/forms/DS01/sole-director-v2/select-the-directors-check-before-you-submit-alt">I want to edit this application</a>
-                </li>
-                <li>
-                  <a class="govuk-link" href="/forms/DS01/sole-director-v2/delete-application">I want to delete this application</a>
-                </li>
-              </ul>
-
-
-              <ol class="app-task-list">
-
-                <li>
-                  <h2 class="app-task-list__section"><span class="app-task-list__section-number">1. </span> Sign the application
-                  </h2>
-                  <ul class="app-task-list__items">
-                    <li class="app-task-list__item">
-                      <span class="app-task-list__task-name">
-                      Robin SMITH<br>rmsith@testcompany.co.uk
-
-                      </span>
-                      <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Signed</strong>
-                    </li>
-                    <li class="app-task-list__item">
-                      <span class="app-task-list__task-name">
-                      Jane EVANS<br>jevans@testcompany.co.uk
-
-                      </span>
-                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-completed">Needs to sign</strong>
-                    </li>
-                    <li class="app-task-list__item">
-                      <span class="app-task-list__task-name">
-                          Mrs Lisa M TAYLOR<br>ltaylor2020@gmail.com<br>signing on behalf of Dr A WILLIAMS
-                      </span>
-                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-details-completed">Needs to sign</strong>
-
-                    </li>
-
-
-                  </ul>
-                  <h2 class="app-task-list__section"><span class="app-task-list__section-number">2. </span> Payment
-                  </h2>
-                  <ul class="app-task-list__items">
-                    <li class="app-task-list__item">
-                      <span class="app-task-list__task-name">Pay for application  </span>
-                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-completed">Cannot start yet</strong>
-                    </li>
-
-                  </ul>
-                </li>
-                <li>
-                  <h2 class="app-task-list__section"><span class="app-task-list__section-number">3. </span> Submit application
-                  </h2>
-                  <ul class="app-task-list__items">
-                    <li class="app-task-list__item">
-                      <span class="app-task-list__task-name">Submit application</span>
-                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-completed">Cannot start yet</strong>
-                    </li>
-
-                  </ul>
-                </li>
-
-              </ol>
 
 
         <p>
-          <ul class="govuk-list" style="color: #b1b4b6; float: right; margin-top:20px; font-size:12px">
+          <ul class="govuk-list" style="color: #b1b4b6; margin-top:20px; font-size:12px">
             <li>
-              <a style="color: #b1b4b6; float: right; margin-top:20px; font-size:12px"href="/emails/primary-director-everyone-has-signed-notification">Link to email</a>
+              <a style="color: #b1b4b6; margin-top:20px; font-size:12px"href="/emails/primary-director-everyone-has-signed-notification">Link to email</a>
             </li>
             <li>
-              <a style="color: #b1b4b6; float: right; margin-top:20px; font-size:12px" href="wait-to-sign-alt">Without status</a>
+              <a style="color: #b1b4b6; margin-top:20px; font-size:12px" href="wait-to-sign-alt">Without status</a>
             </li>
             <li>
-              <a style="color: #b1b4b6; float: right; margin-top:20px; font-size:12px" href="wait-to-sign-primary-status">With status as link</a>
+              <a style="color: #b1b4b6; margin-top:20px; font-size:12px" href="wait-to-sign-primary-status">With status as link</a>
             </li>
           </ul>
           </form>
