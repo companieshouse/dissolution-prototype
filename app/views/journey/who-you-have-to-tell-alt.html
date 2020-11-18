@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who to tell about the company closing
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          Who to tell about the company closing
+        </h1>
+        <p class="govuk-body">Directors or members must give a copy of this application to all interested parties within 7 days of it being submitted. You can download a PDF copy of the application after you submit it.</p>
+
+        <p>Read the
+          <a href="https://www.gov.uk/government/publications/company-strike-off-dissolution-and-restoration/strike-off-dissolution-and-restoration#who-to-tell-about-the-strike-off-application" target="_blank">full list of parties you must tell about the company closing (opens in a new tab)</a>.
+        </p>
+
+        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+        <!-- <details class="govuk-details" data-module="govuk-details"> <summary class="govuk-details__summary"> <span class="govuk-details__summary-text"> See the list of who to tell </span> </summary> <div class="govuk-details__text"> <ul
+        class="govuk-list govuk-list--bullet"> <li>shareholders</li> <li>creditors</li> <li>employees</li> <li>managers or trustees of any employee pension fund</li> <li>directors who have not signed the form</li> </ul> </div> </details>-->
+
+        {{ govukWarningText({
+          text: "It is a criminal offence not to tell all interested parties that an application has been made to close the company.",
+          iconFallbackText: "Warning"
+        }) }}
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+    idPrefix: "",
+    name: "",
+    fieldset: {
+      legend: {
+        text: "The directors or members understand that they are responsible for notifying all interested parties.",
+        isPageHeading: false,
+        classes: "govuk-visually-hidden"
+      }
+    },
+
+    items: [
+      {
+        value: "",
+        text: "The directors or members understand that they are responsible for notifying all interested parties."
+      }
+    ]
+  }) }}
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Continue",
+          href: "/core/sign-in"
+        }) }}
+
+        <ul class="govuk-list" style="color: #b1b4b6; margin-top:20px; font-size:12px">
+          <li>
+            <a style="color: #b1b4b6; margin-top:20px; font-size:12px"href="who-you-have-to-tell-alt">Alt</a>
+          </li>
+        </ul>
+
+
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
