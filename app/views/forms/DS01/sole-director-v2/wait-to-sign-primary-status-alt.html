@@ -10,6 +10,15 @@
 {% endblock %}
 {% block content %}
 
+
+
+<script>
+function change_text(){
+    document.getElementById("resent").innerHTML = "Email sent";
+}
+</script>
+
+
   <main id="content" role="main">
 
     <div class="govuk-grid-row">
@@ -72,7 +81,8 @@
         <td class="govuk-table__cell">Jane EVANS</td>
       <td class="govuk-table__cell">  {{ data['janeevansemail'] }}</td>
       <td class="govuk-table__cell"><a href="wait-to-sign-change">Change</a></td>
-      <td class="govuk-table__cell"><a href="wait-to-sign-primary-status-alt-2">Resend email</a></td>
+      <td class="govuk-table__cell"><span onclick="change_text()"id="resent"><a href="javascript:void(0)">Resend email</a><span>
+</td>
         <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="company-information-completed">Not signed</strong></td>
     </tr>
     <tr class="govuk-table__row">
