@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  We need the application to be signed by the other directors or those signing for them.
+{% endblock %}
+{% block beforeContent %}
+  {% include "includes/phase_banner_beta.html" %}
+  {% include "includes/user-bar.html" %}
+
+{% endblock %}
+{% block content %}
+
+
+
+<script>
+function change_text(){
+    document.getElementById("resent").innerHTML = "Email sent";
+}
+</script>
+
+
+  <main id="content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/forms/DS01/primary-status" method="get">
+
+
+        {% set mainClasses = "govuk-main-wrapper--l" %}
+
+        <div class="govuk-panel govuk-panel--confirmation"  style="background-color:#1d70b8">
+        <h1 class="govuk-panel__title">You have signed the application</h1>
+
+        </div>
+        <p class="govuk-body">You now need to wait for the other directors to sign the application before you can submit it.</p>
+
+          <p>We have emailed the directors, or those signing on their behalf, asking them to sign the application. It may take some time for them to do this.  </p>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                The directors have not received an email
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p>Check that the email has not gone to their junk folders.</p>
+              <p>You can also check and change the email address for each director, and resend the email, in the Application status at the bottom of this page.
+            </div>
+          </details>
+
+        <p class="govuk-!-font-weight-bold">Each person signing the application will need:
+        <ul class="govuk-list govuk-list--bullet">
+          <li>to sign in to or create their own Companies House account – they cannot use the same account as you</li>
+          <li>the company number</li>
+          <li>the company authentication code</li>
+        </ul>
+        </p>
+
+
+
+        <p class="govuk-body">When the other directors have signed, we will email you with instructions to pay for and submit the application. </p>
+
+        <h2 class="govuk-heading-l">Application status</h2>
+
+</div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+  <table class="govuk-table govuk-!-margin-top-6">
+  <caption class="govuk-visually-hidden">Application status</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Name</th>
+      <th scope="col" class="govuk-table__header">Email</th>
+      <th scope="col" class="govuk-table__header">Change</th>
+      <th scope="col" class="govuk-table__header">Resend</th>
+        <th scope="col" class="govuk-table__header">Signed</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Robin SMITH</td>
+      <td class="govuk-table__cell">{{ data['signin-email'] }}</td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-completed" id="company-information-completed" style="float:left;">Signed</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Jane EVANS</td>
+      <td class="govuk-table__cell">  {{ data['janeevansemail'] }}</td>
+      <td class="govuk-table__cell"><a href="wait-to-sign-change">Change</a></td>
+      <td class="govuk-table__cell"><span onclick="change_text()"id="resent"><a href="javascript:void(0)">Resend email</a><span>
+</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="company-information-completed">Not signed</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ data['behalfnamedrwilliams'] }}<br>signing on behalf of Dr A WILLIAMS</td>
+      <td class="govuk-table__cell">{{ data['behalfemaildrwilliams'] }}</td>
+      <td class="govuk-table__cell"><a href="javascript:void(0)">Change</a></td>
+      <td class="govuk-table__cell"><a href="javascript:void(0)">Resend email</a></td>
+        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="company-information-completed">Not signed</strong></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+          <ul class="govuk-list" style="color: #b1b4b6; margin-top:20px; font-size:12px">
+            <li>
+              <a style="color: #b1b4b6; margin-top:20px; font-size:12px"href="/emails/primary-director-everyone-has-signed-notification">Link to email</a>
+            </li>
+
+          </ul>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
