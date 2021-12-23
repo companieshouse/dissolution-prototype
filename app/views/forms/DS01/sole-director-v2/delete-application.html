@@ -21,33 +21,49 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/forms/DS01/sole-director-v2/start" method="get">
+        <form class="form" action="confirm-delete-application" method="get">
 
-          {{ govukRadios({
-              classes: "govuk-radios--inline",
-            idPrefix: "deleteApplication",
-            name: "deleteApplication",
-            fieldset: {
-              legend: {
-                text: "Are you sure you want to delete this application?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--xl"
-              }
-            },
-            items: [
-            {
-              value: "yes",
-              text: "Yes, delete application"
-            },
-              {
-                value: "no",
-                text: "No"
-              }
-            ]
-          }) }}
+
+          <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Are you sure you want to delete this application?
+      </h1>
+    </legend>
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        Warning here
+      </strong>
+    </div>
+
+    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="changed-name-2">
+          No
+        </label>
+      </div>
+    </div>
+
+  </fieldset>
+</div>
+
+
+
+
+
 
           {{ govukButton({
-              text: "Continue"
+              text: "Submit"
             }) }}
 
         </form>

@@ -84,7 +84,7 @@ function change_text(){
       <td class="govuk-table__cell">{{ data['signin-email'] }}</td>
       <td class="govuk-table__cell"></td>
       <td class="govuk-table__cell"></td>
-        <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-completed" id="company-information-completed" style="float:left;">Signed</strong></td>
+        <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Signed</strong></td>
     </tr>
     <tr class="govuk-table__row">
         <td class="govuk-table__cell">Jane EVANS</td>
@@ -103,21 +103,11 @@ function change_text(){
     </tr>
   </tbody>
 </table>
+
+<p><a href="delete-application" class="govuk-link">Delete this application</a></p>
 </div>
 </div>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
 
-
-
-          <ul class="govuk-list" style="color: #b1b4b6; margin-top:20px; font-size:12px">
-            <li>
-              <a style="color: #b1b4b6; margin-top:20px; font-size:12px"href="/emails/primary-director-everyone-has-signed-notification">Link to email</a>
-            </li>
-
-          </ul>
-      </div>
-    </div>
   </main>
 
 {% endblock %}
