@@ -740,7 +740,7 @@ module.exports = function ( router ) {
 		var fs = require( 'fs' )
 		var postmark = require( 'postmark' )
 		var moment = require( 'moment' )
-		var client = new postmark.Client( '04c9bb50-f4e0-41b9-93e2-28ace8429edd' )
+		var client = new postmark.Client( 'addkeyhere' )
 		var url = require( 'url' )
 		var appURL = url.format( {
 			protocol: req.protocol,
